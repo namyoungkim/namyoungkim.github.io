@@ -149,4 +149,4 @@ SELECT ISNULL(price, 0)
 FROM books
 ;
 {% endhighlight %}
-- price 값이 NULL이면 0, NULL이 아니면 price 값을 출력
+- price 값이 NULL이면 0, NULL이 아니면 price 값을 출력한다.
