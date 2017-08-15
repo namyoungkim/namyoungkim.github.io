@@ -178,7 +178,7 @@ SELECT id, subjectid, score
 FROM grad_score
 ;
 
-#==============================
+==============================
 
 SELECT id, subjectid, score
 FROM score
