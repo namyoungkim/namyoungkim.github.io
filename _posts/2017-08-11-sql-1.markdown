@@ -1,0 +1,108 @@
+---
+layout: post
+title:  "SQL-쿼리문을 보면서 이해하기①"
+date:   2017-08-11 19:08:23 +0700
+categories: [SQL, DB]
+---
+
+#### WHERE 문
+{% highlight sql %}
+SELECT a.the_date, a.user_id
+FROM DB_name.purchase AS a, DB_name_1.user_info AS b
+WHERE DATE(b.first_date) = '2016-03-31'
+AND a.user_id = b.user_id
+AND a.the_date >= '2016-04-28'
+GROUP BY a.the_date
+;
+
+SELECT the_date, item_code, COUNT(user_id)
+FROM DB_name.item_sale_log
+WHERE item_code IN (1, 2, 3, 4, 5, 6)
+AND the_date >= '2016-03-31'
+AND the_date <= '2016-04-01'
+GROUP BY the_date, item_code
+;
+{% endhighlight %}
+- `>, >=, =, IN, NOT IN, %` 등을 활용하여 조건을 사용할 수 있다.
+
+---
+
+#### 해당 컬럼의 변수 종류는 무엇이 있는지 찾아볼 때
+{% highlight  %}
+SELECT DISTINCT(asset_type)
+FROM DB_name.user_asset_info
+;
+{% endhighlight %}
+- `DISTINCT`를 사용하여, 유저의 asset_type의 요소를 확인할 수 있다.
+
+---
+
+#### CASE WHEN문과 함수
+{% highlight sql %}
+SELECT
+    the_date,
+    user_id,
+    market,
+    SUM(CASE
+            WHEN market = 'APPLE' THEN price*1000
+            ELSE price END
+        ) AS price
+FROM DB_name.purchase
+WHERE the_date = '2017-11-01'
+GROUP BY the_date, user_id, market
+;
+{% endhighlight %}
+- `CASE WHEN`으로 조건에 맞게 변경된 값 → `SUM()`과 같은 집계 함수로 감싸준다.
+
+---
+
+#### GROUP BY
+{% highlight sql %}
+SELECT
+    date(date_first) AS the_date,
+    item_code,
+    COUNT(user_id)
+FROM item_buy_table
+WHERE date(date_first) >= '2017-05-02'
+AND date(date_first) <= '2017-05-07'
+AND item_code in (1, 2, 3, 4, 5, 6, 7, 8)
+GROUP BY the_date, item_code
+;
+
+SELECT
+    date(date_first) AS the_date,
+    count(DISTINCT(user_id)),
+    SUM(price*1000) AS purchase
+FROM DB_name.purchase
+WHERE date_first >= '2017-03-14 11:38:00'
+GROUP BY the_date
+;
+{% endhighlight %}
+
+---
+
+#### 서부쿼리를 활용한 GROUP BY
+{% highlight sql %}
+SELECT
+    a.the_date,
+    COUNT(DISTINCT(a.user_id)) AS PU,
+    SUM(a.price*1000) AS Sales
+FROM (
+        SELECT
+            the_date,
+            user_id,
+            (
+                CASE WHEN market = 'APPLE' THEN price*1000
+                ELSE price END
+            ) AS price
+        FROM DB_name.purchase
+    ) AS a
+GROUP BY a.the_date
+;
+{% endhighlight %}
+- 그룹 바이를 하기 위해, 서브 쿼리를 활용하여 필요한 테이블을 만든 후 그룹 바이를 함.
+
+---
+
+
+

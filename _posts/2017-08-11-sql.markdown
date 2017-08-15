@@ -1,0 +1,43 @@
+---
+layout: post
+title:  "SQL-⑤ 날짜 관련 tip"
+date:   2017-08-11 13:24:23 +0700
+categories: [SQL, DB]
+---
+
+## 1. 일자에 날짜 더하기
+#### date_add(날짜, interval +n day)
+- 아래 코드에서 보듯이 기준이 될 날짜를 먼저 넣어주고, 문법에 맞게 일자를 지정해 주면 된다.
+{% highlight sql %}
+SELECT register_date, the_date, COUNT(user_id)
+FROM active_user
+WHERE register_date >= '2013-10-10'
+AND register_date <= '2013-10-24'
+AND the_date >= register_date
+AND the_date <= date_add(register_date, interval +15 day)
+GROUP BY register_date, the_date
+;
+{% endhighlight %}
+- 위 코드는 등록일 부터 15일간의 리텐션을 알아보기 위한 코드이다.
+
+{% highlight sql %}
+SELECT DATE(a.date_id), COUNT(DISTINCT(a.user_id))
+FROM
+    db_name.login_log AS a,
+    (
+        SELECT DISTINCT(user_id)
+    FROM db_name.login_log
+    WHERE DATE(date_id) = '2017-04-15'
+    ) AS b
+WHERE a.user_id = b.user_id
+AND DATE(a.date_id) in 
+    (
+        '2017-04-15', date_add('2017-04-15', interval +1 day),
+        date_add('2017-04-15', interval +3 day),
+        date_add('2017-04-15', interval +7 day),
+        date_add('2017-04-15', interval +15 day)
+    )
+GROUP BY DATE(a.date_id)
+;
+{% endhighlight %}
+- 2017-04-15에 로그인한 유저 중 1일, 3일, 7일, 15일 후 몇명이 계속 로그인 하는지 뽑을 때 활용

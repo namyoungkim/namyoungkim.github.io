@@ -1,0 +1,133 @@
+---
+layout: post
+title:  "SQL-③ 잡다한 Tip"
+date:   2017-08-10 14:37:23 +0700
+categories: [SQL, DB]
+---
+# SQL- ③ 잡다한 팁
+
+### 1. 스키마 및 테이블 탐색
+
+{% highlight sql %}
+SHOW databases;
+
+USE db_name;
+
+SHOW tables;
+
+DESCRIIBE table_name;
+{% endhighlight %}
+
+{% highlight sql %}
+SELECT *
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_NAME LIKE '%skill%'
+;
+{% endhighlight %}
+* 테이블 명 중 'skill'이 들어가는 테이블을 찾아라.
+
+{% highlight sql %}
+SELECT table_name, table_scheam
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+;
+{% endhighlight %}
+- DB안에서 table_type = 'BASE TABLE'인 테이블을 찾아라.
+- 결과는 아래와 같다.
+
+| table_name | table_schema |
+| :--- | :--- |
+| columns_priv                                 | mysql              |
+| db                                           | mysql              |
+| event                                        | mysql              |
+| func                                         | mysql              |
+| general_log                                  | mysql              |
+| help_category                                | mysql              |
+| help_keyword                                 | mysql              |
+| help_relation                                | mysql              |
+| help_topic                                   | mysql              |
+| host                                         | mysql              |
+| ndb_binlog_index                             | mysql              |
+| plugin                                       | mysql              |
+| proc                                         | mysql              |
+| procs_priv                                   | mysql              |
+| proxies_priv                                 | mysql              |
+| servers                                      | mysql              |
+| slow_log                                     | mysql              |
+| tables_priv                                  | mysql              |
+| time_zone                                    | mysql              |
+| time_zone_leap_second                        | mysql              |
+| time_zone_name                               | mysql              |
+| time_zone_transition                         | mysql              |
+| time_zone_transition_type                    | mysql              |
+| user                                         | mysql              |
+| cond_instances                               | performance_schema |
+| events_waits_current                         | performance_schema |
+| events_waits_history                         | performance_schema |
+| events_waits_history_long                    | performance_schema |
+| events_waits_summary_by_instance             | performance_schema |
+| events_waits_summary_by_thread_by_event_name | performance_schema |
+| events_waits_summary_global_by_event_name    | performance_schema |
+| file_instances                               | performance_schema |
+| file_summary_by_event_name                   | performance_schema |
+| file_summary_by_instance                     | performance_schema |
+| mutex_instances                              | performance_schema |
+| performance_timers                           | performance_schema |
+| rwlock_instances                             | performance_schema |
+| setup_consumers                              | performance_schema |
+| setup_instruments                            | performance_schema |
+| setup_timers                                 | performance_schema |
+| threads                                      | performance_schema |
+
+---
+### 2. 테이블 복사
+* 오늘 날짜로 shop이라는 테이블을 백업
+{% highlight sql %}
+CREATE TABLE shop_backup_20170810 AS SELECT * FROM shop;
+{% endhighlight %}
+
+---
+### 3. 시간대별 매출 구하기
+{% highlight sql %}
+SELECT
+    DATE_FORMAT(max_crt_date, '%Y-%m-%d %H') AS hour_sales,
+    SUM(
+        CASE WHEN market_code = 'APPLE' THEN price*1000 ELSE price END
+        ) AS sales,
+    COUNT(DISTINCT(team_id)) AS PU
+FROM db_name.purchase
+WHERE the_date >= '2016-09-01'
+GROUP BY hour_sales
+;
+{% endhighlight %}
+
+---
+### 4. 테이블 덤프 뜨기
+{% highlight sql %}
+DB_NAME -e "쿼리 문” > name.txt
+{% endhighlight %}
+* 날짜 데이터로 인해 작은 따옴표가 있을 경우에 대비하여, 위 처럼 큰 따옴표를 해야한다.
+* 따옴표 안에는 세미콜론을 사용하지 않는다.
+* filezilla 같은 FTP tool을 사용하여 덤프 파일을 다운받는다.
+
+---
+### 5. 이제는 실전 예제를 풀어보면서 SQL을 정리해 보자.
+#### 5.1. 2017년 7월 한달 간 A를 구매한 유저 중, B도 구매한 유저는 몇명인지 구해보자.
+- 조건: 서브 Query를 써서 작성할 것.
+{% highlight sql %}
+SELECT b.id, COUNT(a.id) cnt
+FROM purchase AS a,
+    (
+        SELECT DISTINCT(id) AS id
+        FROM purchase
+        WHERE product_id in ('A상품의 id')
+        AND purchase_date >= '2017-07-01 00:00:00'
+        AND purchase_date <= '2017-07-31 23:59:59'
+    ) b
+WHERE b.id = a.id
+AND a.product_id in ('B상품의 id')
+AND a.purchase_date >= '2017-07-01 00:00:00'
+AND a.purchase_date <= '2017-07-31 23:59:59'
+GROUP BY b.id
+;
+{% endhighlight %}
