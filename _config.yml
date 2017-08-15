@@ -1,11 +1,12 @@
-title: Stack Problems
+title: NYC
 description: My Personal Stack Problems
-author: Agus Makmun
-github: https://github.com/agusmakmun
-about: I am freelance developer. Currently doing more in backend, focused in Python and Django.
-disqus_shortname: stackproblems
-google_analytics: UA-XXXXXXXX-Y
-avatar_url: /static/img/avatar.jpg
+author: Namyoung Kim(Leo)
+author_1: Agus Makmun
+github: https://github.com/namyoungkim
+about: Data Scientist
+disqus_shortname: NYC
+google_analytics: 
+avatar_url: /static/img/pro.jpeg
 
 enableTags: true
 tagarray: []
@@ -16,30 +17,20 @@ collections:
     permalink: /project/:path/
 
 social:
-    - icon: fa-facebook
-      link: "#"
-    - icon: fa-twitter
-      link: "https://twitter.com/agusmakmun6"
     - icon: fa-linkedin
-      link: "https://www.linkedin.com/in/summonagus"
-    - icon: fa-stack-exchange
-      link: "#"
+      link: "https://www.linkedin.com/in/namyoung-kim-734814112/"
     - icon: fa-github
-      link: "https://github.com/agusmakmun"
+      link: "https://github.com/namyoungkim"
 
 share:
-  twitter_username: agusmakmun6
-  fb_appid: 1749788565247320
 
 urls:
     - text: About Me
       url: /about/
     - text: My Projects
       url: /projects/
-    - text: XML Feed
-      url: /feed.xml
 
-url: "https://agusmakmun.github.io"
+url: "https://namyoungkim.github.io"
 baseurl: ""
 paginate: 20
 per_page: 20
