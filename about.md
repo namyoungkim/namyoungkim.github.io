@@ -1,9 +1,18 @@
 ---
 layout: page
-title: About
+title: About me
 permalink: /about/
 ---
+**Introduce**
+- I'm Data Sceientist.
+- Currently doing more in machine-learning, focused in sk-learn and TensorFlow.
 
-I am freelance developer. Currently doing more in backend, focused in Python and Django.
+**E-mail**
+- liniarq@gmail.com
 
-email: agus[at]python.web.id
+---
+**Professional Experience**
+
+- Aceproject
+    - May 2016 - July 2017
+    - Seoul, Korea
