@@ -1,0 +1,35 @@
+---
+layout: post
+title: "SQL-쿼리문을 보면서 이해하기 ①"
+date: 2017-08-11 19:45:23 +0700
+categories: [SQL, DB]
+---
+
+---
+layout: post
+title:  "SQL-쿼리문을 보면서 이해하기①"
+date:   2017-08-11 19:08:23 +0700
+categories: [SQL, DB]
+---
+
+#### WHERE 문
+{% highlight sql %}
+SELECT a.the_date, a.user_id
+FROM DB_name.purchase AS a, DB_name_1.user_info AS b
+WHERE DATE(b.first_date) = '2016-03-31'
+AND a.user_id = b.user_id
+AND a.the_date >= '2016-04-28'
+GROUP BY a.the_date
+;
+
+SELECT the_date, item_code, COUNT(user_id)
+FROM DB_name.item_sale_log
+WHERE item_code IN (1, 2, 3, 4, 5, 6)
+AND the_date >= '2016-03-31'
+AND the_date <= '2016-04-01'
+GROUP BY the_date, item_code
+;
+{% endhighlight %}
+- `>, >=, =, IN, NOT IN, %` 등을 활용하여 조건을 사용할 수 있다.
+
+---
