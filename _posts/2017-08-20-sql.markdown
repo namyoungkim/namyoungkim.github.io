@@ -40,20 +40,39 @@ FROM
 GROUP BY x.play_date, x.country
 ;
 {% endhighlight %}
-- 
+- 플레이한 날짜와 국가 정보가 담겨있는 테이블을 만들기 위해 서브쿼리 2개를 사
 
 ---
 
-#### 'AND'와 'OR' 연산자
+#### `AND`와 `OR` 연산자
 {% highlight sql %}
 SELECT *
 FROM league_game
 WHERE own_user_id = 433795
 AND league_id = 2407714
-AND (home_user_id = 433795 OR away_user_id = 43
-    795)
+AND (home_user_id = 433795 OR away_user_id = 43795)
 ;
 {% endhighlight %}
-- 'AND'와 'OR' 함께 사용시 괄호를 함께 사용
+- `AND`와 `OR` 함께 사용시 괄호를 함께 사용
+
+---
+
+#### 날짜를 기준으로 순서를 매기고 싶다. 그러면 간단하게 다음과 같이 하면 된다:)
+{% highlight sql %}
+SELECT P.*
+FROM
+    (
+        SELECT Ori.*, RANK() OVER (ORDER BY date_id DESC) AS RANK
+        FROM table_origin AS Ori
+        WHERE lteam_id = 433795
+    ) AS P
+WHERE P.RANK = 1
+;
+{% endhighlight %}
+- `RANK()`와 `ROW_NUMBER()`의 차이점
+    - ROW_NUMBER() OVER (ORDER BY SCORE DESC)
+        + 점수가 동일할 경우 같은 순서를 부여함.
+    - RANK() OVER (ORDER BY SCORE DESC)
+        + 점수가 같더라도 레코드가 달라지면 다른 순서를 매긴다.
 
 ---
