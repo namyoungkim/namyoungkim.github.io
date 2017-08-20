@@ -40,7 +40,7 @@ FROM
 GROUP BY x.play_date, x.country
 ;
 {% endhighlight %}
-- 플레이한 날짜와 국가 정보가 담겨있는 테이블을 만들기 위해 서브쿼리 2개를 사
+- 플레이한 날짜와 국가 정보가 담겨있는 테이블을 만들기 위해 서브쿼리 2개를 사용
 
 ---
 
@@ -70,9 +70,9 @@ WHERE P.RANK = 1
 ;
 {% endhighlight %}
 - `RANK()`와 `ROW_NUMBER()`의 차이점
-    - ROW_NUMBER() OVER (ORDER BY `필드명` DESC)
-        + 점수가 동일할 경우 같은 순서를 부여함.
     - RANK() OVER (ORDER BY `필드명` DESC)
+        + 점수가 동일할 경우 같은 순서를 부여함.
+    - ROW_NUMBER() OVER (ORDER BY `필드명` DESC)
         + 점수가 같더라도 레코드가 달라지면 다른 순서를 매긴다.
 
 ---
@@ -318,7 +318,7 @@ FROM user_wealth
 ORDER BY the_date;
 {% endhighlight %}
 - `ROUND((value),1)`
-- 소수 첫째자리에서 반올
+- 소수 첫째자리에서 반올림
 
 ---
 
@@ -335,7 +335,7 @@ AND b.user_id = c.user_id
 GROUP BY b.user_id
 {% endhighlight %}
 - DATEDIFF(c.date_id, b.date_id) >= 1
-- 두 날짜의 차이가 1일 이상인 값을 출
+- 두 날짜의 차이가 1일 이상인 값을 출력
 
 --- 
 
