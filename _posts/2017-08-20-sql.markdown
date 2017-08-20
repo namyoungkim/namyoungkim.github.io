@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "SQL-쿼리문을 보면서 이해하기 ③"
+date:   2017-08-20 12:20:23 +0700
+categories: [SQL, DB]
+---
+
+#### 서브쿼리문 2개 사용
+{% highlight sql %}
+SELECT
+    x.play_date,
+    x.country,
+    COUNT(DISTINCT(x.user_id))
+FROM
+    (
+        SELECT
+            b.play_date,
+            c.user_id,
+            (
+                CASE WHEN c.country = 'KR' THEN 'KR'
+                WHEN c.country = 'US' THEN 'US'
+                WHEN c.country = 'TW' THEN 'TW'
+                WHEN c.country = 'JP' THEN 'JP'
+                ELSE 'ETC' END
+            ) AS country,
+            DATE(c.date_id)
+        FROM
+            DB_name_1.user_info_table AS c,
+            (
+                SELECT
+                    DATE(a.date_id) AS play_date,
+                    user_id
+                FROM user_info_log AS a
+                WHERE a.wealth_type = 'EP'
+                AND a.item_log = 'EP_MATCH_REWARD'
+                AND a.date_id >= '2017-08-18 00:00:00'
+            ) AS b
+        WHERE c.user_id = b.user_id
+    ) AS x
+GROUP BY x.play_date, x.country
+;
+{% endhighlight %}
+- 
+
+---
+
+#### 'AND'와 'OR' 연산자
+{% highlight sql %}
+SELECT *
+FROM league_game
+WHERE own_user_id = 433795
+AND league_id = 2407714
+AND (home_user_id = 433795 OR away_user_id = 43
+    795)
+;
+{% endhighlight %}
+- 'AND'와 'OR' 함께 사용시 괄호를 함께 사용
+
+---
