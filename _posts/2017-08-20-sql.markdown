@@ -47,9 +47,9 @@ GROUP BY x.play_date, x.country
 #### `AND`와 `OR` 연산자
 {% highlight sql %}
 SELECT *
-FROM league_game
-WHERE own_user_id = 433795
-AND league_id = 2407714
+FROM table_1
+WHERE user_id = 433795
+AND info_id = 2407714
 AND (home_user_id = 433795 OR away_user_id = 43795)
 ;
 {% endhighlight %}
@@ -70,9 +70,298 @@ WHERE P.RANK = 1
 ;
 {% endhighlight %}
 - `RANK()`와 `ROW_NUMBER()`의 차이점
-    - ROW_NUMBER() OVER (ORDER BY SCORE DESC)
+    - ROW_NUMBER() OVER (ORDER BY `필드명` DESC)
         + 점수가 동일할 경우 같은 순서를 부여함.
-    - RANK() OVER (ORDER BY SCORE DESC)
+    - RANK() OVER (ORDER BY `필드명` DESC)
         + 점수가 같더라도 레코드가 달라지면 다른 순서를 매긴다.
+
+---
+
+#### `INNER JOIN`의 사용
+{% highlight sql %}
+SELECT p.*
+FROM product AS p
+INNER JOIN (
+            SELECT
+                product_NO,
+                MIN(date_id) AS date_id
+            FROM product
+            GROUP BY product_NO
+            ) AS k
+        ON p.product_NO = k.product_NO
+AND p.date_id = k.date_id
+ORDER BY p.prodNo
+;
+{% endhighlight %}
+- 사용자가 상품을 구매한 최초 날짜를 `INNER JOIN`을 활용하여 구함.
+
+---
+
+#### DAU → 과금 유저와 무과금 유저로 분류
+{% highlight sql %}
+SELECT
+    x.the_date,
+    COUNT(
+            CASE WHEN x.purchase_count > 0 THEN x.user_id
+            ELSE null END) AS PU_Y,
+    COUNT(
+            CASE WHEN x.purchase_count = 0 THEN x.user_id
+            ELSE null END) AS PU_N
+FROM
+    (
+      SELECT
+        b.the_date,
+        b.user_id,
+        (
+         SELECT COUNT(a.user_id)
+         FROM paying_user_info AS a
+         WHERE a.user_id = b.user_id
+         AND a.the_date <= b.the_date
+        ) purchase_count
+      FROM user_login_info AS b
+      WHERE b.the_date >= '2017-06-01'
+      AND b.the_date <= '2017-06-30'
+    ) AS x
+GROUP BY x.the_date
+;
+{% endhighlight %}
+- `2017년 6월` 한 달 동안, 접속한 사용자를 과금 유저로 구분
+- `CASE WHEN`과 `COUNT`를 함께 사용
+
+---
+
+{% highlight sql %}
+SELECT
+    x.user_id,
+    x.market,
+    x.product_id,
+    (
+        CASE WHEN x.market = 'APPLE' THEN x.price * 1000
+        ELSE x.price
+        END
+    ) AS price,
+    x.FC,
+    DATE(x.date_id),
+    y.register_date,
+    y.last_login
+FROM
+    purchase_log x,
+    (
+        SELECT
+            a.user_id,
+            DATE(a.date_id) AS register_date,
+            DATE(MAX(b.date_id)) AS last_login
+        FROM user_info AS a, user_login_info AS b, purchase_log AS c
+        WHERE a.user_id = b.user_id
+        AND a.user_id = c.user_id
+        AND a.date_id >= '2017-04-01 00:00:00'
+        AND a.date_id <= '2017-04-15 23:59:59'
+        GROUP BY a.user_id
+    ) AS y
+WHERE x.user_id = y.user_id
+AND x.date_id <= '2017-04-30 23:59:59'
+;
+{% endhighlight %}
+- `2017-04-01 ~ 04-15`에 가입한 유저의 최초 가입일과 최종 접속일을 서브쿼리로 가져옴.
+- 구매 정보가 담겨져 있는 테이블과 조인하여 특정기간에 가입한 유저의 과금정보를 추출할 수 있다.
+
+---
+
+#### 생애총과금액 계산하기
+{% highlight sql %}
+SELECT
+    x.user_id,
+    SUM(
+        CASE WHEN x.market = 'APPLE' THEN x.price * 1000
+        ELSE x.price END
+        ) AS total_sales,
+    y.register_date,
+    y.last_login
+FROM
+    purchase_log x, 
+    (
+        SELECT
+            a.user_id,
+            DATE(a.date_id) AS register_date,
+            DATE(MAX(b.date_id)) AS last_login
+        FROM
+            user_info AS a,
+            user_login_info AS b,
+            purchase_log AS c
+        WHERE a.user_id = b.user_id
+        AND a.user_id = c.user_id
+        AND a.date_id >= '2017-04-01 00:00:00'
+        AND a.date_id <= '2017-04-15 23:59:59'
+        GROUP BY a.user_id
+    ) AS y
+WHERE x.user_id = y.user_id
+AND x.date_id <= '2017-04-30 23:59:59'
+GROUP BY x.user_id
+ORDER BY total_sales DESC
+;
+{% endhighlight %}
+- `2017-04-01 ~ 04-15`에 가입한 유저의 `2017년 4월` 한 달간의 총과금액을 계산할 수 있다.
+- `AND x.date_id <= '2017-04-30 23:59:59'`
+- 윗 부분을 넣지 않으면 `생애총과금액`을 계산할 수 있다.
+ 
+---
+
+{% highlight sql %}
+SELECT COUNT(DISTINCT(a.user_id))
+FROM user_login_info a, user_info b
+WHERE b.date_id >= '2017-03-31 00:00:00'
+AND b.date_id < '2017-04-07 00:00:00'
+AND a.user_id = b.user_id
+AND HOUR(a.date_id) - HOUR(b.date_id) >= 2;
+{% endhighlight %}
+- 가입하고 2시간 이후에 접속한 유저만 집계
+- `HOUR()` 사용
+
+--- 
+ 
+{% highlight sql %}
+SELECT
+    DATE(a.date_id),
+    COUNT(DISTINCT(a.user_id)) AS user_cnt,
+    SUM(CASE WHEN a.market_code = 'APPLE' THEN a.price * 1000
+        ELSE a.price END) AS sales_amt, 
+    (
+        SUM(CASE WHEN a.market_code = 'APPLE' THEN a.price * 1000
+            ELSE a.price END) / COUNT(DISTINCT(a.user_id))
+    ) AS ARPPU
+FROM purchase_log AS a, user_info AS b
+WHERE a.user_id = b.user_id
+AND b.date_id <= '2017-03-30 23:59:59'
+AND a.date_id >= '2017-04-01 00:00:00'
+GROUP BY DATE(a.date_id)
+;
+{% endhighlight %}
+- `SUM`과 `COUNT`
+
+---
+
+{% highlight sql %}
+SELECT
+    club_id,
+    club_name,
+    user_id,
+    power,
+    ifnull(
+            (
+                SELECT
+                    SUM(y.cp)
+                FROM club_info_table AS y
+                WHERE x.user_id = y.user_id
+                AND log_type = 'IN'
+            ), 0) AS deposit_cp,
+ifnull(
+        (
+            SELECT SUM(y.cp)
+            FROM club_info_table AS y
+            WHERE x.user_id = y.user_id
+            AND log_type = 'OUT'
+        ), 0) AS withdraw_cp,
+(
+    ifnull(
+            (
+                SELECT SUM(y.cp)
+                FROM club_info_table AS y
+                WHERE x.user_id = y.user_id
+                AND log_type = 'IN'), 0)
+    -
+    ifnull(
+            (
+                SELECT SUM(y.cp)
+                FROM club_info_table AS y
+                WHERE x.user_id = y.user_id
+                AND log_type = 'OUT'),0)
+) AS current_cp 
+FROM
+    (
+        SELECT a.club_id, a.club_name, b.user_id, c.power
+        FROM club AS a, club_team AS b, user_info_1 AS c, club_3 AS d
+        WHERE a.club_id = b.club_id
+        AND b.user_id = c.user_id
+        AND b.user_id = d.user_id
+    ) AS x
+WHERE
+    (
+        ifnull(
+                (
+                    SELECT SUM(y.cp)
+                    FROM club_info_table AS y
+                    WHERE x.user_id = y.user_id
+                    AND log_type = 'IN'), 0)
+        -
+        ifnull(
+                (
+                    SELECT SUM(y.cp)
+                    FROM club_info_table AS y
+                    WHERE x.user_id = y.user_id
+                    AND log_type = 'OUT'), 0)
+    ) >= 1100
+ORDER BY current_cp DESC
+;
+{% endhighlight %}
+- `ifnull((쿼리문),0)`
+- 쿼리 결과가 `NULL`이면 `0`을 출력
+
+--- 
+
+{% highlight sql %}
+SELECT
+    the_date
+    user_cnt,
+    EP,
+    ROUND((EP/user_cnt),1)
+FROM user_wealth
+ORDER BY the_date;
+{% endhighlight %}
+- `ROUND((value),1)`
+- 소수 첫째자리에서 반올
+
+---
+
+{% highlight sql %}
+SELECT
+    b.user_id,
+    DATE(b.date_id),
+    DATE(MAX(c.date_id))
+FROM user_info b, user_login_info c
+WHERE b.date_id >= '2017-04-01 00:00:00'
+AND b.date_id <= '2017-04-30 23:59:59'
+AND DATEDIFF(c.date_id, b.date_id) >= 1
+AND b.user_id = c.user_id
+GROUP BY b.user_id
+{% endhighlight %}
+- DATEDIFF(c.date_id, b.date_id) >= 1
+- 두 날짜의 차이가 1일 이상인 값을 출
+
+--- 
+
+{% highlight sql %}
+SELECT *
+FROM
+    purchase_log x, 
+    (
+        SELECT
+         DISTINCT(a.user_id),
+         a.user_name,
+         a.grade,
+         b.power,
+         a.date_id AS register_date
+         MAX(c.date_id) AS last_login
+        FROM user_info AS a, user_2 AS b, user_login_info AS c
+        WHERE DATEDIFF(c.date_id, a.date_id) >= 1
+        AND a.user_id = b.user_id
+        AND a.user_id = c.user_id
+        AND a.date_id >= '2015-09-01 00:00:00'
+        GROUP BY a.user_id
+        HAVING MAX(c.date_id) <= '2015-09-30 23:59:59'
+    ) AS y
+WHERE x.user_id = y.user_id
+;
+{% endhighlight %}
+- `HAVING`을 사용하여 `GROUP BY`의 조건을 위와 같이 주었다.(9월 한달 간)
 
 ---
