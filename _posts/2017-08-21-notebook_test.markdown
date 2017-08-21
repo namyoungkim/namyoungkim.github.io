@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 ---
 layout: post
 title:  "notebook_test"
@@ -7,6 +5,7 @@ date:   2017-08-20 12:20:23 +0700
 categories: [SQL, DB]
 ---
 
+<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
 <title>03. 파이썬 기본 자료 구조 (revision)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
