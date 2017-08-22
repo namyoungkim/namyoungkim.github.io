@@ -195,7 +195,7 @@ print(end4 + end5 + end6 + end7)
 맛있는 치즈버거
 ```
 - `end=' '`를 사용하여 `맛있는 치즈버거`가 줄 바꿈이 되지 않도록 하였다.
-    - `print`는 default값으로 `\n`으로 되어 있다.
+    - `print`는 default로 `\n`이 되어 있다.
     - `print` 출력값이 줄 바꿈을 하지 않기 위해서 `end=''`를 사용함.
 
 ##### 참고
@@ -231,8 +231,115 @@ print(end4 + end5 + end6 + end7)
 {% highlight python %}
 print(end1 + end2 + end3, end4 + end5 + end6 + end7)
 {% endhighlight %}
-- 하지만 Python에서는 1라인이 80줄을 넘는 것을 권장하지 않는다.
+- 하지만 `Python`에서는 1라인이 80줄을 넘는 것을 권장하지 않는다.
 - 그러므로 `end=' '`를 사용함.
 
 ---
 
+#### `%s`, `%r`, `format 문`
+{% highlight python %}
+# -*- coding: utf-8 -*-
+
+formatter = "%s %s %s %s"
+
+print(formatter % (1, 2, 3, 4))
+print(formatter % ("하나", "둘", "셋", "넷"))
+print(formatter % (True, False, False, True))
+print(formatter % (formatter, formatter, formatter, formatter))
+print(formatter % (
+    "난 이게 있죠",
+    "지금 막 써 주신 그것.",
+    "하지만 '노래'하진 않아요.",
+    "그러니까 잘 자요."
+    )
+)
+
+`formatter2 = "%r %r %r %r"`
+print(formatter2 % (
+    "I had this thing.",
+    "That you could type up right.",
+    "But it didn't sing",
+    "So I said goodnight."
+    )
+)
+{% endhighlight %}
+
+```
+1 2 3 4
+하나 둘 셋 넷
+True False False True
+%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s
+난 이게 있죠 지금 막 써 주신 그것. 하지만 '노래'하진 않아요. 그러니까 잘 자요.
+'I had this thing.' 'That you could type up right.' "But it didn't sing" 'So I said goodnight.'
+```
+- formatter를 `%s`에서 `%r`로 바꾸었더니, 마지막 출력이 따옴표가 다르게 출력됨을 확인할 수 있다.
+
+{% highlight python %}
+# -*- coding: utf-8 -*-
+
+formatter = "%s %s %s %s"
+
+print(formatter % (1, 2, 3, 4))
+print(formatter % ("하나", "둘", "셋", "넷"))
+print(formatter % (True, False, False, True))
+print(formatter % (formatter, formatter, formatter, formatter))
+print(formatter % (
+    "난 이게 있죠",
+    "지금 막 써 주신 그것.",
+    "하지만 '노래'하진 않아요.",
+    "그러니까 잘 자요."
+    )
+)
+
+`formatter2 = "%s %s %s %s"`
+print(formatter2 % (
+    "I had this thing.",
+    "That you could type up right.",
+    "But it didn't sing",
+    "So I said goodnight."
+    )
+)
+{% endhighlight %}
+```
+1 2 3 4
+하나 둘 셋 넷
+True False False True
+%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s
+난 이게 있죠 지금 막 써 주신 그것. 하지만 '노래'하진 않아요. 그러니까 잘 자요.
+I had this thing. That you could type up right. But it didn't sing So I said goodnight.
+```
+- formatter를 `%s`로 변경했더니, 따옴표가 출력되지 않음을 확인할 수 있다.
+
+{% highlight python %}
+# -*- coding: utf-8 -*-
+
+formatter = "{} {} {} {}"
+
+print(formatter.format(1, 2, 3, 4))
+print(formatter.format("하나", "둘", "셋", "넷"))
+print(formatter.format(True, False, False, True))
+print(formatter.format(formatter, formatter, formatter, formatter))
+print(formatter.format(
+    "난 이게 있죠",
+    "지금 막 써 주신 그것.",
+    "하지만 '노래'하진 않아요.",
+    "그러니까 잘 자요."
+    )
+)
+
+formatter2 = "{} {} {} {}"
+print(formatter2.format(
+    "I had this thing.",
+    "That you could type up right.",
+    "But it didn't sing",
+    "So I said goodnight."
+    )
+)
+{% endhighlight %}
+- `format`을 활용하니 위의 결과와 동일하게 나오는 것을 확인했다.
+- `format 문`을 활용하여 문자열안에 문자를 넣도록 하자.
+
+#### ※ 그렇다면 `%r`은 언제 사용할까?
+- 디버그 정보를 얻기 위해서만 써야한다.
+
+---
