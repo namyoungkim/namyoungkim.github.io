@@ -344,7 +344,7 @@ print(formatter2.format(
 
 ---
 
-{% highlight Python %}
+{% highlight python %}
 # -*- coding: utf-8 -*-
 
 days = "월 화 수 목 금 토 일"
@@ -364,3 +364,65 @@ print('''
 - `''' '''` 멀티 라인 문자열
 
 ---
+
+{% highlight python %}
+# -*- coding: utf-8 -*-
+
+tabby_cat = "\t난 탭이 됨."
+persian_cat = "나는\n분리됨."
+backslash_cat = "나는 \\ 고 \\ 양이."
+
+fat_cat = """
+할 일 목록:
+\t* 고양이 밥
+\t* 물고기
+\t* 개박하\n\t* 오리새
+"""
+
+print(tabby_cat)
+print(persian_cat)
+print(backslash_cat)
+print(fat_cat)
+{% endhighlight %}
+
+```
+    난 탭이 됨.
+나는
+분리됨.
+나는 \ 고 \ 양이.
+
+할 일 목록:
+    * 고양이 밥
+    * 물고기
+    * 개박하
+    * 오리새
+```
+
+---
+
+#### Escape code(탈출 순서열)
+
+| 코드 | 설명|
+| :--- | :--- |
+| \n | 개행 (줄바꿈) |
+| \t | 수평 탭 |
+| \\ | 문자 "\" |
+| \' | 단일 인용부호(') |
+| \" | 이중 인용부호(") |
+| \r | 캐리지 리턴 |
+| \f | 폼 피드 |
+| \a | 벨 소리 |
+| \b | 백 스페이스 |
+| \N{name} | name이라는 이름이 붙은 문자(유니코드 전용) |
+| \v | 수직 탭 |
+| \uxxxx | 16비트 16진수 xxxx에 해당하는 문자(유니코드 전용) |
+| \Uxxxxxxxx | 32비트 16진수 xxxxxxxx에 해당하는 문자(유니코드 전용) |
+| \000 | 8진수 00에 해당하는 문자 |
+| \xhh | 16진수 값 hh에 해당하는 문자 |
+
+{% highlight python %}
+while True:
+    for i in ["/", "-", "|", "\\", "|"]:
+        print ("{}\r".format(i), end=' ')
+{% endhighlight %}
+- 해보면 재밌는 코드
