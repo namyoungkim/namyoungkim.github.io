@@ -163,3 +163,76 @@ e = "<- 이 문자열의 오른쪽"
 
 print(w + e)
 {% endhighlight %}
+
+---
+
+#### Print문
+{% highlight python %}
+# -*- coding: utf-8 -*-
+
+print("마리에겐 꼬마 양이 있지.")
+print("양털은 %s처럼 새하얗네." % '눈')
+print("그리고 마리가 가는 곳마다.")
+print("." * 10)
+
+end1 = "맛"
+end2 = "있"
+end3 = "는"
+end4 = "치"
+end5 = "즈"
+end6 = "버"
+end7 = "거"
+
+print(end1 + end2 + end3, end=' ')
+print(end4 + end5 + end6 + end7)
+{% endhighlight %}
+
+```
+마리에겐 꼬마 양이 있지.
+양털은 눈처럼 새하얗네.
+그리고 마리가 가는 곳마다.
+..........
+맛있는 치즈버거
+```
+- `end=' '`를 사용하여 `맛있는 치즈버거`가 줄 바꿈이 되지 않도록 하였다.
+    - `print`는 default값으로 `\n`으로 되어 있다.
+    - `print` 출력값이 줄 바꿈을 하지 않기 위해서 `end=''`를 사용함.
+
+##### 참고
+{% highlight python %}
+# -*- coding: utf-8 -*-
+
+print("마리에겐 꼬마 양이 있지.")
+print("양털은 %s처럼 새하얗네." % '눈')
+print("그리고 마리가 가는 곳마다.")
+print("." * 10)
+
+end1 = "맛"
+end2 = "있"
+end3 = "는"
+end4 = "치"
+end5 = "즈"
+end6 = "버"
+end7 = "거"
+
+print(end1 + end2 + end3)
+print(end4 + end5 + end6 + end7)
+{% endhighlight %}
+```
+마리에겐 꼬마 양이 있지.
+양털은 눈처럼 새하얗네.
+그리고 마리가 가는 곳마다.
+..........
+맛있는
+치즈버거
+```
+
+##### 아래와 같이 print문을 사용할 수 있다.
+{% highlight python %}
+print(end1 + end2 + end3, end4 + end5 + end6 + end7)
+{% endhighlight %}
+- 하지만 Python에서는 1라인이 80줄을 넘는 것을 권장하지 않는다.
+- 그러므로 `end=' '`를 사용함.
+
+---
+
