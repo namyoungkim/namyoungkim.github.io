@@ -21,7 +21,7 @@ categories: [python]
 
 ---
 
-#### 문자열과 출력
+### 문자열과 출력
 
 {% highlight python %}
 # -*- coding: utf-8 -*-
@@ -63,6 +63,8 @@ alpha에 대해 이야기해 보죠
 | %r | 무엇이든 출력 |
 | %% | Literal % (문자 `%` 자체) |
 
+---
+
 #### 아래 format문을 활용하면 보다 편리하게 위와 동일한 결과를 뽑아낼 수 있다.
 
 {% highlight python %}
@@ -83,5 +85,81 @@ print("사실 아주 많이 나가는 건 아니죠")
 print("눈은 {}이고 머리는 {}이에요".format(my_eyes, my_hair))
 print("이는 보통 {}이고 커피를 먹으면 달라져요".format(my_teeth))
 {% endhighlight %}
-- format문을 사용하면 더 편한데, 그렇다면 포매터는 언제 사용해야할까?
-    + 디버그시 유용함.
+- format문을 사용하면 더 편리하다.
+
+---
+
+#### 문자열, 변수, 포맷을 전부 입력하고 출력해보자.
+- 짧게 축약된 변수 이름도 연습해보자.
+{% highlight python %}
+# -*- coding: utf-8 -*-
+
+x = "세상에는 %d 종류의 사람이 있어요." % 10
+binary = "'이진수'"
+do_not = "모르는"
+y = "%s를 아는 사람과 %s 사람." % (binary, do_not)
+z = 'How fun is it!'
+
+print(x)
+print(y)
+print(z)
+
+print("'%s'라고 했어요." % x)
+print("'%s'이라고도 했죠." % y)
+print("So, %r" % z)
+
+hilarious = False
+joke_evaluation = "웃기는 농담 아니에요?! %r"
+
+print( joke_evaluation % hilarious)
+
+w = "이 문자열의 왼쪽 ->"
+e = "<- 이 문자열의 오른쪽"
+
+print(w + e)
+{% endhighlight %}
+
+- 출력 결과
+```
+세상에는 10 종류의 사람이 있어요.
+'이진수'를 아는 사람과 모르는 사람.
+How fun is it!
+'세상에는 10 종류의 사람이 있어요.'라고 했어요.
+''이진수'를 아는 사람과 모르는 사람.'이라고도 했죠.
+So, 'How fun is it!'
+웃기는 농담 아니에요?! False
+이 문자열의 왼쪽 -><- 이 문자열의 오른쪽
+```
+- 문자열 안에 다른 문자열을 넣을 때, 위 코드처럼 변수로 한 번 받고 문자열로 다시 넣어주면 된다.
+
+---
+
+#### format문을 활용하여 동일한 결과를 출력해보자.
+
+{% highlight python %}
+# -*- coding: utf-8 -*-
+
+x = "세상에는 {} 종류의 사람이 있어요.".format(10)
+binary = "'이진수'"
+do_not = "모르는"
+y = "{}를 아는 사람과 {} 사람.".format(binary, do_not)
+z = 'How fun is it!'
+
+print(x)
+print(y)
+print(z)
+
+print("'{}'라고 했어요.".format(x))
+print("'{}'이라고도 했죠.".format(y))
+print("So, {}".format(z))
+
+hilarious = False
+joke_evaluation = "웃기는 농담 아니에요?! {}"
+
+print( joke_evaluation.format(hilarious))
+
+w = "이 문자열의 왼쪽 ->"
+e = "<- 이 문자열의 오른쪽"
+
+print(w + e)
+{% endhighlight %}
