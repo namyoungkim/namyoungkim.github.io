@@ -1,3 +1,9 @@
+---
+layout: post
+title:  "Python Test"
+date:   2017-08-20 12:20:23 +0700
+categories: [python]
+---
 
 02. 파이썬 변수와 문자열 (revision)
 ===================================
