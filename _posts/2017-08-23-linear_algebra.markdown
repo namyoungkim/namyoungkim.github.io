@@ -136,3 +136,41 @@ matrix([[ 1.,  2.],
   + 주로 `np.matrix([[1.,2], [3,4], [5,6]])`를 많이 사용
 
 ---
+
+#### A vector as a matrix
+- Vectors are handled as matrices with one row or one column:
+{% highlight python %}
+x = np.matrix("10., 20.")
+
+x = np.matrix([10., 20.])
+{% endhighlight %}
+
+```
+matrix([[ 10.,  20.]])
+```
+
+- Here is an example for matrix and vector multiplication:
+{% highlight python %}
+x = np.matrix("4.;5.")
+x_1 = np.matrix([[4.], [5.]])
+{% endhighlight %}
+
+```
+matrix([[ 4.],
+        [ 5.]])
+```
+
+{% highlight python %}
+A = np.matrix([[1.,2], [3,4], [5,6]])
+
+A_1 = np.matrix("1., 2; 3, 4; 5, 6")
+{% endhighlight %}
+
+```
+matrix([[ 1.,  2.],
+        [ 3.,  4.],
+        [ 5.,  6.]])
+```
+- `""`를 활용하여 input할 경우 소수점을 첫 원소에만 찍으면, 나머지 원소는 자동으로 찍힌다.
+
+---
