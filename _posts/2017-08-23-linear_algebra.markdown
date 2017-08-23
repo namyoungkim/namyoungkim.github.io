@@ -105,7 +105,8 @@ array([[35, 41],
        [81, 95]])
 ```
 
-- $$ A = \begin{bmatrix} 1 && 2 \\ 3 && 4 \\ \end{bmatrix} $$
+- $$ A $$
+- $$  \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ \end{bmatrix}  $$
 
 ---
 
