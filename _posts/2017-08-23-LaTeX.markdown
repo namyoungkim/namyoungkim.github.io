@@ -32,16 +32,18 @@ categories: [LaTeX]
 - `$$ \begin{bmatrix}
 x_{1} \\
 x_{2} \\
-\v_dots \\
+\vdots \\
 x_{N} \\
 \end{bmatrix}
 $$`
 - $$ \begin{bmatrix}
 x_{1} \\
 x_{2} \\
-\v_dots \\
+\vdots \\
 x_{N} \\
 \end{bmatrix}
 $$
 
 ---
+
+
