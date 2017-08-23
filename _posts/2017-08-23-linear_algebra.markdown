@@ -105,10 +105,6 @@ array([[35, 41],
 ```
 
 - $$ A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ \end{bmatrix},\; B = \begin{bmatrix} 11 & 12 \\ 13 & 14 \\ \end{bmatrix} $$
-- with dot(A, B)
-    + $$ \begin{bmatrix} 1*11 + 2*13 & 1*12 + 2*14 \\ 3*11 + 4*13 & 3*12 + 4*14 \\ \end{bmatrix} = \begin{bmatrix} 37 & 40 \\ 85 & 92 \\ \end{bmatrix} $$
-- with inner(A, B)
-    + $$ \begin{bmatrix} 1*11 + 2*12 & 1*13 + 2*14 \\ 3*11 + 4*12 & 3*13 + 4*14 \\ \end{bmatrix} = \begin{bmatrix} 35 & 41 \\ 81 & 95 \\ \end{bmatrix} $$
 
 ---
 
