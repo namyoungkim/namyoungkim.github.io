@@ -18,8 +18,6 @@ $$\mathbf{x}$$
 $$\vec{x}$$
 $$R$$
 ```
-- $$\mathbf{x}$$
-- $$\vec{x}$$
-- $$R$$
+$$\mathbf{x}$$, $$\vec{x}$$, $$R$$
 
 
