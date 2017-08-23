@@ -33,6 +33,7 @@ x_{2} \\
 x_{N} \\
 \end{bmatrix}
 $$
+- $$ A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ \end{bmatrix} $$
 
 ---
 
