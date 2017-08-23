@@ -214,3 +214,73 @@ A[2,1]
 - `A[행-1, 열-1]`로 인덱싱하면 된다.
 
 ---
+
+#### Rank
+- `np.rank()`는 선형대수학의 `Rank`와는 다르다.
+- `np.rank()`는 np.array의 차원(dimension)을 출력한다.
+
+{% highlight python %}
+A = np.ones((4,3))
+A
+{% endhighlight %}
+```
+array([[ 1.,  1.,  1.],
+       [ 1.,  1.,  1.],
+       [ 1.,  1.,  1.],
+       [ 1.,  1.,  1.]])
+```
+{% highlight python %}
+np.rank(A)
+{% endhighlight %}
+```
+2
+```
+
+{% highlight python %}
+x = np.array(10)
+x
+{% endhighlight %}
+```
+array(10)
+```
+
+{% highlight python %}
+np.rank(x)
+{% endhighlight %}
+```
+0
+```
+- `Scalar` → np.rank() = 0
+- 차원이 없다고 본다.
+
+{% highlight python %}
+B = np.ones((2,2,2))
+B
+np.rank(B)
+{% endhighlight %}
+
+```
+array([[[ 1.,  1.],
+        [ 1.,  1.]],
+
+       [[ 1.,  1.],
+        [ 1.,  1.]]])
+3
+```
+
+##### 3차 행렬의 인덱싱
+{% highlight python %}
+C = np.array([[['a','b'], ['c','d']], [['e','f'], ['g','h']]])
+C[1,0,1]
+{% endhighlight %}
+
+```
+array([[['a', 'b'],
+        ['c', 'd']],
+
+       [['e', 'f'],
+        ['g', 'h']]])
+'f'
+```
+
+---
