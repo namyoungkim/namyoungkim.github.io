@@ -11,7 +11,7 @@ categories: [LaTeX]
 
 ---
 
-#### vector의 표기
+#### vector 및 집합의 표기
 
 ```
 $$\mathbf{x}$$
@@ -19,5 +19,3 @@ $$\vec{x}$$
 $$R$$
 ```
 $$\mathbf{x}$$, $$\vec{x}$$, $$R$$
-
-
