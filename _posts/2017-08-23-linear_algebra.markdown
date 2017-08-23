@@ -23,7 +23,7 @@ categories: [Linear_Algebra]
 #### Vector
 - Column Vector
     + 컬럼열이 벡터가 되도록 배열한다.(아래로 / 열로)
-`cf` 행 → 샘플 1개의 정보
+- 행 → 샘플 1개의 정보
 - $$ x \in R^N = R^{N\times 1} $$
 - $$ \mathbf{x} = [x_n]
  = \begin{bmatrix}
