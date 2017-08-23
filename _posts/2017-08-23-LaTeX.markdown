@@ -43,8 +43,8 @@ x_{2} \\
 x_{N} \\
 \end{bmatrix}
 $$
-- `$$\vdot$$`
-- $$\vdot$$
+- `$$\vdots$$`
+- $$\vdots$$
 - `$$\dotsi$$`
 - $$\dotsi$$
 
