@@ -318,5 +318,19 @@ array([[ 50],
        [110]])
 ```
 
----
+#### Another example:
+$$ A = \begin{bmatrix} 1 \;\;\;\; 2 \;\;\;\; 3 \\ 4 \;\;\;\; 5 \;\;\;\; 6 \end{bmatrix}, \;\;\;\; B = \begin{bmatrix} 7 \;\;\;\; 8 \;\;\;\; 9 \end{bmatrix}, \;\;\;\; B_{1} = \begin{bmatrix} 7 \\ 8 \\ 9 \end{bmatrix} $$
 
+{% highlight python %}
+A = np.array([[ 1, 2 ,3], [ 4, 5 ,6]])
+B = np.array([7,8,9])
+B_1 = B.reshape(3, 1)
+A.dot(B_1)
+np.dot(A, B_1)
+{% endhighlight %}
+```
+(2, 3)
+(3,)
+```
+
+---
