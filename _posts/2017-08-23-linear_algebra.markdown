@@ -76,3 +76,58 @@ x_1[:, np.newaxis]
 - $$\mathbf{x_1}$$ → $$\mathbf{x}$$
     - 위 방법을 사용하면 행 벡터를 열 벡터로 변경할 수 있다.
     - x.reshape(행, 렬)
+
+---
+
+#### Difference between numpy dot() and inner()
+
+{% highlight python %}
+a = np.array([[1,2],[3,4]])
+b = np.array([[11,12],[13,14]])
+{% endhighlight %}
+
+{% highlight python %}
+np.dot(a,b)
+{% endhighlight %}
+
+```
+array([[37, 40],
+       [85, 92]])
+```
+
+{% highlight python %}
+np.inner(a,b)
+{% endhighlight %}
+
+```
+array([[35, 41],
+       [81, 95]])
+```
+
+- $$ A = \begin{bmatrix}
+1 & 2 \\
+3 & 4 \\
+\end{bmatrix}, B = \begin{bmatrix}
+11 & 12 \\
+13 & 14 \\
+\end{bmatrix} 
+$$
+- $$ with dot(A, B)
+    + $$ \begin{bmatrix}
+1*11 + 2*13 & 1*12 + 2*14 \\
+3*11 + 4*13 & 3*12 + 4*14 \\
+\end{bmatrix} = \begin{bmatrix}
+37 & 40 \\
+85 & 92 \\
+\end{bmatrix}
+- with inner(A, B)
+    + $$ \begin{bmatrix}
+1*11 + 2*12 & 1*13 + 2*14 \\
+3*11 + 4*12 & 3*13 + 4*14 \\
+\end{bmatrix} = \begin{bmatrix}
+35 & 41 \\
+81 & 95 \\
+\end{bmatrix}
+$$
+
+---
