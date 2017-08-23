@@ -11,11 +11,18 @@ categories: [LaTeX]
 
 ---
 
-#### vector 및 집합의 표기
+#### 벡터, 스칼라, 집합 등 표기법
 
 ```
 $$\mathbf{x}$$
 $$\vec{x}$$
 $$R$$
+$$ y \in R $$
 ```
-$$\mathbf{x}$$, $$\vec{x}$$, $$R$$
+- $$\mathbf{x}$$
+- $$\vec{x}$$
+- $$R$$
+- $$ y \in R $$
+
+---
+
