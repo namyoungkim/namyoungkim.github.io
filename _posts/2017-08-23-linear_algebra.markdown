@@ -112,3 +112,27 @@ array([[35, 41],
 ---
 
 #### NumPy Matrix
+{% highlight python %}
+A = np.matrix([[1.,2], [3,4], [5,6]])
+A
+{% endhighlight %}
+
+```
+matrix([[ 1.,  2.],
+        [ 3.,  4.],
+        [ 5.,  6.]])
+```
+
+{% highlight python %}
+B = np.matrix("1.,2; 3,4; 5,6")
+{% endhighlight %}
+
+```
+matrix([[ 1.,  2.],
+        [ 3.,  4.],
+        [ 5.,  6.]])
+```
+- np.matrix()로 데이터를 input하는 방법은 위와 같다.
+  + 주로 `np.matrix([[1.,2], [3,4], [5,6]])`를 많이 사용
+
+---
