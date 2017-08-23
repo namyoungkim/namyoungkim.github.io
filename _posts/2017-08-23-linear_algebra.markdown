@@ -18,3 +18,16 @@ categories: [Linear_Algebra]
 - 하나의 열
 - feature 하나의 값, 혹은 target 하나의 값
 - $$ y \in R $$
+    - `y` : Scalar
+
+#### Vector
+- Column Vector
+- $$ x \in R^N = R^{N\times 1} $$
+- $$ \mathbf{x} = [x_n]
+ = \begin{bmatrix}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{N} \\
+\end{bmatrix}
+$$
