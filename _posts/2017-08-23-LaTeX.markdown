@@ -12,17 +12,14 @@ categories: [LaTeX]
 ---
 
 #### 벡터, 스칼라, 집합 등 표기법
-
-```
-$$\mathbf{x}$$
-$$\vec{x}$$
-$$R$$
-$$ y \in R $$
-```
 - $$\mathbf{x}$$
+    + `$$\mathbf{x}$$`
 - $$\vec{x}$$
+    + `$$\vec{x}$$`
 - $$R$$
+    + `$$R$$`
 - $$ y \in R $$
+    + `$$ y \in R $$`
 
 ---
 
