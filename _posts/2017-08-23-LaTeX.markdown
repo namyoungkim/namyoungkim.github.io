@@ -10,6 +10,7 @@ categories: [LaTeX]
 - `$$` : 지금 블로그에서는 `$$` 두 개를 수식 전, 후에 붙여서 써주어야 한다.
 
 ##### vector의 표기
+
 {% highlight %}
 $$\mathbf{x}$$
 $$\vec{x}$$
