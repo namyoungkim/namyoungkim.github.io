@@ -73,6 +73,6 @@ x_1.reshape(5, 1)
 x_1.T
 x_1[:, np.newaxis]
 {% endhighlight %}
-- $$\vec{x_1}$$ → $$\vec{x}$$
+- $$\mathbf{x_1}$$ → $$\mathbf{x}$$
     - 위 방법을 사용하면 행 벡터를 열 벡터로 변경할 수 있다.
     - x.reshape(행, 렬)
