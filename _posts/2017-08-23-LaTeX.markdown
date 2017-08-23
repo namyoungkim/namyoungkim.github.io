@@ -12,6 +12,7 @@ categories: [LaTeX]
 ---
 
 #### vector의 표기
+
 ```
 $$\mathbf{x}$$
 $$\vec{x}$$
