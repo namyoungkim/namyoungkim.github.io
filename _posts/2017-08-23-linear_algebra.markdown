@@ -25,7 +25,7 @@ categories: [Linear_Algebra]
     + 컬럼열이 벡터가 되도록 배열한다.(아래로 / 열로)
 - 행 → 샘플 1개의 정보
 - $$ x \in R^N = R^{N\times 1} $$
-- $$ \mathbf{x} = [x_n], (n = 1, \dot, N)
+- $$ \mathbf{x} = [x_n], (n = 1, \dotsi, N)
  = \begin{bmatrix}
 x_{1} \\
 x_{2} \\
