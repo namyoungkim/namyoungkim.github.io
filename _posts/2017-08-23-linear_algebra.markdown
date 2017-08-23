@@ -110,8 +110,7 @@ array([[35, 41],
 \end{bmatrix}, B = \begin{bmatrix}
 11 & 12 \\
 13 & 14 \\
-\end{bmatrix} 
-$$
+\end{bmatrix} $$
 - with dot(A, B)
     + $$ \begin{bmatrix}
 1*11 + 2*13 & 1*12 + 2*14 \\
@@ -119,8 +118,7 @@ $$
 \end{bmatrix} = \begin{bmatrix}
 37 & 40 \\
 85 & 92 \\
-\end{bmatrix}
-$$
+\end{bmatrix} $$
 - with inner(A, B)
     + $$ \begin{bmatrix}
 1*11 + 2*12 & 1*13 + 2*14 \\
@@ -128,8 +126,7 @@ $$
 \end{bmatrix} = \begin{bmatrix}
 35 & 41 \\
 81 & 95 \\
-\end{bmatrix}
-$$
+\end{bmatrix} $$
 
 ---
 
