@@ -149,7 +149,9 @@ x = np.matrix([10., 20.])
 matrix([[ 10.,  20.]])
 ```
 
-- Here is an example for matrix and vector multiplication:
+---
+
+#### Here is an example for matrix and vector multiplication:
 {% highlight python %}
 x = np.matrix("4.;5.")
 x_1 = np.matrix([[4.], [5.]])
@@ -172,5 +174,43 @@ matrix([[ 1.,  2.],
         [ 5.,  6.]])
 ```
 - `""`를 활용하여 input할 경우 소수점을 첫 원소에만 찍으면, 나머지 원소는 자동으로 찍힌다.
+
+{% highlight python %}
+A
+x
+A*x
+{% endhighlight %}
+
+```
+matrix([[ 1.,  2.],
+        [ 3.,  4.],
+        [ 5.,  6.]])
+matrix([[ 4.],
+        [ 5.]])
+matrix([[ 14.],
+        [ 32.],
+        [ 50.]])
+```
+- matrix로 넣었을 경우 행렬의 연산(`*`)을 실행시키면 행렬의 곱이 출력된다.
+
+---
+
+#### For vectors, indexing requires two indices:
+- $$ A = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \\ 5 \;\;\;\; 6 \\ \end{bmatrix} $$
+
+{% highlight python %}
+A[0,0]
+A[0,1]
+A[1,1]
+A[2,1]
+{% endhighlight %}
+
+```
+1.0
+2.0
+4.0
+6.0
+```
+- `A[행-1, 열-1]`로 인덱싱하면 된다.
 
 ---
