@@ -112,7 +112,7 @@ array([[35, 41],
 13 & 14 \\
 \end{bmatrix} 
 $$
-- $$ with dot(A, B)
+- with dot(A, B)
     + $$ \begin{bmatrix}
 1*11 + 2*13 & 1*12 + 2*14 \\
 3*11 + 4*13 & 3*12 + 4*14 \\
@@ -120,6 +120,7 @@ $$
 37 & 40 \\
 85 & 92 \\
 \end{bmatrix}
+$$
 - with inner(A, B)
     + $$ \begin{bmatrix}
 1*11 + 2*12 & 1*13 + 2*14 \\
@@ -131,3 +132,5 @@ $$
 $$
 
 ---
+
+#### NumPy Matrix
