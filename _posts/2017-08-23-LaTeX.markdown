@@ -12,13 +12,12 @@ categories: [LaTeX]
 ---
 
 #### vector의 표기
-{% highlight %}
+```
 $$\mathbf{x}$$
 $$\vec{x}$$
 $$R$$
-{% endhighlight %}
+```
 - $$\mathbf{x}$$
-    - mathbf식 벡터 표기
 - $$\vec{x}$$
 - $$R$$
 
