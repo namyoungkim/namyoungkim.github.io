@@ -17,15 +17,13 @@ categories: [Linear_Algebra]
 #### Scalar
 - 하나의 열
 - feature 하나의 값, 혹은 target 하나의 값
-- 아래 `y` : Scalar
+- `y` : Scalar
 - $$ y \in R $$
-
----
 
 #### Vector
 - Column Vector
     + 컬럼열이 벡터가 되도록 배열한다.(아래로 / 열로)
-    + `cf` 행 → 샘플 1개의 정보
+`cf` 행 → 샘플 1개의 정보
 - $$ x \in R^N = R^{N\times 1} $$
 - $$ \mathbf{x} = [x_n]
  = \begin{bmatrix}
@@ -35,5 +33,3 @@ x_{2} \\
 x_{N} \\
 \end{bmatrix}
 $$
-
----
