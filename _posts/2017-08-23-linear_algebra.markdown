@@ -2,7 +2,7 @@
 layout: post
 title:  "선형대수학 ①"
 date:   2017-08-23 11:36:23 +0700
-categories: [Linear_Algebra]
+categories: [Linear_Algebra, python, LaTeX]
 ---
 
 #### 표기법
@@ -33,3 +33,46 @@ x_{2} \\
 x_{N} \\
 \end{bmatrix}
 $$
+
+---
+
+#### `numpy`로 벡터 및 행렬을 구현해보자.
+
+{% highlight python %}
+import numpy as np
+
+import numpy as np
+
+x = np.array([1], [2], [3], [4], [5])
+x
+{% endhighlight %}
+
+```
+array([[1],
+       [2],
+       [3],
+       [4],
+       [5]])
+```
+- 위처럼 열 벡터가 되도록 데이터를 input
+
+{% highlight python %}
+x_1 = np.array([1, 2, 3, 4, 5])
+x_1
+{% endhighlight %}
+
+```
+array([1, 2, 3, 4, 5])
+```
+- 위와 같은 행 벡터는 열벡터로 변경해주어야 한다.
+
+---
+
+{% highlight python %}
+x_1.reshape(5, 1)
+x_1.T
+x_1[:, np.newaxis]
+{% endhighlight %}
+- $$mathbf{x_1}$$ → $$mathbf{x}$$
+    - 위 방법을 사용하면 행 벡터를 열 벡터로 변경할 수 있다.
+    - x.reshape(행, 렬)
