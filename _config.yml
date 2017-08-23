@@ -39,6 +39,7 @@ markdown: kramdown
 gems:
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-latex
 
 compress_html:
   clippings: all
