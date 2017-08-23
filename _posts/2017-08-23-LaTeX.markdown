@@ -8,3 +8,14 @@ categories: [LaTeX]
 #### LaTeX을 처음부터 하나씩 정리하기보다는, LaTeX 문법을 사용할 때 마다 정리할 예정이다.
 - `$` : 수식의 전, 후에 붙여 주면 된다.
 - `$$` : 지금 블로그에서는 `$$` 두 개를 수식 전, 후에 붙여서 써주어야 한다.
+
+##### vector의 표기
+{% highlight %}
+$$\mathbf{x}$$
+$$\vec{x}$$
+$$R$$
+{% endhighlight %}
+- $$\mathbf{x}$$
+    - mathbf식 벡터 표기
+- $$\vec{x}$$
+- $$R$$
