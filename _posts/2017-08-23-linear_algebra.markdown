@@ -283,4 +283,40 @@ array([[['a', 'b'],
 'f'
 ```
 
+#### 그렇다면 선형대수학에서의 Rank는 무엇일까?
+- 어떤 행렬 A의 열계수(column rank)는 선형독립인 열 벡터의 최대 개수이다.
+- 마찬가지로, 행계수(row rank)는 선형독립인 행 벡터의 최대 개수이다.
+- 행렬에서 열계수와 행계수는 항상 같으며, 이를 계수 정리(rank theorem)
+- 그렇다면, 우리가 구해야하는 Rank는 어떻게 구할지는 다음 포스팅에서 알아보도록 하자.
+
 ---
+
+#### Dot product, (자료 형태가 `array`인 경우)
+$$ A = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \end{bmatrix},\;\;\;
+b = \begin{bmatrix} 10 \;\;\;\; 20 \end{bmatrix} \;\;\; A b = \begin{bmatrix} 50 \;\;\;\; 110 \end{bmatrix} $$
+- 아래 코드는 위 계산이 된다.
+{% highlight pytho %}
+A = np.array([[1,2],[3,4]])
+b = np.array([10, 20])
+np.dot(A,b)
+{% endhighlight %}
+```
+array([ 50, 110])
+```
+
+- 행렬은 dimension이 맞아야 곱셈이 가능하다.
+- np.dot()은 행렬의 곱과 다르게 차원을 맞추지 않아도 위처럼 계산을 한다.
+- 올바른 행렬의 곱을 표현하기 위해서는 다음과 같이 행렬을 바꿔야 한다.
+$$ A = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \end{bmatrix}, \;\;\; b_{1} = \begin{bmatrix} 10 \\ 20 \end{bmatrix},\;\;\; Ab_{1} = \begin{bmatrix} 50 \\ 110 \end{bmatrix} $$
+
+{% highlight python %}
+b_1 = b.reshape(2,1)
+np.dot(A, b_1)
+{% endhighlight %}
+```
+array([[ 50],
+       [110]])
+```
+
+---
+
