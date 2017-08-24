@@ -256,9 +256,9 @@ array([32])
 
 ---
 
-#### ### Example: Weighted Sum(가중치의 합)
+#### Example: Weighted Sum(가중치의 합)
 - $$ \mathbf{y} = f(\mathbf{w}^T\phi(\mathbf{x})) $$
-- $$ w_1 x_1 + \cdots + w_D x_D = \sum_{i=1}^D w_i x_i = \begin{bmatrix} w_1 \;\;\;\; w_2 \;\;\;\; \cdots \;\;\;\; w_D \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_D \end{bmatrix} = \mathbf{w}^T\mathbf{x} = \begin{bmatrix} x_1 \;\;\;\; x_2 \;\;\;\; \cdots \;\;\;\; x_D \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} =\mathbf{x}^T\mathbf{w} $$
+- $$ w_1 x_1 + \cdots + w_D x_D = \sum_{i=1}^D w_i x_i = \begin{bmatrix} w_1 \;\;\;\; w_2 \;\;\;\; \cdots \;\;\;\; w_D \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_D \end{bmatrix} \\ = \mathbf{w}^T\mathbf{x} = \begin{bmatrix} x_1 \;\;\;\; x_2 \;\;\;\; \cdots \;\;\;\; x_D \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} =\mathbf{x}^T\mathbf{w} $$
 
 - Average를 구해보자.
 - $$ Mean = \sum xf(x) $$
@@ -292,3 +292,19 @@ mean_2
 - `mean`, `mean_2`를 비교하면 값이 같음을 알 수 있다.
 
 ---
+
+#### Example: Sum of Squares(제곱의 합)
+- $$
+x^Tx =
+\begin{bmatrix} x_{1} \;\;\;\; x_{2} \;\;\;\; \cdots \;\;\;\; x_{M} \end{bmatrix}
+\begin{bmatrix}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{M} \\
+\end{bmatrix} = \sum_{i=1}^{M} x_i^2
+$$
+
+{% highlight python %}
+
+{% endhighlight %}
