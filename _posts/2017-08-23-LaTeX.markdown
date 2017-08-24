@@ -58,6 +58,7 @@ $$
 - $$ F(X=x) $$
 - `$$ P ( \{ a \leq X < b \}) $$`
 - $$ P ( a \leq X < b ) $$
+- $$ P ( X < b ) $$
 - `$$ \dfrac{dF(x)}{dx} $$`
 - $$ \dfrac{dF(x)}{dx} $$
 
