@@ -58,9 +58,12 @@ $$
 - $$ F(X=x) $$
 - `$$ P ( \{ a \leq X \}) $$`
 - $$ P ( \{ a \leq X \}) $$
+    + `\le`, `\leq`, `\leqq`
 - `$$ P ( \{ a \geq X \}) $$`
 - $$ P ( \{ a \geq X \}) $$
 - `$$ \dfrac{dF(x)}{dx} $$`
 - $$ \dfrac{dF(x)}{dx} $$
 
 ---
+
+$$ < $$
