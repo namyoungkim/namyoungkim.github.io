@@ -69,7 +69,7 @@ array([[ 1.,  0.,  0.],
 
 - 행렬
     - 행과 열을 바꿈
-    - $$ A = \begin{bmatrix} a_{11} \;\;\;\; a_{12} \;\;\;\; \cdots \;\;\;\; a_{1M} \\ a_{21} \;\;\;\; a_{22} \;\;\;\; \cdots \;\;\;\; a_{2M} \\ \vdots \;\;\;\; \vdots \;\;\;\; \ddots \;\;\;\; \vdots \\ a_{N1} \;\;\;\; a_{N2} \;\;\;\; \cdots \;\;\;\; a_{NM} \\ \end{bmatrix}\; \rightarrow \; A^T = \begin{bmatr a_{11} \;\;\;\; a_{21} \;\;\;\; \cdots \;\;\;\; a_{N1} \\ a_{12} \;\;\;\; a_{22} \;\;\;\; \cdots \;\;\;\; a_{N2} \\ \vdots \;\;\;\; \vdots \;\;\;\; \ddots \;\;\;\; \vdots \\ a_{1M} \;\;\;\; a_{2M} \;\;\;\; \cdots \;\;\;\; a_{NM} \\ \end{bmatrix} $$
+    - $$ A = \begin{bmatrix} a_{11} \;\;\;\; a_{12} \;\;\;\; \cdots \;\;\;\; a_{1M} \\ a_{21} \;\;\;\; a_{22} \;\;\;\; \cdots \;\;\;\; a_{2M} \\ \vdots \;\;\;\; \vdots \;\;\;\; \ddots \;\;\;\; \vdots \\ a_{N1} \;\;\;\; a_{N2} \;\;\;\; \cdots \;\;\;\; a_{NM} \end{bmatrix}\; \rightarrow \; A^T = \begin{bmatrix} a_{11} \;\;\;\; a_{21} \;\;\;\; \cdots \;\;\;\; a_{N1} \\ a_{12} \;\;\;\; a_{22} \;\;\;\; \cdots \;\;\;\; a_{N2} \\ \vdots \;\;\;\; \vdots \;\;\;\; \ddots \;\;\;\; \vdots \\ a_{1M} \;\;\;\; a_{2M} \;\;\;\; \cdots \;\;\;\; a_{NM} \end{bmatrix} $$
     - $$ A \in R^{N \times M} \; \rightarrow \; A^T \in R^{M \times N} $$
 {% highlight python %}
 # -*- coding: utf-8 -*-
@@ -91,6 +91,7 @@ x.T
 array([1, 2, 3, 4, 5])
 ```
 - x처럼 행 벡터일 경우 `.T`를 해주어도 전치되지 않는다.
+
 ```
 x[:, np.newaxis]
 
@@ -102,6 +103,7 @@ array([[1],
 ```
 - `x[:, np.newaxis]`를 사용하여 전치시킬수 있다.
 - 가로(행) → 세로(열)로 바꿀 때는 위처럼 하나씩 인덱싱한 후 axis를 새로 만들어주어야 한다.
+
 ```
 x[:, np.newaxis].T
 
