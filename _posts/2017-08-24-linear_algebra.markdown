@@ -313,6 +313,7 @@ x = np.array([1, 2, 3, 4, 5])
 w = 1 / len(x) * np.ones(x.shape)
 mean_1 = np.dot(x,w)
 mean_2 = np.mean(x)
+mean = mean_1
 
 # 편향된(biased) sample variance
 var1 = np.dot((x - mean).T, x - mean) / len(x)
