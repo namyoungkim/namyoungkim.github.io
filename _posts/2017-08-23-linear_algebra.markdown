@@ -337,11 +337,11 @@ np.dot(A, B_1)
 
 #### Ax = b : numpy.linalg
 - Now we want to solve `Ax = b:`
-$$ A = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \end{bmatrix},\;\;\; b = \begin{bmatrix} 10 \\ 20 \end{bmatrix} $$
+-$$ A = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \end{bmatrix},\;\;\; b = \begin{bmatrix} 10 \\ 20 \end{bmatrix} $$
 
-$$ Ax = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \end{bmatrix}x = \begin{bmatrix} 10 \\ 20 \end{bmatrix} $$
+-$$ Ax = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \end{bmatrix}x = \begin{bmatrix} 10 \\ 20 \end{bmatrix} $$
 
-$$ x = \begin{bmatrix} 0 \\ 5 \end{bmatrix} $$
+-$$ x = \begin{bmatrix} 0 \\ 5 \end{bmatrix} $$
 - 위 수식을 계산하면 다음과 같다.
 {% highlight python %}
 
