@@ -418,4 +418,15 @@ array([  0.00000000e+00,   0.00000000e+00,   0.00000000e+00,
 
 #### Example: Residual Sum of Squares (RSS, 잔차 제곱의 합)
 - $$ \mathbf{e} = \mathbf{y} - \mathbf{X}\mathbf{w} $$
-* $$ \mathbf{e}^T\mathbf{e} = \sum_{i=1}^{N} (y_i - \mathbf{w}^Tx_i)^2 = (\mathbf{y} - \mathbf{X}\mathbf{w})^T (\mathbf{y}- \mathbf{X}\mathbf{w}) $$
+    - 잔차를 구한 값을 이용하여 잔차 제곱의 합을 계산하면 다음과 같다.
+- $$ \sum_{i=1}^N e_{i}^2 = \mathbf{e}^T\mathbf{e} = (\mathbf{y} - \mathbf{X}\mathbf{w})^T (\mathbf{y}- \mathbf{X}\mathbf{w}) $$
+- 잔차 제곱의 합 → `0`에 가까울 수록 우수함.
+
+{% highlight python %}
+np.dot(e.T,e)
+(e*e).sum()
+{% endhighlight %}
+- 잔차 제곱의 합을 행렬의 곱으로 구하는 방법
+- 각 원소를 제곱한 후 합을 하는 방법 두 가지가 있다.
+
+---
