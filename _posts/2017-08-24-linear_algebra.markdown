@@ -305,6 +305,35 @@ x_{M} \\
 \end{bmatrix} = \sum_{i=1}^{M} x_i^2
 $$
 
+- 편차 제곱의 합의 평균 = Variance(분산)
+- $$ E((x-\mu)^2) = Var(x) $$
 {% highlight python %}
+# mean은 아래와 같이 두가지 방법으로 계산 가능하다.
+x = np.array([1, 2, 3, 4, 5])
+w = 1 / len(x) * np.ones(x.shape)
+mean_1 = np.dot(x,w)
+mean_2 = np.mean(x)
 
+# 편향된(biased) sample variance
+var1 = np.dot((x - mean).T, x - mean) / len(x)
+print(var1)
+var2 = np.var(x)
+print(var2)
+
+2.0
+2.0
+
+# 비편향된(unbiased) sample variance
+var3 = np.dot((x - mean).T, x - mean) / (len(x) - 1)
+print(var3)
+var4 = np.var(x, ddof=1)
+print(var4)
+
+2.5
+2.5
 {% endhighlight %}
+- `np.dot((x - mean).T, x - mean) / len(x)` = $$ \dfrac{(\mathbf{x}-\mu)^T(\mathbf{x}-\mu)}{5}  = E((x-\mu)^2) $$
+- 표본이므로, 비편향된 표본 분산을 구해야한다.
+    + 평균에서 자유도를 하나 썼으므로, `n-1`개로 나누어 계산한다.
+
+---
