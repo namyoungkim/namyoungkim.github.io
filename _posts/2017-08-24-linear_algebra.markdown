@@ -368,8 +368,7 @@ C
 #### Example: Weighted Sum Vector
 
 - $$ x_{11}  w_1 +  x_{12}  w_2 + \cdots + x_{1D}  w_D = \begin{bmatrix} x_{11} \;\;\;\; x_{12} \;\;\;\; \cdots \;\;\;\; x_{1D} \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} = \mathbf{x}_1^T \mathbf{w} $$
-- $$ \begin{bmatrix} x_{11}  w_1 +  x_{12}  w_2 + \cdots + x_{1D}  w_D \\ x_{21}  w_1 +  x_{22}  w_2 + \cdots + x_{2D}  w_D \\ \vdots  \\ x_{N1}  w_1 +  x_{N2}  w_2 + \cdots + x_{ND}  w_D \\ \end{bmatrix} = \begin{bmatrix} x_{11} \;\;\;\; x_{12} \;\;\;\; \cdots \;\;\;\; x_{1D} \\ x_{21} \;\;\;\; x_{22} \;\;\;\; \cdots \;\;\;\; x_{2D} \\ \vdots \;\;\;\; \vdots \;\;\;\; \vdots \;\;\;\; \vdots \\ x_{N1} \;\;\;\; x_{N2} \;\;\;\; \cdots \;\;\;\; x_{ND} \\ \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} $$
-- $$ = \begin{bmatrix} \mathbf{x}_1^T \\ \mathbf{x}_2^T \\ \vdots \\ \mathbf{x}_N^T \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} = \mathbf{X} \mathbf{w} $$
+- $$ \begin{bmatrix} x_{11}  w_1 +  x_{12}  w_2 + \cdots + x_{1D}  w_D \\ x_{21}  w_1 +  x_{22}  w_2 + \cdots + x_{2D}  w_D \\ \vdots  \\ x_{N1}  w_1 +  x_{N2}  w_2 + \cdots + x_{ND}  w_D \\ \end{bmatrix} = \begin{bmatrix} x_{11} \;\;\;\; x_{12} \;\;\;\; \cdots \;\;\;\; x_{1D} \\ x_{21} \;\;\;\; x_{22} \;\;\;\; \cdots \;\;\;\; x_{2D} \\ \vdots \;\;\;\; \vdots \;\;\;\; \vdots \;\;\;\; \vdots \\ x_{N1} \;\;\;\; x_{N2} \;\;\;\; \cdots \;\;\;\; x_{ND} \\ \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} \\ = \begin{bmatrix} \mathbf{x}_1^T \\ \mathbf{x}_2^T \\ \vdots \\ \mathbf{x}_N^T \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} = \mathbf{X} \mathbf{w} $$
 - 위처럼 데이터셋 → $$ \mathbf{X} $$로 두고 가중치 벡터$$ \mathbf{w}$$ 와 행렬 곱으로 표현 가능함.
 
 ---
@@ -377,8 +376,10 @@ C
 #### Example: Residual Error(잔차)
 - $$ e_i = y_i - \mathbf{w}^T\mathbf{x}_i $$
 - 벡터의 곱은 스칼라이다. 이것을 응용하여 아래 잔차값을 구해보자.
-- $$ \mathbf{e} = \begin{bmatrix} e_{1} \\ e_{2} \\ \vdots \\ e_{M} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{w}^T \mathbf{x}_{1} \\ \mathbf{w}^T \mathbf{x}_{2} \\ \vdots \\ \mathbf{w}^T \mathbf{x}_{M} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{x}^T_{1}\mathbf{w} \\ \mathbf{x}^T_{2}\mathbf{w} \\ \vdots \\ \mathbf{x}^T_{M}\mathbf{w} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{x}^T_{1} \\ \mathbf{x}^T_{2} \\ \vdots \\ \mathbf{x}^T_{M} \end{bmatrix} \mathbf{w} \\ = \mathbf{y} - \mathbf{X}\mathbf{w} $$
+- $$ \mathbf{e} = \begin{bmatrix} e_{1} \\ e_{2} \\ \vdots \\ e_{M} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{w}^T \mathbf{x}_{1} \\ \mathbf{w}^T \mathbf{x}_{2} \\ \vdots \\ \mathbf{w}^T \mathbf{x}_{M} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{x}^T_{1}\mathbf{w} \\ \mathbf{x}^T_{2}\mathbf{w} \\ \vdots \\ \mathbf{x}^T_{M}\mathbf{w} \end{bmatrix} \\ = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{x}^T_{1} \\ \mathbf{x}^T_{2} \\ \vdots \\ \mathbf{x}^T_{M} \end{bmatrix} \mathbf{w} = \mathbf{y} - \mathbf{X}\mathbf{w} $$
 - $$ \mathbf{w}^T\mathbf{x}_i = \mathbf{x}_i^T\mathbf{w} $$이므로 위처럼 식이 변경된다.
+    + $$ (AB)^T = B^T A^T $$
+    + $$ (\mathbf{w}^T\mathbf{x})^T = \mathbf{x}^T \mathbf{w} $$
 - 잔차를 구하는 식을 정리하면 다음과 같다.
 - $$ \mathbf{e} = \mathbf{y} - \mathbf{X}\mathbf{w} $$
 
@@ -411,6 +412,10 @@ array([  0.00000000e+00,   0.00000000e+00,   0.00000000e+00,
          1.42108547e-14])
 {% endhighlight %}
 - `make_regression(행,열)`
-- `w = np.linalg.lstsq(X, y)[0]`
+- `weight = np.linalg.lstsq(X, y)[0]`
 
 ---
+
+#### Example: Residual Sum of Squares (RSS, 잔차 제곱의 합)
+- $$ \mathbf{e} = \mathbf{y} - \mathbf{X}\mathbf{w} $$
+* $$ \mathbf{e}^T\mathbf{e} = \sum_{i=1}^{N} (y_i - \mathbf{w}^Tx_i)^2 = (\mathbf{y} - \mathbf{X}\mathbf{w})^T (\mathbf{y}- \mathbf{X}\mathbf{w}) $$
