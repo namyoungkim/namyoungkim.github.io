@@ -390,7 +390,7 @@ quad(f, 0., 3.)
 - `quad(함수, 시작, 끝)`
 - (적분의 값, 예상 오차)를 출격해준다.
 
-- lambda를 사용하면 더 효과적이다.
+- 'lambda'를 사용하면 더 효과적이다.
 {% highlight python %}
 from scipy.integrate import quad
 
