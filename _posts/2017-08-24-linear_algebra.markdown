@@ -213,7 +213,7 @@ array([[50, 52, 54, 56, 58],
 - $$ \mathbf{x} \in R^{N \times 1}, \;\; \mathbf{y} \in R^{N \times 1} \rightarrow \mathbf{x}^T\mathbf{y} \in R^{1 \times 1} $$
     + $$ R^{1 \times 1} = R $$ 실수값(스칼라)
 - $$\bbox[15px, border:2px solid darkred]{\mathbf{x}^T\mathbf{y} = \mathbf{y}^T\mathbf{x} = \mathbf{x}\cdot\mathbf{y}}$$
-    + pf) $$\mathbf{y}^T\mathbf{x} = \begin{bmatrix} y_1 \;\;\;\; y_2 \;\;\;\; \cdots \;\;\;\; y_N \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_N \end{bmatrix} = \sum{i=1}^N y_{i}x_{i} $$
+    + **pf)** $$\mathbf{y}^T\mathbf{x} = \begin{bmatrix} y_1 \;\;\;\; y_2 \;\;\;\; \cdots \;\;\;\; y_N \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_N \end{bmatrix} = \sum{i=1}^N y_{i}x_{i} $$
     + `내적(inner product)`의 값과 같다.
 
 ---
