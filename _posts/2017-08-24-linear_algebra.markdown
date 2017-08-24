@@ -369,3 +369,8 @@ C
 
 - $$ x_{11}  w_1 +  x_{12}  w_2 + \cdots + x_{1D}  w_D = \begin{bmatrix} x_{11} \;\;\;\; x_{12} \;\;\;\; \cdots \;\;\;\; x_{1D} \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} = \mathbf{x}_1^T \mathbf{w} $$
 - $$ \begin{bmatrix} x_{11}  w_1 +  x_{12}  w_2 + \cdots + x_{1D}  w_D \\ x_{21}  w_1 +  x_{22}  w_2 + \cdots + x_{2D}  w_D \\ \vdots  \\ x_{N1}  w_1 +  x_{N2}  w_2 + \cdots + x_{ND}  w_D \\ \end{bmatrix} = \begin{bmatrix} x_{11} \;\;\;\; x_{12} \;\;\;\; \cdots \;\;\;\; x_{1D} \\ x_{21} \;\;\;\; x_{22} \;\;\;\; \cdots \;\;\;\; x_{2D} \\ \vdots \;\;\;\; \vdots \;\;\;\; \vdots \;\;\;\; \vdots \\ x_{N1} \;\;\;\; x_{N2} \;\;\;\; \cdots \;\;\;\; x_{ND} \\ \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} = \begin{bmatrix} \mathbf{x}_1^T \\ \mathbf{x}_2^T \\ \vdots \\ \mathbf{x}_N^T \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} = \mathbf{X} \mathbf{w} $$
+- 위처럼 데이터셋 → $$ \mathbf{X} $$로 두고 가중치 벡터$$ \mathbf{w}와 행렬 곱으로 표현 가능함.
+
+---
+
+#### Example: Residual Error(잔차)
