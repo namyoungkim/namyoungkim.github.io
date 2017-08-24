@@ -30,3 +30,32 @@ np.matrix('1,2,3,;4,5,6')
 ---
 
 #### Diagonal Matrix 대각 행렬
+- 대각행렬은 무조건 `정방행렬`이다!!
+- $$ D \in R^{N \times N} $$
+- $$ D = \begin{bmatrix} D_1 \;\;\;\; 0  \;\;\;\; \cdots \;\;\;\; 0 \\ 0 \;\;\;\; D_2  \;\;\;\; \cdots \;\;\;\; 0 \\ \vdots \;\;\;\; \vdots  \;\;\;\; \ddots \;\;\;\; \vdots \\ 0 \;\;\;\; 0  \;\;\;\; 0 \;\;\;\; D_N \end{bmatrix} $$
+{% highlight python %}
+np.diag([1,2,3])
+{% endhighlight %}
+```
+array([[1, 0, 0],
+       [0, 2, 0],
+       [0, 0, 3]])
+```
+
+---
+
+#### Identity Matrix(단위행렬 : I)
+- $$ I \in R^{N \times N} $$
+- $$ I = \begin{bmatrix} 1 \;\;\;\; 0 \;\;\;\; \cdots \;\;\;\; 0 \\ 0 \;\;\;\; 1 \;\;\;\; \cdots \;\;\;\; 0 \\ \vdots \;\;\;\; \vdots \;\;\;\; \ddots \;\;\;\; \cdots \\ 0 \;\;\;\; 0 \;\;\;\; \cdots \;\;\;\; 1 \end{bmatrix} $$
+{% highlight python %}
+np.identity(3)
+np.eye(3)
+{% endhighlight %}
+```
+array([[ 1.,  0.,  0.],
+       [ 0.,  1.,  0.],
+       [ 0.,  0.,  1.]])
+```
+- `np.identity`, `np.eye` 무엇을 쓰든 결과는 동일하다.
+
+---
