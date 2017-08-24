@@ -59,3 +59,17 @@ array([[ 1.,  0.,  0.],
 - `np.identity`, `np.eye` 무엇을 쓰든 결과는 동일하다.
 
 ---
+
+#### Transpose 전치
+- 행과 열을 바꾸는 것
+* 벡터
+    - 열벡터 → 행벡터로 변환
+    - $$ \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_N \end{bmatrix} \rightarrow \mathbf{x}^T = \begin{bmatrix} x_1 \;\;\;\; x_2 \;\;\;\; \cdots \;\;\;\; x_N \end{bmatrix} $$
+    - $$ \mathbf{x} \in R^{N \times 1} \rightarrow \mathbf{x}^T \in R^{1 \times N} $$
+
+- 행렬
+    - 행과 열을 바꿈
+    - $$ A = \begin{bmatrix} a_{11} \;\;\;\; a_{12} \;\;\;\; \cdots \;\;\;\; a_{1M} \\ a_{21} \;\;\;\; a_{22} \;\;\;\; \cdots \;\;\;\; a_{2M} \\ \vdots \;\;\;\; \vdots \;\;\;\; \ddots \;\;\;\; \vdots \\ a_{N1} \;\;\;\; a_{N2} \;\;\;\; \cdots \;\;\;\; a_{NM} \\ \end{bmatrix}\; \rightarrow \; A^T = \begin{bmatr a_{11} \;\;\;\; a_{21} \;\;\;\; \cdots \;\;\;\; a_{N1} \\ a_{12} \;\;\;\; a_{22} \;\;\;\; \cdots \;\;\;\; a_{N2} \\ \vdots \;\;\;\; \vdots \;\;\;\; \ddots \;\;\;\; \vdots \\ a_{1M} \;\;\;\; a_{2M} \;\;\;\; \cdots \;\;\;\; a_{NM} \\ \end{bmatrix} $$
+    - $$ A \in R^{N \times M} \; \rightarrow \; A^T \in R^{M \times N} $$
+
+
