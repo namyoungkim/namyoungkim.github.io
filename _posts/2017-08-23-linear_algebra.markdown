@@ -354,3 +354,47 @@ x = solve(A,b)
 {% endhighlight %}
 
 ---
+
+#### eigen values and vectors
+{% highlight python %}
+import numpy as np
+from numpy.linalg import eig
+
+A = np.array([[1,2],[3,4]])
+eig(A)
+eigen_val, eigen_vec = eig(A)
+eigen_val
+eigen_vec
+{% endhighlight %}
+- The eig returns two tuples:
+  - the first one is the eigen values
+  - the second one is a matrix whose columns are the two eigen vectors.
+
+---
+
+#### Quadrature
+- We want to solve
+- $$ \int_0^3 x^4 = \frac{243}{4} $$
+- `scupy`의 `quad` 메소드를 쓰면 쉽게 적분값을 구할수 있다.
+{% highlight python %}
+from scipy.integrate import quad
+
+def f(x):
+    return(x**4)
+
+quad(f, 0., 3.)
+{% endhighlight %}
+```
+(48.599999999999994, 5.39568389967826e-13)
+```
+- `quad(함수, 시작, 끝)`
+- (적분의 값, 예상 오차)를 출격해준다.
+
+- lambda를 사용하면 더 효과적이다.
+{% highlight python %}
+from scipy.integrate import quad
+
+quad(lambda x: x**4, 0, 3)
+{% endhighlight %}
+
+---
