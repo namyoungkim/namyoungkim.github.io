@@ -381,4 +381,35 @@ C
 - 잔차를 구하는 식을 정리하면 다음과 같다.
 - $$ \mathbf{e} = \mathbf{y} - \mathbf{X}\mathbf{w} $$
 
+{% highlight python %}
+
+from sklearn.datasets import make_regression
+
+X, y = make_regression(4,3)
+# sklearn.datasets을 사용하여, 4*3의 X와 y(4*1)의 데이터셋을 생성
+
+w = np.linalg.lstsq(X, y)[0]
+# Weight 계산
+
+print(X)
+[[ 0.35387702  0.87623926  0.02360378]
+ [-0.06080319 -0.662885    0.19588488]
+ [ 0.53977747  0.76855047  0.05566022]
+ [ 0.80813482  0.70582571 -0.51108094]]
+
+
+print(w)
+[ 88.0433082   73.86021281  34.43485323]
+
+print(y)
+[  96.68851479  -47.56887356  106.20574679  105.68430231]
+
+e = y - np.dot(X, w)
+e
+array([  0.00000000e+00,   0.00000000e+00,   0.00000000e+00,
+         1.42108547e-14])
+{% endhighlight %}
+- `make_regression(행,열)`
+- `w = np.linalg.lstsq(X, y)[0]`
+
 ---
