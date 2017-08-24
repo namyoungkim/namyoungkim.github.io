@@ -56,8 +56,10 @@ $$
 - $$ \int_a^b f(X) dx $$
 - `$$ F(X=x) $$`
 - $$ F(X=x) $$
-- `$$ P ( \{ a \leq X < b \}) $$`
-- $$ P(a \leq X) $$
+- `$$ P ( \{ a \leq X \}) $$`
+- $$ P ( \{ a \leq X \}) $$
+- `$$ P ( \{ a \geq X \}) $$`
+- $$ P ( \{ a \geq X \}) $$
 - `$$ \dfrac{dF(x)}{dx} $$`
 - $$ \dfrac{dF(x)}{dx} $$
 
