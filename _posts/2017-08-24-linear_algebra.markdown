@@ -140,3 +140,6 @@ array([[1, 2, 3],
 ---
 
 #### Matrix를 Column vector 와 Row vector로 표현해보자.
+- for column vector $$ c_i \; \in R^{M \times 1},\;\;r_i \; \in R^{N \times 1},\;\;X \in R^{M \times N} $$
+- $$c_i = r_i^T$$
+- $$ X = \begin{bmatrix} c_1 \;\;\;\; c_2 \;\;\;\; \cdots \;\;\;\; c_N \end{bmatrix} = \begin{bmatrix} r_1^T \\ r_2^T \\ \cdots \\ r_M^T \end{bmatrix} $$
