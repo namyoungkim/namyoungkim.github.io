@@ -142,7 +142,7 @@ array([[1, 2, 3],
 #### Matrix를 Column vector 와 Row vector로 표현해보자.
 - for column vector $$ c_i \; \in R^{M \times 1},\;\;r_i \; \in R^{N \times 1},\;\;X \in R^{M \times N} $$
 - $$c_i = r_i^T$$
-- $$ X = \begin{bmatrix} c_1 \;\;\;\; c_2 \;\;\;\; \cdots \;\;\;\; c_N \end{bmatrix} = \begin{bmatrix} r_1^T \\ r_2^T \\ \cdots \\ r_M^T \end{bmatrix} $$
+- $$ X = \begin{bmatrix} c_1 \;\;\;\; c_2 \;\;\;\; \cdots \;\;\;\; c_N \end{bmatrix} = \begin{bmatrix} r_1^T \\ r_2^T \\ \vdots \\ r_M^T \end{bmatrix} $$
 
 #### Example: Feature Matrix
 - $$ \mathbf{x_i} = \begin{bmatrix} x_{i1} \\ x_{i2} \\ \vdots \\ x_{iM} \end{bmatrix},\;\; (i=1,\cdots,N) $$
@@ -215,5 +215,80 @@ array([[50, 52, 54, 56, 58],
 - $$\bbox[15px, border:2px solid darkred]{\mathbf{x}^T\mathbf{y} = \mathbf{y}^T\mathbf{x} = \mathbf{x}\cdot\mathbf{y}}$$
     + **pf)** $$\mathbf{y}^T\mathbf{x} = \begin{bmatrix} y_1 \;\;\;\; y_2 \;\;\;\; \cdots \;\;\;\; y_N \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_N \end{bmatrix} = \sum_{i=1}^N y_{i}x_{i} $$
     + `내적(inner product)`의 값과 같다.
+
+{% highlight python %}
+x = np.array([1, 2, 3])
+y = np.array([4, 5, 6])
+x * y
+
+array([ 4, 10, 18])
+
+
+(x * y).sum()
+
+32
+
+
+np.dot(x, y)
+
+32
+
+x_1 = x[:, np.newaxis]
+x
+
+array([1, 2, 3])
+
+x_1
+
+array([[1],
+       [2],
+       [3]])
+
+np.matmul(x_1,y) # error, 차원이 맞지 않기 때문에
+
+np.matmul(y,x_1)
+array([32])
+{% endhighlight %}
+- `np.dot()`, `np.matmul()` → 행령 또는 벡터의 곱
+- 벡터가 둘 다 모두 행벡터인 경우 `np.dot()`, `np.matmul()` 값을 잘 뱉는다.
+- 열벡터가 하나라도 있으면 차원을 맞춰서 행렬곱을 해주어야 에러가 나지 않는다.
+- 또한 행과 열의 곱이면, 어레이가 하나씌여진 값을 출력한다. 
+
+---
+
+#### ### Example: Weighted Sum(가중치의 합)
+- $$ \mathbf{y} = f(\mathbf{w}^T\phi(\mathbf{x})) $$
+- $$ w_1 x_1 + \cdots + w_D x_D = \sum_{i=1}^D w_i x_i = \begin{bmatrix} w_1 \;\;\;\; w_2 \;\;\;\; \cdots \;\;\;\; w_D \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_D \end{bmatrix} = \mathbf{w}^T\mathbf{x} = \begin{bmatrix} x_1 \;\;\;\; x_2 \;\;\;\; \cdots \;\;\;\; x_D \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_D \end{bmatrix} =\mathbf{x}^T\mathbf{w} $$
+
+- Average를 구해보자.
+- $$ Mean = \sum xf(x) $$
+    + 확률변수 x에 확률을 곱한 값의 sum = 평균이라는 것을 활용해서 다음의 예를 풀어보자.
+{% highlight python %}
+x = np.array([1, 2, 3, 4, 5])
+w = 1 / len(x) * np.ones(x.shape)
+
+# 1 / len(x) -> 0.2
+# np.ones(x.shape) -> array([ 1.,  1.,  1.,  1.,  1.])
+
+x, w
+
+(array([1, 2, 3, 4, 5]), array([ 0.2,  0.2,  0.2,  0.2,  0.2]))
+
+
+mean = np.dot(w.T, x)
+mean
+
+3.0
+
+
+mean_2 = np.mean(x)
+mean_2
+
+3.0
+{% endhighlight %}
+- `np.dot(w.T, x)` 대신에 `np.dot(w, x)` 해도 동일한 값을 얻는다.
+- 앞에서 포스팅했듯이 행벡터는 자동으로 벡터의 곱을 해준다.
+- 또한, `w.T`를 해도 `w`는 전치되지 않는다.
+- `mean`, `mean_2`를 비교하면 값이 같음을 알 수 있다.
 
 ---
