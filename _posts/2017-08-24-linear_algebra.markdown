@@ -377,8 +377,7 @@ C
 #### Example: Residual Error(잔차)
 - $$ e_i = y_i - \mathbf{w}^T\mathbf{x}_i $$
 - 벡터의 곱은 스칼라이다. 이것을 응용하여 아래 잔차값을 구해보자.
-- $$ \mathbf{e} = \begin{bmatrix} e_{1} \\ e_{2} \\ \vdots \\ e_{M} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{w}^T \mathbf{x}_{1} \\ \mathbf{w}^T \mathbf{x}_{2} \\ \vdots \\ \mathbf{w}^T \mathbf{x}_{M} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{x}^T_{1}\mathbf{w} \\ \mathbf{x}^T_{2}\mathbf{w} \\ \vdots \\ \mathbf{x}^T_{M}\mathbf{w} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{x}^T_{1} \\ \mathbf{x}^T_{2} \\ \vdots \\ \mathbf{x}^T_{M} \end{bmatrix} \mathbf{w} $$
-- $$ = \mathbf{y} - \mathbf{X}\mathbf{w} $$
+- $$ \mathbf{e} = \begin{bmatrix} e_{1} \\ e_{2} \\ \vdots \\ e_{M} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{w}^T \mathbf{x}_{1} \\ \mathbf{w}^T \mathbf{x}_{2} \\ \vdots \\ \mathbf{w}^T \mathbf{x}_{M} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{x}^T_{1}\mathbf{w} \\ \mathbf{x}^T_{2}\mathbf{w} \\ \vdots \\ \mathbf{x}^T_{M}\mathbf{w} \end{bmatrix} = \begin{bmatrix} y_{1} \\ y_{2} \\ \vdots \\ y_{M} \end{bmatrix} - \begin{bmatrix} \mathbf{x}^T_{1} \\ \mathbf{x}^T_{2} \\ \vdots \\ \mathbf{x}^T_{M} \end{bmatrix} \mathbf{w} \\ = \mathbf{y} - \mathbf{X}\mathbf{w} $$
 - $$ \mathbf{w}^T\mathbf{x}_i = \mathbf{x}_i^T\mathbf{w} $$이므로 위처럼 식이 변경된다.
 - 잔차를 구하는 식을 정리하면 다음과 같다.
 - $$ \mathbf{e} = \mathbf{y} - \mathbf{X}\mathbf{w} $$
