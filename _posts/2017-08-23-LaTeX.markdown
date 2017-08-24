@@ -65,5 +65,11 @@ $$
 - $$ P ( \{ a \geq X \}) $$
 - `$$ \dfrac{dF(x)}{dx} $$`
 - $$ \dfrac{dF(x)}{dx} $$
+- `$$ \rightarrow $$`
+- $$ \rightarrow $$
+- `$$sum{i=1}^N$$`
+- $$sum{i=1}^N$$
+- `\bbox[15px, border:2px solid darkred]{x^T y = y^T x}`
+- \bbox[15px, border:2px solid darkred]{x^T y = y^T x}
 
 ---
