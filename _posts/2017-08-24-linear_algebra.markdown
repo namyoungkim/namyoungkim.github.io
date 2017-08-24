@@ -143,3 +143,12 @@ array([[1, 2, 3],
 - for column vector $$ c_i \; \in R^{M \times 1},\;\;r_i \; \in R^{N \times 1},\;\;X \in R^{M \times N} $$
 - $$c_i = r_i^T$$
 - $$ X = \begin{bmatrix} c_1 \;\;\;\; c_2 \;\;\;\; \cdots \;\;\;\; c_N \end{bmatrix} = \begin{bmatrix} r_1^T \\ r_2^T \\ \cdots \\ r_M^T \end{bmatrix} $$
+
+#### Example: Feature Matrix
+- $$ \mathbf{x_i} = \begin{bmatrix} x_{i1} \\ x_{i2} \\ \vdots \\ x_{iM} \end{bmatrix},\;\; (i=1,\cdots,N) $$
+- $$\mathbf{x_i}$$는 샘플 하나의 정보이다.
+    + $$(i=1,\cdots,N) $$이므로 sample의 갯수는 N개이다.
+- $$\mathbf{x_i}$$ 벡터 안의 원소는 sample 하나의 Feature 값이다.
+- $$ X = \begin{bmatrix} \mathbf{x_{1}^T} \\ \mathbf{x_{2}^T} \\ \vdots \\ \mathbf{x_{N}^T} \end{bmatrix} = \begin{bmatrix} x_{11} \;\;\;\; x_{12} \;\;\;\; \cdots \;\;\;\; x_{1M} \\ x_{21} \;\;\;\; x_{22} \;\;\;\; \cdots \;\;\;\; x_{2M} \\ \vdots \;\;\;\; \vdots \;\;\;\; \cdots \;\;\;\; \vdots \\ x_{i1} \;\;\;\; x_{i2} \;\;\;\; \cdots \;\;\;\; x_{iM} \\ \vdots \;\;\;\; \vdots \;\;\;\; \cdots \;\;\;\; \vdots \\ x_{N1} \;\;\;\; x_{N2} \;\;\;\; \cdots \;\;\;\; x_{NM} \end{bmatrix} $$
+
+---
