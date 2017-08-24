@@ -149,7 +149,7 @@ array([[1, 2, 3],
 - $$\mathbf{x_i}$$는 샘플 하나의 정보이다.
     + $$(i=1,\cdots,N) $$이므로 sample의 갯수는 N개이다.
 - $$\mathbf{x_i}$$ 벡터 안의 원소는 sample 하나의 Feature 값이다.
-- $$ X = \begin{bmatrix} \mathbf{x_{1}^T} \\ \mathbf{x_{2}^T} \\ \vdots \\ \mathbf{x_{N}^T} \end{bmatrix} = \begin{bmatrix} x_{11} \;\;\;\; x_{12} \;\;\;\; \cdots \;\;\;\; x_{1M} \\ x_{21} \;\;\;\; x_{22} \;\;\;\; \cdots \;\;\;\; x_{2M} \\ \vdots \;\;\;\; \vdots \;\;\;\; \cdots \;\;\;\; \vdots \\ x_{i1} \;\;\;\; x_{i2} \;\;\;\; \cdots \;\;\;\; x_{iM} \\ \vdots \;\;\;\; \vdots \;\;\;\; \cdots \;\;\;\; \vdots \\ x_{N1} \;\;\;\; x_{N2} \;\;\;\; \cdots \;\;\;\; x_{NM} \end{bmatrix} $$
+- $$ X = \begin{bmatrix} \mathbf{x_{1}^T} \\ \mathbf{x_{2}^T} \\ \vdots \\ \mathbf{x_{N}^T} \end{bmatrix} = \begin{bmatrix} x_{11} \;\;\;\; x_{12} \;\;\;\; \cdots \;\;\;\; x_{1M} \\ x_{21} \;\;\;\; x_{22} \;\;\;\; \cdots \;\;\;\; x_{2M} \\ \vdots \;\;\;\; \vdots \;\;\;\; \cdots \;\;\;\; \vdots \\ x_{i1} \;\;\;\; x_{i2} \;\;\;\; \ddots \;\;\;\; x_{iM} \\ \vdots \;\;\;\; \vdots \;\;\;\; \cdots \;\;\;\; \vdots \\ x_{N1} \;\;\;\; x_{N2} \;\;\;\; \cdots \;\;\;\; x_{NM} \end{bmatrix} $$
 
 ---
 
@@ -204,3 +204,14 @@ array([[50, 52, 54, 56, 58],
 {% endhighlight %}
 
 ---
+
+#### Vector Multiplication(벡터의 곱셈)
+- $$ \mathbf{x}^T\mathbf{y} = \begin{bmatrix} x_1 \;\;\;\; x_2 \;\;\;\; \cdots \;\;\;\; x_N \end{bmatrix} \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_N \end{bmatrix} = x_{1}y_{1} + \cdots + x_{N}y_{N} = \sum_{i=1}^N x_{i}y{i} $$
+- vector의 곱 → scalar
+- 기본적으로 열 벡터이므로 Transpose를 한 벡터를 앞에 두고 곱한다.
+    + 즉, 곱할수 있도록 변형한 상태에서 벡터의 곱을 하도록 한다.
+- $$ \mathbf{x} \in R^{N \times 1}, \;\; \mathbf{y} \in R^{N \times 1} \rightarrow \mathbf{x}^T\mathbf{y} \in R^{1 \times 1} $$
+    + $$ R^{1 \times 1} = R $$ 실수값(스칼라)
+- $$\mathbf{x}^T\mathbf{y} = \mathbf{y}^T\mathbf{x} = \mathbf{x}\cdot\mathbf{y}$$
+    + pf) $$\mathbf{y}^T\mathbf{x} = \begin{bmatrix} y_1 \;\;\;\; y_2 \;\;\;\; \cdots \;\;\;\; y_N \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_N \end{bmatrix} = \sum{i=1}^N y_{i}x_{i} $$
+    + `내적(inner product)`의 값과 같다.
