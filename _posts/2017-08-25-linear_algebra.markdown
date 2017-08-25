@@ -22,40 +22,40 @@ c3 = np.array([[0, 0, 3]]).T
 a = np.array([1, 2, 3])
 
 c1
-[[1]
- [1]
- [1]]
+    [[1]
+     [1]
+     [1]]
 
 c2
-[[0]
- [2]
- [2]]
+    [[0]
+     [2]
+     [2]]
 
 c3
-[[0]
- [0]
- [3]]
+    [[0]
+     [0]
+     [3]]
 
 a
-[1 2 3]
+    [1 2 3]
 
 a[0] * c1 + a[1] * c2 + a[2] * c3
-array([[ 1],
-       [ 5],
-       [14]])
+    array([[ 1],
+           [ 5],
+           [14]])
 
 C = np.hstack([c1, c2, c3])
 C
 
-array([[1, 0, 0],
-       [1, 2, 0],
-       [1, 2, 3]])
+    array([[1, 0, 0],
+           [1, 2, 0],
+           [1, 2, 3]])
 
 np.dot(C, a)
-array([ 1,  5, 14])
+    array([ 1,  5, 14])
 
 np.dot(a, C) 
-array([ 6, 10,  9])
+    array([ 6, 10,  9])
 {% endhighlight %}
 - `np.array()` → `[ ]`, `[[ ]]` 벡터와 매트릭스를 확인하고 데이터를 Input해야 한다.
     + `a` → 벡터
@@ -95,7 +95,7 @@ x.T
 # 1~9까지 수를 배열하고, (3,3)의 shape으로 재배열해라.
 A = np.arange(1, 10).reshape(3,3)
 A
-array([[1, 2, 3],
+    array([[1, 2, 3],
        [4, 5, 6],
        [7, 8, 9]])
 
@@ -115,3 +115,15 @@ np.dot(np.dot(x.T, A), x)
     array([[228]])
 {% endhighlight %}
 - $$\mathbf{x}^T \mathbf{A} \mathbf{x}$$ = `228`이다.
+
+---
+
+#### Exponential 지수 연산
+- 지수 연산은 power series를 이용한다.
+- $$ e^{\mathbf{X}} = \sum_{k=0}^\infty{1 \over k!}\mathbf{X}^k = I + \mathbf{X} + \dfrac{1}{2!}\mathbf{X}^2 + \dfrac{1}{3!}\mathbf{X}^3 + \cdots $$ 
+
+$$ e^0 = I $$
+
+$$ e^{aX} = e^a e^X $$
+- 만약 $XY = YX$ 이면
+$$ e^{X + Y} = e^X \cdot e^Y $$
