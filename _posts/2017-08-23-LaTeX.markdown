@@ -75,5 +75,7 @@ $$
 - $$\infty$$
 - `$${1 \over n!}$$`
 - $${1 \over n!}$$
+- `$$\bbox[15px, border:2px solid darkred]$$`
+- $$\bbox[15px, border:2px solid darkred]$$
 
 ---
