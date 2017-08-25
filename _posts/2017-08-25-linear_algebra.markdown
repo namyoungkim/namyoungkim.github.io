@@ -72,3 +72,5 @@ array([ 6, 10,  9])
 #### Quadratic Form (Weighted Sum of Squares)
 - $$ x^T A x = \begin{bmatrix} x_{1} \;\;\;\; x_{2} \;\;\;\; \cdots \;\;\;\; x_{N} \end{bmatrix} \begin{bmatrix} a_{11} \;\;\;\; a_{12} \;\;\;\; \cdots \;\;\;\; a_{1N} \\ a_{21} \;\;\;\; a_{22} \;\;\;\; \cdots \;\;\;\; a_{2N} \\
 \vdots \;\;\;\; \vdots \;\;\;\; \ddots \;\;\;\; \vdots \\ a_{N1} \;\;\;\; a_{N2} \;\;\;\; \cdots \;\;\;\; a_{NN} \\ \end{bmatrix} \begin{bmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{N} \end{bmatrix} \\ = a_{11} x_{1}^2 + \cdots + a_{NN} x_{N}^2 = \sum_{i=1}^{N} \sum_{j=1}^{N} a_{ij} x_i x_j $$
+
+- ex) $$ \mathbf{x} = \begin{bmatrix} 1 \;\;\;\; 2 \;\;\;\; 3 \end{bmatrix}^T \\ \mathbf{A} = \begin{bmatrix} 1 \;\;\;\; 2 \;\;\;\; 3 \\ 4 \;\;\;\; 5 \;\;\;\; 6 \\ 7 \;\;\;\; 8 \;\;\;\; 9 \end{bmatrix} $$ 이때, $$\mathbf{x}^T \mathbf{A} \\mathbf{x}$$ = ?
