@@ -12,6 +12,13 @@ layout: default
   </span>
 {% endif %}
 
+<div class="content">
+  <script type="text/javascript" async
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <div class="post">{{ content }}</div>
+
+</div>
 {% assign hasSimilar = '' %}
   {% for post in site.posts  %}
     {% assign postHasSimilar = false %}
