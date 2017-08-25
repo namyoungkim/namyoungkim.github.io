@@ -71,5 +71,9 @@ $$
 - $$\sum_{i=1}^N$$
 - `\bbox[15px, border:2px solid darkred]{x^T y = y^T x}`
 - \bbox[15px, border:2px solid darkred]{x^T y = y^T x}
+- `$$\infty$$`
+- $$\infty$$
+- `$${1 \over n!}$$`
+- $${1 \over n!}$$
 
 ---
