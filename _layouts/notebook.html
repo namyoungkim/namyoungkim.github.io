@@ -12,9 +12,14 @@ layout: default
   </span>
 {% endif %}
 
-{{ content }}
-
+<div class="content">
+  <script type="text/javascript" async
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <div class="post">{{ content }}</div>
+  {% include share-page.html %}
 </div>
+
 {% assign hasSimilar = '' %}
   {% for post in site.posts  %}
     {% assign postHasSimilar = false %}
@@ -59,7 +64,6 @@ layout: default
     var disqus_shortname = "{{ site.disqus_shortname }}";
     var disqus_identifier = "{{ site.url }}_{{ page.title }}";
     var disqus_title = "{{ page.title }}";
-
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
