@@ -117,19 +117,3 @@ np.dot(np.dot(x.T, A), x)
 - $$\mathbf{x}^T \mathbf{A} \mathbf{x}$$ = `228`이다.
 
 ---
-
-#### 행렬 지수 함수 & Exponential 지수 연산
-- 지수 연산은 power series를 이용한다.
-    + `power series`란?
-    + $$ e^{x} = \sum_{n=0}^\infty{1 \over n!}x^n = 1 + x + \dfrac{1}{2!}x^2 + \dfrac{1}{3!}x^3 + \cdots $$
-- 위의 식에 $$ x \leftarrow \mathbf{X}$$ 대입하면 다음과 같다.
-- $$ e^{\mathbf{X}} = \sum_{k=0}^\infty{1 \over k!}\mathbf{X}^k = I + \mathbf{X} + \dfrac{1}{2!}\mathbf{X}^2 + \dfrac{1}{3!}\mathbf{X}^3 + \cdots $$ 
-    + $$ \mathbf{X}^0 = \mathbf{I}$$ 라고 약속하자.
-- 또한,  $$e^{\mathbf{X}}$$를 `행렬 지수 함수`라고 한다.
-    + 행렬지수함수 $$ exp: M_{n \times n} \rightarrow M_{n \times n} $$은 정사각행렬을 다른 정사각행렬로 보내는 행렬 함수
-    + 위의 급수는 항상 수렴하므로, 행렬 지수는 항상 존재한다.
-- 행렬 지수 함수는 다음 성질을 만족한다.
-    - $$ e^{a\mathbf{X}} = e^a e^\mathbf{X} $$, a: 상수(스칼라)
-    - 만약 $$\mathbf{XY} = \mathbf{YX}$$ 이면
-        - $$ e^{\mathbf{X} + \mathbf{Y}} = e^\mathbf{X} \cdot e^\mathbf{Y} $$
-        - $$ e^{a\mathbf{X}}e^{b\mathbf{X}} = e^{(a+b)\mathbf{X}} $$
