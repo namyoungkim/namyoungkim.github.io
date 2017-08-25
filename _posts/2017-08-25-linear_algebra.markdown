@@ -122,10 +122,10 @@ np.dot(np.dot(x.T, A), x)
 - 지수 연산은 power series를 이용한다.
     + `power series`란?
     + $$ e^{x} = \sum_{n=0}^\infty{1 \over n!}x^n = 1 + x + \dfrac{1}{2!}x^2 + \dfrac{1}{3!}x^3 + \cdots , $$
-- 위의 식에 x ← \mathbf{X} 대입하면 다음과 같다.
+- 위의 식에 x ← $$\mathbf{X}$$ 대입하면 다음과 같다.
 - $$ e^{\mathbf{X}} = \sum_{k=0}^\infty{1 \over k!}\mathbf{X}^k = I + \mathbf{X} + \dfrac{1}{2!}\mathbf{X}^2 + \dfrac{1}{3!}\mathbf{X}^3 + \cdots $$ 
     + $$ \mathbf{X}^0 = \mathbf{I}$$ 라고 약속하자.
 - $$ e^0 = \mathbf{I} $$
 - $$ e^{a\mathbf{X}} = e^a e^\mathbf{X} $$
-- 만약 $\mathbf{XY} = \mathbf{YX}$ 이면
-$$ e^{\mathbf{X} + \mathbf{Y}} = e^\mathbf{X} \cdot e^\mathbf{Y} $$
+- 만약 $$\mathbf{XY} = \mathbf{YX}$$ 이면
+    - $$ e^{\mathbf{X} + \mathbf{Y}} = e^\mathbf{X} \cdot e^\mathbf{Y} $$
