@@ -120,10 +120,5 @@ np.dot(np.dot(x.T, A), x)
 
 #### Exponential 지수 연산
 - 지수 연산은 power series를 이용한다.
-- $$ e^{\mathbf{X}} = \sum_{k=0}^\infty{1 \over k!}\mathbf{X}^k = I + \mathbf{X} + \dfrac{1}{2!}\mathbf{X}^2 + \dfrac{1}{3!}\mathbf{X}^3 + \cdots $$ 
-
-$$ e^0 = I $$
-
-$$ e^{aX} = e^a e^X $$
-- 만약 $XY = YX$ 이면
-$$ e^{X + Y} = e^X \cdot e^Y $$
+    + `power series`란? $$ e^{x} = \sum_{n=0}^\infty{1 \over n!}x^n = 1 + x + \dfrac{1}{2!}x^2 + \dfrac{1}{3!}x^3 + \cdots , $$
+- $$ e^{\mathbf{X}} = \sum_{k=0}^\infty{1 \over k!}\mathbf{X}^k = I + \mathbf{X} + \dfrac{1}{2!}\mathbf{X}^2 + \dfrac{1}{3!}\mathbf{X}^3 + \cdots $$
