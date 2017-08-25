@@ -62,7 +62,7 @@ array([ 6, 10,  9])
     + `c1, c2, c3` → 행렬
 - `np.hstack()` → 열을 쌓는 메소드(`↓``↓``↓`)
 - `np.vstack()` → 행을 쌓는 메소드(`⇶`)
-- `np.dot(C, a)` → `a`가 행벡터이나 이 메소드는 행렬의 곱이 되도록 계산해준다.
+- `np.dot(C, a)`: `a`가 행벡터이나 이 메소드는 행렬의 곱이 되도록 배열을 스스로 변형하여 계산해준다.
     - `a`: `1 * 3`  
 - `np.dot(a, C)`
 - **행렬과 벡터의 곱은 배열을 항상 생각하고 연산을 해주어야 한다!**
@@ -73,4 +73,45 @@ array([ 6, 10,  9])
 - $$ x^T A x = \begin{bmatrix} x_{1} \;\;\;\; x_{2} \;\;\;\; \cdots \;\;\;\; x_{N} \end{bmatrix} \begin{bmatrix} a_{11} \;\;\;\; a_{12} \;\;\;\; \cdots \;\;\;\; a_{1N} \\ a_{21} \;\;\;\; a_{22} \;\;\;\; \cdots \;\;\;\; a_{2N} \\
 \vdots \;\;\;\; \vdots \;\;\;\; \ddots \;\;\;\; \vdots \\ a_{N1} \;\;\;\; a_{N2} \;\;\;\; \cdots \;\;\;\; a_{NN} \\ \end{bmatrix} \begin{bmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{N} \end{bmatrix} \\ = a_{11} x_{1}^2 + \cdots + a_{NN} x_{N}^2 = \sum_{i=1}^{N} \sum_{j=1}^{N} a_{ij} x_i x_j $$
 
-- ex) $$ \mathbf{x} = \begin{bmatrix} 1 \;\;\;\; 2 \;\;\;\; 3 \end{bmatrix}^T \\ \mathbf{A} = \begin{bmatrix} 1 \;\;\;\; 2 \;\;\;\; 3 \\ 4 \;\;\;\; 5 \;\;\;\; 6 \\ 7 \;\;\;\; 8 \;\;\;\; 9 \end{bmatrix} $$ 이때, $$\mathbf{x}^T \mathbf{A} \\mathbf{x}$$ = ?
+- ex) $$ \mathbf{x} = \begin{bmatrix} 1 \;\;\;\; 2 \;\;\;\; 3 \end{bmatrix}^T, \;\;\; \mathbf{A} = \begin{bmatrix} 1 \;\;\;\; 2 \;\;\;\; 3 \\ 4 \;\;\;\; 5 \;\;\;\; 6 \\ 7 \;\;\;\; 8 \;\;\;\; 9 \end{bmatrix} $$
+- 이때, $$\mathbf{x}^T \mathbf{A} \mathbf{x}$$ = ?
+- 코드로 구현해보면 다음과 같다.
+{% highlight python %}
+# -*- coding: utf-8 -*-
+
+import numpy as np
+
+x = np.array([[1,2,3]]).T
+# 대괄호 두 개를 넣어야 Transpose가 되므로 행렬형태로 넣었다.
+x
+
+    array([[1],
+       [2],
+       [3]])
+
+x.T
+    array([[1, 2, 3]])
+
+# 1~9까지 수를 배열하고, (3,3)의 shape으로 재배열해라.
+A = np.arange(1, 10).reshape(3,3)
+A
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+
+# x의 shape이 (3,1)이므로 (3,3)인 A와 행렬의 곱이 불가능하여 아래와 같이 Error가 발생함.
+np.dot(x, A)
+    ValueError: shapes (3,1) and (3,3) not aligned: 1 (dim 1) != 3 (dim 0)
+
+np.dot(A, x)
+    array([[14],
+       [32],
+       [50]])
+
+x.T.dot(A).dot(x)
+    array([[228]])
+
+np.dot(np.dot(x.T, A), x)
+    array([[228]])
+{% endhighlight %}
+- $$\mathbf{x}^T \mathbf{A} \mathbf{x}$$ = `228`이다.
