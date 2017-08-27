@@ -79,5 +79,7 @@ $$
 - $$\bbox[15px, border:2px solid darkred]{a}$$
 - `$$ \text{tr} (\mathbf{A})$$`
 - $$ \text{tr} (\mathbf{A})$$
+- `$$\left(  \log{x} \right)$$`
+- $$\left(  \log{x} \right)$$
 
 ---
