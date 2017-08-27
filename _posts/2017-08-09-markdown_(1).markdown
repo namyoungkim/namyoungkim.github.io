@@ -124,6 +124,11 @@ categories: [markdown]
 
 ![Alt Text](https://raw.githubusercontent.com/namyoungkim/namyoungkim.github.io/master/static/img/_posts/suzy.jpg)
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Tangent_to_a_curve.svg" style="width:40%; margin: 0 auto 0 auto;" >
+{% highlight markdown %}
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Tangent_to_a_curve.svg" style="width:40%; margin: 0 auto 0 auto;" >
+{% endhighlight %}
+
 ### 2.8. 표
 {% highlight markdown %}
 | 항목 1 | 항목 2 | 항목 3 | 항목 4 |
