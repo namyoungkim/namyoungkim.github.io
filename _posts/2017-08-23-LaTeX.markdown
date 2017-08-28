@@ -83,5 +83,21 @@ $$
 - $$\left(  \log{x} \right)$$
 - `$$ f_x(x,y) = \dfrac{\partial f}{\partial x} $$`
 - $$ f_x(x,y) = \dfrac{\partial f}{\partial x} $$
+- `$$\top$$`
+- $$\top$$
+- `$$\begin{eqnarray} \end{eqnarray} $$`
+- 방정식 앞뒤로 써주면 라인을 잡아준다.
+- `$$\left(\begin{matrix} a_{11}x_1x_1 + a_{12}x_1x_2 + \cdots + a_{1N}x_1x_N \\ a_{21}x_2x_1 + \cancel{a_{22}x_2x_2} + \cdots + \cancel{a_{2N}x_2x_N} + \\
+\cdots  \\ a_{N1}x_Nx_1 + \cancel{a_{N2}x_Nx_2} + \cdots + \cancel{a_{NN}x_Nx_N} \end{matrix} \right)$$`
+- $$\left(\begin{matrix} a_{11}x_1x_1 + a_{12}x_1x_2 + \cdots + a_{1N}x_1x_N + \\ a_{21}x_2x_1 + \cancel{a_{22}x_2x_2} + \cdots + \cancel{a_{2N}x_2x_N} + \\
+\cdots  \\ a_{N1}x_Nx_1 + \cancel{a_{N2}x_Nx_2} + \cdots + \cancel{a_{NN}x_Nx_N} \end{matrix} \right)$$
+- `$$\sigma$$`
+- $$\sigma$$
+- `$$\Sigma$$`
+- $$\Sigma$$
+- `$$x^{\ast}$$`
+- $$x^{\ast}$$
+- `$$\text{arg} \max_{x} f(x)$$`
+- $$\text{arg} \max_{x} f(x)$$
 
 ---
