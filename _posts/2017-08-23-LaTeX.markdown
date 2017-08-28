@@ -81,5 +81,7 @@ $$
 - $$ \text{tr} (\mathbf{A})$$
 - `$$\left(  \log{x} \right)$$`
 - $$\left(  \log{x} \right)$$
+- `$$ f_x(x,y) = \dfrac{\partial f}{\partial x} $$`
+- $$ f_x(x,y) = \dfrac{\partial f}{\partial x} $$
 
 ---
