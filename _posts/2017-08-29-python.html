@@ -1,14 +1,14 @@
 ---
 layout: notebook
-title: "python basic ②"
-date: 2017-08-28 17:58:23 +0700
+title: "raw_input & argv"
+date: 2017-08-29 17:58:23 +0700
 categories: [python]
 ---
 
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>2017-08-28-python</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>2017-08-29-python</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11840,7 +11840,7 @@ div#notebook {
 <span class="n">height</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;키는 얼마죠? &quot;</span><span class="p">)</span>
 <span class="n">weight</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;몸무게는 얼마죠? &quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;네, 나이는 </span><span class="si">{}</span><span class="s2"> 살, 키는 </span><span class="si">{}</span><span class="s2">, 몸무게는 </span><span class="si">{}</span><span class="s2">이네요.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;네, 나이는 </span><span class="si">{}</span><span class="s2"> 살, 키는 </span><span class="si">{}</span><span class="s2"> cm, 몸무게는 </span><span class="si">{}</span><span class="s2"> kg이네요.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;뜬금없지만, 태양의 각지름은 </span><span class="si">{}</span><span class="s2">입니다.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;32</span><span class="se">\&#39;</span><span class="s1">10&quot;&#39;&#39;&#39;</span><span class="p">))</span>
 </pre></div>
 
@@ -11858,10 +11858,10 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>몇 살이죠? 25 살
-키는 얼마죠? 185 cm
-몸무게는 얼마죠? 65 kg
-네, 나이는 25 살 살, 키는 185 cm, 몸무게는 65 kg이네요.
+<pre>몇 살이죠? 28
+키는 얼마죠? 185
+몸무게는 얼마죠? 65
+네, 나이는 28 살, 키는 185 cm, 몸무게는 65 kg이네요.
 뜬금없지만, 태양의 각지름은 32&#39;10&#34;입니다.
 </pre>
 </div>
@@ -11908,10 +11908,10 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>아이디는 어떻게 되죠? NYC
-몇 살이죠? 28
-키는 얼마죠? 190 cm
-몸무게는 얼마죠? 65 kg
+<pre>아이디는 어떻게 되죠? NY
+몇 살이죠? 32
+키는 얼마죠? 180
+몸무게는 얼마죠? 65
 </pre>
 </div>
 </div>
@@ -11944,7 +11944,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;age&#39;: &#39;28&#39;, &#39;height&#39;: &#39;190 cm&#39;, &#39;user_id&#39;: &#39;NYC&#39;, &#39;weight&#39;: &#39;65 kg&#39;}</pre>
+<pre>{&#39;age&#39;: &#39;32&#39;, &#39;height&#39;: &#39;180&#39;, &#39;user_id&#39;: &#39;NY&#39;, &#39;weight&#39;: &#39;65&#39;}</pre>
 </div>
 
 </div>
@@ -11952,6 +11952,266 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="ex12.py-&#49828;&#53356;&#47549;&#53944;&#47484;-&#50500;&#47000;&#50752;-&#44057;&#51060;-&#47564;&#46308;&#51088;."><code>ex12.py</code> &#49828;&#53356;&#47549;&#53944;&#47484; &#50500;&#47000;&#50752; &#44057;&#51060; &#47564;&#46308;&#51088;.<a class="anchor-link" href="#ex12.py-&#49828;&#53356;&#47549;&#53944;&#47484;-&#50500;&#47000;&#50752;-&#44057;&#51060;-&#47564;&#46308;&#51088;.">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># Fix Python 2.x.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">raw_input</span>
+<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;몇 살이죠?&quot;</span><span class="p">)</span>
+<span class="n">height</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;키는 얼마죠?&quot;</span><span class="p">)</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;몸무게는 얼마죠?&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;네, 나이는 </span><span class="si">{}</span><span class="s2"> 살, 키는 </span><span class="si">{}</span><span class="s2"> cm, 몸무게는 </span><span class="si">{}</span><span class="s2"> kg 이네요.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;뜬금없지만, 태양의 각지름은 </span><span class="si">{}</span><span class="s2">입니다.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;32</span><span class="se">\&#39;</span><span class="s1">10&quot;&#39;&#39;&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위의 스크립트를 터미널에서 <code>python ex12.py</code>를 입력하면 아래와 같은 결과 값이 출력된다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://namyoungkim.github.io/static/img/%20ex12.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#47588;&#44060;&#48320;&#49688;,-&#54400;&#44592;(Unpack),-&#48320;&#49688;">&#47588;&#44060;&#48320;&#49688;, &#54400;&#44592;(Unpack), &#48320;&#49688;<a class="anchor-link" href="#&#47588;&#44060;&#48320;&#49688;,-&#54400;&#44592;(Unpack),-&#48320;&#49688;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>import</code></p>
+<blockquote><ul>
+<li><p>스크립트에서 필요한 기능만 가져다 쓰는 방법</p>
+</li>
+<li><p>사용할 모듈을 미리 적도록 함.</p>
+</li>
+<li><p>필요한 것만 가져다쓰니 메모리도 작게 유지하며, 코드 리뷰시에도 가독성이 증가함</p>
+</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">argv</span>
+
+<span class="n">argv</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;/Users/Leo/.pyenv/versions/anaconda3-4.0.0/envs/code_study/lib/python3.6/site-packages/ipykernel_launcher.py&#39;,
+ &#39;-f&#39;,
+ &#39;/Users/Leo/Library/Jupyter/runtime/kernel-e6ac1912-39b6-41fa-a1d1-d5316a4d4562.json&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>위 실행결과 <code>argv'는 3개의 실행인자를 갖고 있다.</code>argv`<blockquote><ul>
+<li>실행인자 변수(argument variable)</li>
+<li>스크립트를 실행할 때 전달했던 실행인자가 담겨 있음.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>unpack</code></p>
+<blockquote><p>실행인자 전체를 한 변수에 담는 대신 코드로 다루기 편하도록 각각 나누어 대입하는 것을 가리키는 용어</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">script</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="n">argv</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;스크립트 이름&quot;</span><span class="p">,</span> <span class="n">script</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;첫 번째 변수:&quot;</span><span class="p">,</span> <span class="n">first</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;두 번째 변수:&quot;</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>스크립트 이름 /Users/Leo/.pyenv/versions/anaconda3-4.0.0/envs/code_study/lib/python3.6/site-packages/ipykernel_launcher.py
+첫 번째 변수: -f
+두 번째 변수: /Users/Leo/Library/Jupyter/runtime/kernel-e6ac1912-39b6-41fa-a1d1-d5316a4d4562.json
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="ex13.py-&#49828;&#53356;&#47549;&#53944;&#47484;-&#50500;&#47000;&#50752;-&#44057;&#51060;-&#47564;&#46308;&#51088;."><code>ex13.py</code> &#49828;&#53356;&#47549;&#53944;&#47484; &#50500;&#47000;&#50752; &#44057;&#51060; &#47564;&#46308;&#51088;.<a class="anchor-link" href="#ex13.py-&#49828;&#53356;&#47549;&#53944;&#47484;-&#50500;&#47000;&#50752;-&#44057;&#51060;-&#47564;&#46308;&#51088;.">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">argv</span>
+
+<span class="n">script</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span> <span class="o">=</span> <span class="n">argv</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;스크립트 이름:&quot;</span><span class="p">,</span> <span class="n">script</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;첫 번째 변수:&quot;</span><span class="p">,</span> <span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;두 번째 변수:&quot;</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;세 번째 변수:&quot;</span><span class="p">,</span> <span class="n">third</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><code>argv</code> 에 할당한 실행인자 만큼 입력을 시켜주면 된다.</li>
+<li><code>python ex13 이것 저것 그것</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://raw.githubusercontent.com/namyoungkim/namyoungkim.github.io/master/static/img/ex13.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>실행인자의 개수를 똑같이 넣어 주어야 한다.</li>
+<li><code>raw_input</code>과 <code>argv</code>를 결합하여 좀 더 재밌는 결과물을 만들 수 있다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="raw_input()-&#44284;-argv&#51032;-&#52264;&#51060;&#51216;"><code>raw_input()</code> &#44284; <code>argv</code>&#51032; &#52264;&#51060;&#51216;<a class="anchor-link" href="#raw_input()-&#44284;-argv&#51032;-&#52264;&#51060;&#51216;">&#182;</a></h3><ul>
+<li><code>raw_input()</code><blockquote><p>스크립트를 실행하는 동안 키보드로 입력을 받으려면 <code>raw_input()</code></p>
+</blockquote>
+</li>
+<li><code>argv</code><blockquote><p>커맨드 라인에서 입력을 한다면 <code>argv</code></p>
+</blockquote>
+</li>
+</ul>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
