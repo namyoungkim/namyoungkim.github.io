@@ -158,6 +158,17 @@ categories: [markdown]
 | 내용 11 | 내용 12 | 내용 13 |
 | 내용 21 | 내용 22 | 내용 23 |
 
+{% highlight markdown %}
+| | 둘째 = Boy | 둘째 = Girl |
+| :---: | :---: | :---: |
+| 첫째 = Boy | BB | BG |
+| <s>첫째 = Girl</s> | <s>GB</s> | <s>GG</s> |
+{% endhighlight %}
+| | 둘째 = Boy | 둘째 = Girl |
+| :---: | :---: | :---: |
+| 첫째 = Boy | BB | BG |
+| <s>첫째 = Girl</s> | <s>GB</s> | <s>GG</s> |
+
 ---
 
 ### 마치며
