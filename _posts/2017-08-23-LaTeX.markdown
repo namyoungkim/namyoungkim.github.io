@@ -99,5 +99,21 @@ $$
 - $$x^{\ast}$$
 - `$$\text{arg} \max_{x} f(x)$$`
 - $$\text{arg} \max_{x} f(x)$$
+- `$$\cup_i A_i \;\; \cap_i A_i$$`
+- $$\cup_i A_i \;\; \cap_i A_i$$
+- `$$P(\emptyset)$$`
+- $$P(\emptyset)$$
+- `$$P\{\emptyset\}$$`
+- $$P\{\emptyset\}$$
+- `$$\begin{eqnarray*}
+P(A \cup B) 
+&=& P(A \cup (B\cap A^C)) \\
+&=& P(A) + P(B\cap A^C) \\
+&=& P(A) + P(B\cap A^C) + P(A ∩ B) – P(A ∩ B) \\
+&=& P(A) + P((A^C\cap B) ∪ (A ∩ B)) – P(A ∩ B) \\
+&=& P(A) + P(B) \; – \; P(A ∩ B) 
+\end{eqnarray*} $$`
+- $$\begin{eqnarray*} P(A \cup B) \;=\; P(A \cup (B\cap A^C)) \\ \;=\; P(A) + P(B\cap A^C) \\ \;=\; P(A) + P(B\cap A^C) + P(A ∩ B) – P(A ∩ B) \\ \;=\; P(A) + P((A^C\cap B) ∪ (A ∩ B)) – P(A ∩ B) \\ \;=\; P(A) + P(B) \; – \; P(A ∩ B) 
+\end{eqnarray*} $$
 
 ---
