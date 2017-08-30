@@ -115,5 +115,7 @@ P(A \cup B)
 \end{eqnarray*} $$`
 - $$\begin{eqnarray*} P(A \cup B) \;=\; P(A \cup (B\cap A^C)) \\ \;=\; P(A) + P(B\cap A^C) \\ \;=\; P(A) + P(B\cap A^C) + P(A ∩ B) – P(A ∩ B) \\ \;=\; P(A) + P((A^C\cap B) ∪ (A ∩ B)) – P(A ∩ B) \\ \;=\; P(A) + P(B) \; – \; P(A ∩ B) 
 \end{eqnarray*} $$
+- `$$\propto$$`
+- $$\propto$$
 
 ---
