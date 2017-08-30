@@ -104,6 +104,7 @@ categories: [markdown]
 ***기울어지고 진해져라***
 `강조`
 <span style="color:blue">This is Blue italic</span>
+<center>∵) Law of Total Probability</center>
 {% endhighlight %}
 
 - *기울어져라*
@@ -111,6 +112,7 @@ categories: [markdown]
 - ***기울어지고 진해져라***
 - `강조`
 - <span style="color:blue">This is Blue italic</span>
+- <center>∵) Law of Total Probability</center>
 
 ### 2.6. 링크
 {% highlight markdown %}
