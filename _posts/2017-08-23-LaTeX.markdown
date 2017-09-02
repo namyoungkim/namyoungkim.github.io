@@ -117,5 +117,7 @@ P(A \cup B)
 \end{eqnarray*} $$
 - `$$\propto$$`
 - $$\propto$$
+- `$$\xrightarrow{X}$$`
+- $$\xrightarrow{X}$$
 
 ---
