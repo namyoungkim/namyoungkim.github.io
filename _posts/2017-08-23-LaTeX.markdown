@@ -119,14 +119,8 @@ P(A \cup B)
 - $$\propto$$
 - `$$\xrightarrow{X}$$`
 - $$\xrightarrow{X}$$
-- `$$\begin{cases} 
-\theta   & \text{if }x=1, \\
-1-\theta & \text{if }x=0
-\end{cases}$$`
-- $$\begin{cases} 
-\theta   & \text{if }x=1, \\
-1-\theta & \text{if }x=0
-\end{cases}$$
+- `$$\begin{cases} \theta   & \text{if }x=1, \\ 1-\theta & \text{if }x=0 \end{cases}$$`
+- $$\begin{cases} \theta   & \text{if }x=1, \\ 1-\theta & \text{if }x=0 \end{cases}$$
 - `$$\sim$$`
 - $$\sim$$
 - `$$\binom N x$$`
