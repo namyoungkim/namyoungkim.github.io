@@ -329,8 +329,11 @@ A.dot(B_1)
 np.dot(A, B_1)
 {% endhighlight %}
 ```
-(2, 3)
-(3,)
+array([[ 50],
+       [122]])
+
+array([[ 50],
+       [122]])
 ```
 
 ---
@@ -339,7 +342,7 @@ np.dot(A, B_1)
 - Now we want to solve `Ax = b:`
 - $$ A = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \end{bmatrix},\;\;\; b = \begin{bmatrix} 10 \\ 20 \end{bmatrix} $$
 
-- $$ Ax = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \end{bmatrix}, \;\;\; x = \begin{bmatrix} 10 \\ 20 \end{bmatrix} $$
+- $$ Ax = \begin{bmatrix} 1 \;\;\;\; 2 \\ 3 \;\;\;\; 4 \end{bmatrix}, \;\;\; b = \begin{bmatrix} 10 \\ 20 \end{bmatrix} $$
 
 - $$ x = \begin{bmatrix} 0 \\ 5 \end{bmatrix} $$
 - 위 수식을 계산하면 다음과 같다.
@@ -353,6 +356,10 @@ b = np.array([[10], [20]])
 x = solve(A,b)
 {% endhighlight %}
 
+{% highlight python %}
+array([[ 0.],
+       [ 5.]])
+{% endhighlight %}
 ---
 
 #### eigen values and vectors
@@ -390,7 +397,7 @@ quad(f, 0., 3.)
 - `quad(함수, 시작, 끝)`
 - (적분의 값, 예상 오차)를 출격해준다.
 
-- 'lambda'를 사용하면 더 효과적이다.
+- `lambda`를 사용하면 더 효과적이다.
 {% highlight python %}
 from scipy.integrate import quad
 
