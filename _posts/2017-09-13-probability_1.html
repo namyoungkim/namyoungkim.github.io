@@ -12291,6 +12291,9 @@ $$ x \sim t  \;\; \rightarrow \;\; x^2 \sim F $$</p>
 <span class="n">verts1</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ix1</span><span class="p">,</span> <span class="n">iy1</span><span class="p">))</span> <span class="o">+</span> <span class="p">[(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
 <span class="n">poly1</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">verts1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">poly1</span><span class="p">)</span>
+
+<span class="c1"># plt.annotate ← 글자와 화살표 추가</span>
+<span class="c1">## xytext=(a, b) -&gt; 글자 위치, xy=(a, b) -&gt; 가리킬 포인트 위치</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Type I Error&quot;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">),</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="n">ix2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -12317,7 +12320,7 @@ $$ x \sim t  \;\; \rightarrow \;\; x^2 \sim F $$</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Annotation at 0x1156b7e48&gt;</pre>
+<pre>&lt;matplotlib.text.Annotation at 0x10aeb5e48&gt;</pre>
 </div>
 
 </div>
