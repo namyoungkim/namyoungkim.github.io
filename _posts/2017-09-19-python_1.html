@@ -11900,7 +11900,7 @@ div#notebook {
 
 <span class="k">def</span> <span class="nf">test_map</span><span class="p">():</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">Room</span><span class="p">(</span><span class="s2">&quot;Start&quot;</span><span class="p">,</span> <span class="s2">&quot;서쪽(west)이나 구멍 아래(down)로 갈 수 있습니다.&quot;</span><span class="p">)</span>
-    <span class="n">west</span> <span class="o">=</span> <span class="n">Room</span><span class="p">(</span><span class="s2">&quot;Trees&quot;</span><span class="p">,</span> <span class="s2">&quot;나무가 있습니다. 동쪽(west)으로 갈 수 있습니다.&quot;</span><span class="p">)</span>
+    <span class="n">west</span> <span class="o">=</span> <span class="n">Room</span><span class="p">(</span><span class="s2">&quot;Trees&quot;</span><span class="p">,</span> <span class="s2">&quot;나무가 있습니다. 동쪽(east)으로 갈 수 있습니다.&quot;</span><span class="p">)</span>
     <span class="n">down</span> <span class="o">=</span> <span class="n">Room</span><span class="p">(</span><span class="s2">&quot;Dungeon&quot;</span><span class="p">,</span> <span class="s2">&quot;아래는 어둡습니다. 위(up)로 갈 수 있습니다.&quot;</span><span class="p">)</span>
 
     <span class="n">start</span><span class="o">.</span><span class="n">add_paths</span><span class="p">({</span><span class="s1">&#39;west&#39;</span><span class="p">:</span> <span class="n">west</span><span class="p">,</span> <span class="s1">&#39;down&#39;</span><span class="p">:</span> <span class="n">down</span><span class="p">})</span>
