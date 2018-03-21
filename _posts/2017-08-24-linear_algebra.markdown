@@ -2,7 +2,7 @@
 layout: post
 title:  "선형대수학 ②"
 date:   2017-08-24 13:36:23 +0700
-categories: [Linear_Algebra, python, LaTeX]
+categories: [Linear_Algebra]
 ---
 
 #### Matrix 행렬

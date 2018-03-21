@@ -2,7 +2,7 @@
 layout: post
 title:  "SQL-③ 잡다한 Tip"
 date:   2017-08-10 14:37:23 +0700
-categories: [SQL, DB]
+categories: [SQL]
 ---
 # SQL- ③ 잡다한 팁
 

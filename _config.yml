@@ -1,17 +1,22 @@
-title: NYC
-description: My Personal Stack Problems
+title: NYC (Leo)
+description: Data Scientist
 author: Namyoung Kim(Leo)
-author_1: Agus Makmun
 github: https://github.com/namyoungkim
-about: Data Scientist
+about: Data-driven is my life.
 disqus_shortname: NYC
-google_analytics: 
-avatar_url: /static/img/11.jpg
+google_analytics: UA-116039433-1
+avatar_url: /static/img/pro.png
 
 enableTags: true
 tagarray: []
 
 collections:
+  featured_categories:
+    permalink: /category/:name/
+    output: true
+  featured_tags:
+    permalink: /tag/:name/
+    output: true
   project:
     output: true
     permalink: /project/:path/
@@ -25,10 +30,26 @@ social:
 share:
 
 urls:
-    - text: About Me
-      url: /about/
+    - text: Statistics
+      url: /category/statistics/
+    - text: Linear-Algebra
+      url: /category/Linear_Algebra/
+    - text: Visualization
+      url: /category/Visualization/
+    - text: Machine-Learning
+      url: /category/machine-learning/
+    - text: Deep-Learning
+      url: /category/deep-learning/
+    - text: Python
+      url: /category/python/
+    - text: SQL
+      url: /category/sql/
     - text: My Projects
       url: /projects/
+    - text: About Me
+      url: /about/
+    - text: ETC
+      url: /category/etc/
 
 url: "https://namyoungkim.github.io"
 baseurl: ""
@@ -45,3 +66,15 @@ compress_html:
   clippings: all
   comments: ["<!-- ", " -->"]
   endings: all
+
+permalink: pretty
+
+# The font used for headings. Expects a string that is a valid CSS font-family value.
+font_heading:        "'Lato', 'Sans-serif'"
+
+# The text font. Expects a string that is a valid CSS font-family value.
+font:                "'Lato', 'Sans-serif'"
+
+# The string encoding what fonts to fetch from Google Fonts.
+# See: https://qwtel.com/hydejack/docs/configuration/
+google_fonts:        Lato

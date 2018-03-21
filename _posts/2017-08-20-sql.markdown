@@ -2,7 +2,7 @@
 layout: post
 title:  "SQL-쿼리문을 보면서 이해하기 ③"
 date:   2017-08-20 12:20:23 +0700
-categories: [SQL, DB]
+categories: [SQL]
 ---
 
 #### 서브쿼리문 2개 사용

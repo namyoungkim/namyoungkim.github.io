@@ -2,7 +2,7 @@
 layout: post
 title:  "SQL-기본 문법 ②"
 date:   2017-08-09 17:19:23 +0700
-categories: [SQL, DB]
+categories: [SQL]
 ---
 # SQL 기본 문법 정리 ②
 - 이번 포스팅에서는 함수와 날짜 함수에 대해 알아보도록 하자.

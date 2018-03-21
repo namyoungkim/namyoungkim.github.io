@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Markdown 사용법(1)"
+title:  "Markdown 사용법"
 date:   2017-08-09 12:10:23 +0700
-categories: [markdown]
+categories: [markdown, etc]
 ---
 
-# Markdown (1)
+# Markdown
 - 이 블로그의 포스트는 마크다운으로 작성을 한다. 그래서 기본적인 마크다운 문법을 알아야 한다.
 
 ---

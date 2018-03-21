@@ -2,7 +2,7 @@
 layout: post
 title:  "선형대수학 ③"
 date:   2017-08-25 11:27:23 +0700
-categories: [Linear_Algebra, python, LaTeX]
+categories: [Linear_Algebra]
 ---
 
 #### Linear Combination of Column Vector(열 벡터의 선형 결합)

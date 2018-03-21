@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "LaTeX을 사용해보자-①"
+title:  "LaTeX을 사용해보자"
 date:   2017-08-23 11:48:23 +0700
 categories: [LaTeX]
 ---
