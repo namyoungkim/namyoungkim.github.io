@@ -2,7 +2,7 @@
 layout: post
 title:  "SQL-⑤ 날짜 관련 tip"
 date:   2017-08-11 13:24:23 +0700
-categories: [SQL]
+categories: [sql]
 ---
 
 ## 1. 일자에 날짜 더하기

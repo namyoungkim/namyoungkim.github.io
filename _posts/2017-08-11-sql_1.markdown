@@ -2,7 +2,7 @@
 layout: post
 title: "SQL-쿼리문을 보면서 이해하기 ①"
 date: 2017-08-11 19:45:23 +0700
-categories: [SQL]
+categories: [sql]
 ---
 
 #### WHERE 문

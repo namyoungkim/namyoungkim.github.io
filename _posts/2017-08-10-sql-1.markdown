@@ -2,7 +2,7 @@
 layout: post
 title:  "SQL-④ substring을 활용한 쿼리"
 date:   2017-08-10 17:33:23 +0700
-categories: [SQL]
+categories: [sql]
 ---
 ## substring을 활용하여 문자열로 남겨진 테이블을 원하는 형태의 테이블로 만들어 보자.
 #### `SUBSTRING(대상, 시작위치, 자르고 싶은 길이)`
