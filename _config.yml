@@ -12,7 +12,7 @@ tagarray: []
 
 collections:
   category:
-    permalink: /category/
+    permalink: /category/:name/
     output: true
   project:
     output: true
@@ -27,25 +27,25 @@ social:
 share:
 
 urls:
-    - text: Statistics
+    - text: statistics
       url: /category/statistics
-    - text: Linear-Algebra
+    - text: Linear_Algebra
       url: /category/Linear_Algebra
-    - text: Visualization
-      url: /category/Visualization
-    - text: Machine-Learning
-      url: /category/machine-learning
-    - text: Deep-Learning
-      url: /category/deep-learning
-    - text: Python
+    - text: visualization
+      url: /category/visualization
+    - text: machine_learning
+      url: /category/machine_learning
+    - text: deep_learning
+      url: /category/deep_learning
+    - text: python
       url: /category/python
-    - text: SQL
+    - text: sql
       url: /category/sql
     - text: My Projects
       url: /projects/
     - text: About Me
       url: /about/
-    - text: ETC
+    - text: etc
       url: /category/etc
 
 url: "https://namyoungkim.github.io"
