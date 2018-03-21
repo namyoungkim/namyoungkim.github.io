@@ -28,25 +28,25 @@ share:
 
 urls:
     - text: Statistics
-      url: /category/statistics/
+      url: /category/statistics
     - text: Linear-Algebra
-      url: /category/Linear_Algebra/
+      url: /category/Linear_Algebra
     - text: Visualization
-      url: /category/Visualization/
+      url: /category/Visualization
     - text: Machine-Learning
-      url: /category/machine-learning/
+      url: /category/machine-learning
     - text: Deep-Learning
-      url: /category/deep-learning/
+      url: /category/deep-learning
     - text: Python
-      url: /category/python/
+      url: /category/python
     - text: SQL
-      url: /category/sql/
+      url: /category/sql
     - text: My Projects
       url: /projects/
     - text: About Me
       url: /about/
     - text: ETC
-      url: /category/etc/
+      url: /category/etc
 
 url: "https://namyoungkim.github.io"
 baseurl: ""
