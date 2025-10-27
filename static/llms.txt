@@ -1,65 +1,18 @@
-# MyProject Documentation
+# 개발 블로그
 
-> A comprehensive guide to MyProject - a modern web framework for building scalable applications. This documentation covers API references, tutorials, best practices, and integration guides.
+> 개발 경험, 튜토리얼, API 문서를 공유하는 기술 블로그
 
-## Getting Started
+## 📚 Documentation
 
-This documentation is designed to help developers quickly understand and implement MyProject in their applications. Whether you're a beginner or an experienced developer, you'll find the resources you need here.
+- /docs/intro: 👋 문서에 오신 것을 환영합니다
+- /docs/tutorial/getting-started: 🚀 시작하기
 
-## Core Documentation
+## ✍️ Blog Posts
 
-### Quick Start
-- /docs/quick-start.md: Get up and running in 5 minutes
-- /docs/installation.md: Installation guide for all platforms
-- /docs/configuration.md: Configuration options and environment setup
-
-### API Reference
-- /docs/api/overview.md: API overview and architecture
-- /docs/api/authentication.md: Authentication and authorization guide
-- /docs/api/endpoints.md: Complete endpoint reference with examples
-- /docs/api/rate-limits.md: Rate limiting and best practices
-- /docs/api/webhooks.md: Webhook implementation and security
-
-### Guides
-- /docs/guides/basic-usage.md: Basic usage patterns and examples
-- /docs/guides/advanced-features.md: Advanced features and techniques
-- /docs/guides/error-handling.md: Error handling and debugging
-- /docs/guides/performance.md: Performance optimization guide
-- /docs/guides/security.md: Security best practices
-
-### Integration
-- /docs/integrations/react.md: React integration guide
-- /docs/integrations/vue.md: Vue.js integration guide
-- /docs/integrations/nextjs.md: Next.js integration guide
-- /docs/integrations/typescript.md: TypeScript support and types
-
-### Examples
-- /docs/examples/basic-app.md: Basic application example
-- /docs/examples/authentication.md: Authentication implementation
-- /docs/examples/real-time.md: Real-time features example
-- /docs/examples/deployment.md: Deployment examples and configurations
-
-## Reference
-
-### CLI Reference
-- /docs/cli/commands.md: Complete CLI command reference
-- /docs/cli/options.md: CLI options and flags
-
-### SDK Reference
-- /docs/sdk/javascript.md: JavaScript/TypeScript SDK
-- /docs/sdk/python.md: Python SDK
-- /docs/sdk/go.md: Go SDK
-
-## Migration & Updates
-
-- /docs/migration/v2-to-v3.md: Migration guide from v2 to v3
-- /docs/changelog.md: Changelog and version history
-- /docs/breaking-changes.md: Breaking changes and upgrade path
+- /blog/2025/10/27/welcome: 개발 블로그를 시작합니다 🚀
+- /blog/2025/10/27/react-performance: React 성능 최적화 완벽 가이드
 
 ## Optional
 
-- /blog/tutorials: Additional tutorials and tips
-- /community/contributing.md: Contributing guidelines
-- /community/code-of-conduct.md: Community code of conduct
-- /docs/faq.md: Frequently asked questions
-- /docs/glossary.md: Technical terms and definitions
+- /blog/tags: All blog tags
+- /blog/archive: Blog archive

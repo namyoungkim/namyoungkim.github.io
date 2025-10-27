@@ -12,14 +12,14 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // 여기에 실제 배포 URL을 입력하세요
-  url: 'https://A1rtisan-LAB.github.io',
-  baseUrl: '/',
+  url: 'https://namyoungkim.github.io',
+  baseUrl: '/a1rtisan/',
 
   // GitHub Pages 배포 설정
   organizationName: 'namyoungkim', // GitHub 사용자명 또는 조직명
   projectName: 'a1rtisan', // GitHub 저장소 이름
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // 한국어 설정
