@@ -4,15 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 프로젝트 개요
 
-이 프로젝트는 **Docusaurus 3.0 기반 개발 블로그 및 문서 사이트 템플릿 스타터 패키지**입니다.
+이 프로젝트는 **Docusaurus 3.0 기반 개발 블로그 및 기술 학습 문서 사이트**입니다.
 
-**현재 상태**: 파일 배치 전 초기 템플릿 상태입니다. 15개의 템플릿 파일이 루트 디렉토리에 평면적으로 배치되어 있으며, 사용자가 `FILE-PLACEMENT-GUIDE.md`를 참조하여 올바른 디렉토리 구조로 재배치해야 합니다.
+**현재 상태**: 배포 완료 (https://namyoungkim.github.io/a1rtisan/)
+- GitHub Pages 자동 배포 설정 완료
+- 예시 블로그 포스트 2개 작성
+- 인프라 문서 작성 완료 (MCP 서버 설계 포함)
 
 **주요 특징**:
 - LLM 친화적 콘텐츠를 위한 llms.txt 자동 생성
 - GitHub Actions를 통한 자동 배포
 - 한국어 기본 설정, 영어 i18n 지원
-- 예시 콘텐츠 포함 (블로그 2개, 문서 2개)
+- 콘텐츠와 인프라 명확히 분리된 구조
+- MCP (Model Context Protocol) 서버 설계 완료 (구현 예정)
 
 ## 주요 명령어
 
@@ -33,51 +37,69 @@ npm run deploy               # GitHub Pages 수동 배포
 
 **중요**: `npm run build` 실행 시 `prebuild` 스크립트가 자동으로 `generate:llms`를 먼저 실행합니다.
 
-## 현재 상태 및 설치 필요사항
+## 프로젝트 구조 개념
 
-### 파일 배치가 필요한 이유
-현재 템플릿 파일들이 루트에 잘못된 이름으로 존재합니다:
-- `docs-intro.md` → `docs/intro.md`로 이동 필요
-- `tutorial-getting-started.md` → `docs/tutorial/getting-started.md`로 이동 필요
-- `blog-welcome.md` → `blog/2024-01-01-welcome.md`로 이동 필요 (날짜는 현재 날짜로)
-- `blog-react-performance.md` → `blog/2024-01-15-react-performance.md`로 이동 필요
-- `generate-llms.js` → `scripts/generate-llms.js`로 이동 필요
-- `deploy.yml` → `.github/workflows/deploy.yml`로 이동 필요
+이 프로젝트는 **콘텐츠**와 **인프라**를 명확히 구분합니다:
 
-### 생성 필요한 디렉토리
-- `blog/` - 블로그 포스트
-- `docs/` 및 `docs/tutorial/` - 문서
-- `src/css/` - 커스텀 스타일
-- `static/img/` - 이미지 및 정적 파일
+### 콘텐츠 (Content)
+- `blog/` - 개인 블로그 포스트
+- `docs/` - 기술 학습 문서 (React, TypeScript, 알고리즘 등)
+
+### 인프라 (Infrastructure)
+- `infrastructure/` - 인프라 설계 및 문서
+- `mcp-server/` - MCP 서버 (추후 구현)
 - `scripts/` - 빌드 스크립트
-- `.github/workflows/` - GitHub Actions
+- `.github/` - CI/CD 워크플로우
+- `src/` - Docusaurus 테마
+- `static/` - 정적 파일
+- 설정 파일들 (docusaurus.config.js, sidebars.js, package.json)
 
-**참조**: `FILE-PLACEMENT-GUIDE.md`에 상세한 파일 배치 가이드가 있습니다.
+**참조**: `infrastructure/README.md`에 인프라 전체 개요가 있습니다.
 
 ## 프로젝트 아키텍처
 
-### 올바른 디렉토리 구조 (설치 완료 후)
+### 디렉토리 구조
 
 ```
-project-root/
-├── blog/                    # 블로그 포스트 (YYYY-MM-DD-*.md 형식)
-├── docs/                    # 문서
-│   ├── intro.md
-│   └── tutorial/
-├── src/
-│   └── css/
-│       └── custom.css      # 테마 색상 및 스타일 오버라이드
-├── static/
-│   ├── img/                # 이미지
-│   └── llms.txt           # 자동 생성됨
-├── scripts/
-│   └── generate-llms.js   # llms.txt 생성 스크립트
-├── .github/
-│   └── workflows/
-│       └── deploy.yml     # GitHub Actions 배포 워크플로우
-├── docusaurus.config.js   # 메인 설정 파일
-├── sidebars.js            # 문서 사이드바 구조
-└── package.json           # NPM 스크립트 및 의존성
+a1rtisan-dev-blog/
+├── 📝 콘텐츠 (Content)
+│   ├── blog/                      # 개인 블로그 포스트
+│   │   ├── 2025-10-27-welcome.md
+│   │   ├── 2025-10-27-react-performance.md
+│   │   └── authors.yml            # 블로그 저자 정보
+│   └── docs/                      # 기술 학습 문서
+│       ├── intro.md
+│       └── tutorial/
+│           └── getting-started.md
+│
+├── 🏗️ 인프라 (Infrastructure)
+│   ├── infrastructure/            # 인프라 문서
+│   │   ├── README.md              # 인프라 개요
+│   │   └── mcp/                   # MCP 서버 설계
+│   │       ├── DESIGN.md          # 아키텍처 설계
+│   │       └── ROADMAP.md         # 구현 로드맵
+│   ├── mcp-server/                # MCP 서버 (추후 구현)
+│   ├── scripts/
+│   │   └── generate-llms.js       # llms.txt 생성 스크립트
+│   ├── .github/
+│   │   └── workflows/
+│   │       └── deploy.yml         # GitHub Actions CI/CD
+│   ├── src/
+│   │   └── css/
+│   │       └── custom.css         # 테마 커스터마이징
+│   ├── static/
+│   │   ├── img/                   # 이미지
+│   │   └── llms.txt              # 자동 생성됨
+│   ├── docusaurus.config.js       # 사이트 설정
+│   ├── sidebars.js                # 사이드바 구조
+│   └── package.json               # 의존성 및 스크립트
+│
+└── 📄 문서
+    ├── README.md                  # 프로젝트 소개
+    ├── CLAUDE.md                  # 이 파일
+    ├── START-HERE.md              # 시작 가이드
+    ├── QUICKSTART.md              # 빠른 시작
+    └── FILE-PLACEMENT-GUIDE.md    # 파일 배치 가이드
 ```
 
 ### 핵심 설정 파일
@@ -92,17 +114,18 @@ project-root/
 - **테마 설정**: navbar, footer, prism (코드 하이라이팅), colorMode (다크모드)
 - **선택적 통합**: Algolia 검색, Google Analytics (플레이스홀더 상태)
 
-**⚠️ 배포 전 필수 수정**:
-- `url`: 실제 배포 URL로 변경 (예: `https://username.github.io`)
-- `organizationName`: GitHub 사용자명 또는 조직명
-- `projectName`: GitHub 저장소 이름
-- `title`, `tagline`: 프로젝트에 맞게 수정
-- navbar와 footer의 `your-username`, `your-repo-name` 플레이스홀더 교체
+**현재 설정**:
+- `url`: `https://namyoungkim.github.io`
+- `baseUrl`: `/a1rtisan/`
+- `organizationName`: `namyoungkim`
+- `projectName`: `a1rtisan`
+- `onBrokenLinks`: `'warn'` (템플릿 링크 허용)
+- GitHub Pages 배포 완료
 
 #### sidebars.js
-문서의 사이드바 구조를 수동으로 정의합니다:
-- **tutorialSidebar**: 시작하기, 튜토리얼, 가이드, API 레퍼런스 카테고리
-- 일부 참조된 파일이 실제로 존재하지 않음 (`tutorial/installation`, `tutorial/first-project`, `guides/*`, `api/*` 등)
+문서의 사이드바 구조를 정의합니다:
+- **tutorialSidebar**: 현재 intro.md와 tutorial/getting-started.md만 포함
+- docs/ 디렉토리는 기술 학습 문서용으로 준비됨 (React, TypeScript, 알고리즘 등)
 - 필요시 `{type: 'autogenerated', dirName: 'folder'}` 방식으로 자동 생성 가능
 
 #### generate-llms.js
@@ -132,13 +155,16 @@ GitHub Actions 자동 배포 워크플로우:
 
 **빌드 단계**:
 1. 저장소 체크아웃 (전체 git history)
-2. Node.js 18 설치 및 npm 캐시
+2. Node.js 20 설치 및 npm 캐시
 3. `npm ci` - 의존성 설치
 4. `npm run generate:llms` - llms.txt 생성
 5. `npm run build` - 프로덕션 빌드
 6. GitHub Pages에 배포
 
-**요구사항**: GitHub 저장소 Settings → Pages에서 Source를 "GitHub Actions"로 설정
+**요구사항**:
+- Node.js 20+ (Docusaurus 3.x 요구사항)
+- GitHub 저장소 Settings → Pages에서 Source를 "GitHub Actions"로 설정
+- 배포 완료: https://namyoungkim.github.io/a1rtisan/
 
 ## 콘텐츠 작성 가이드
 
@@ -209,10 +235,11 @@ git push origin main
 ## 개발 참고사항
 
 ### 기술 스택
-- **Node.js**: 18+ 필수 (package.json engines에 명시)
+- **Node.js**: 20+ 필수 (Docusaurus 3.x 요구사항)
 - **Docusaurus**: 3.0 (classic preset)
 - **코드 하이라이팅**: Prism (라이트: GitHub 테마, 다크: Dracula 테마)
 - **지원 언어**: bash, json, typescript, javascript, jsx, tsx
+- **배포**: GitHub Pages + GitHub Actions
 
 ### 테스트
 - 이 프로젝트에는 테스트 스크립트가 없습니다 (정적 사이트 생성기로 정상)
