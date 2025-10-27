@@ -1,0 +1,16 @@
+namyoungkim:
+  name: Nam Young Kim
+  title: Software Developer
+  url: https://github.com/namyoungkim
+  image_url: https://github.com/namyoungkim.png
+
+# 추가 작성자 예시:
+# john:
+#   name: John Doe
+#   title: Frontend Developer
+#   url: https://github.com/johndoe
+#   image_url: https://github.com/johndoe.png
+#   email: john@example.com
+#   socials:
+#     twitter: https://twitter.com/johndoe
+#     linkedin: https://linkedin.com/in/johndoe

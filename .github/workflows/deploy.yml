@@ -1,0 +1,73 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    # 문서나 블로그 파일이 변경될 때만 배포
+    paths:
+      - 'docs/**'
+      - 'blog/**'
+      - 'src/**'
+      - 'static/**'
+      - 'docusaurus.config.js'
+      - 'sidebars.js'
+      - 'package.json'
+
+  # 수동으로 워크플로우 실행 가능
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시 배포 방지
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout 📥
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # git history 전체 가져오기 (마지막 수정 시간 표시용)
+      
+      - name: Setup Node.js 📦
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+      
+      - name: Install dependencies 🔧
+        run: npm ci
+      
+      - name: Generate llms.txt 📝
+        run: npm run generate:llms
+      
+      - name: Build website 🏗️
+        run: npm run build
+        env:
+          NODE_ENV: production
+      
+      - name: Upload artifact 📤
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
