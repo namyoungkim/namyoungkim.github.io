@@ -5,12 +5,12 @@
 ## 📚 Documentation
 
 - /docs/intro: 👋 문서에 오신 것을 환영합니다
-- /docs/tutorial/getting-started: 🚀 시작하기
 
 ## ✍️ Blog Posts
 
-- /blog/2025/10/27/welcome: 개발 블로그를 시작합니다 🚀
-- /blog/2025/10/27/react-performance: React 성능 최적화 완벽 가이드
+- /blog/2025/12/01/welcome: Data Fullstack Engineer로의 여정
+- /blog/2025/12/01/vscode-python-ruff-setup: VSCode Python 개발환경 완벽 설정 가이드 (2025)
+- /blog/2025/11/17/custom-domain-setup: GitHub Pages에 커스텀 도메인 설정하기
 
 ## Optional
 

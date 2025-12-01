@@ -5,21 +5,24 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  // 기본 튜토리얼 사이드바
+  // 기본 문서 사이드바
   tutorialSidebar: [
     {
       type: 'doc',
       id: 'intro',
       label: '👋 시작하기',
     },
-    {
-      type: 'category',
-      label: '📖 튜토리얼',
-      collapsed: false,
-      items: [
-        'tutorial/getting-started',
-      ],
-    },
+    // 추가 문서는 여기에 추가하세요
+    // 예시:
+    // {
+    //   type: 'category',
+    //   label: '📖 AI Agents',
+    //   collapsed: false,
+    //   items: [
+    //     'ai-agents/langgraph-intro',
+    //     'ai-agents/rag-pipeline',
+    //   ],
+    // },
   ],
 
   // 추가 사이드바 (필요시)

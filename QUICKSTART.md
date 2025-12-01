@@ -86,32 +86,34 @@ npm start
 
 **파일명 형식**: `YYYY-MM-DD-제목.md`
 
-**예시**: `blog/2024-01-20-react-hooks.md`
+**예시**: `blog/2024-01-20-langgraph-agents.md`
 
 ```markdown
 ---
-slug: react-hooks-guide
-title: React Hooks 완벽 가이드
+slug: langgraph-agents-guide
+title: LangGraph로 AI 에이전트 만들기
 authors:
   name: 홍길동
-  title: 프론트엔드 개발자
+  title: Data Engineer
   url: https://github.com/your-username
   image_url: https://github.com/your-username.png
-tags: [react, hooks, javascript]
+tags: [langgraph, ai-agents, llm, python]
 ---
 
-# React Hooks 완벽 가이드
+# LangGraph로 AI 에이전트 만들기
 
-React Hooks에 대해 알아봅시다!
+LangGraph를 활용한 AI 에이전트 개발에 대해 알아봅시다!
 
 <!-- truncate -->
 
-## useState란?
+## LangGraph란?
 
-useState는 함수형 컴포넌트에서 state를 관리할 수 있게 해주는 Hook입니다.
+LangGraph는 상태를 가진 다중 에이전트 애플리케이션을 구축할 수 있는 프레임워크입니다.
 
-```javascript
-const [count, setCount] = useState(0);
+```python
+from langgraph.graph import StateGraph
+
+graph = StateGraph(AgentState)
 ```
 
 더 많은 내용...
@@ -125,18 +127,18 @@ const [count, setCount] = useState(0);
 
 `docs/` 폴더에 새 파일을 생성하세요:
 
-**예시**: `docs/guides/react-best-practices.md`
+**예시**: `docs/guides/data-pipeline-design.md`
 
 ```markdown
 ---
 sidebar_position: 1
 ---
 
-# React 모범 사례
+# 데이터 파이프라인 설계 가이드
 
-React 개발 시 지켜야 할 모범 사례들을 알아봅시다.
+효율적인 데이터 파이프라인 설계 원칙을 알아봅시다.
 
-## 1. 컴포넌트 분리
+## 1. 데이터 소스 정의
 
 컴포넌트는 작고 재사용 가능하게 만드세요.
 

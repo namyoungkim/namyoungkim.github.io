@@ -13,7 +13,7 @@ my-dev-blog/                          # 프로젝트 루트 디렉토리
 │
 ├── blog/                            # 블로그 포스트 (생성)
 │   ├── 2024-01-01-welcome.md       # ← blog-welcome.md 파일
-│   └── 2024-01-15-react-performance.md  # ← blog-react-performance.md 파일
+│   └── 2024-01-15-data-pipeline-design.md  # ← blog-data-pipeline-design.md 파일
 │
 ├── docs/                            # 문서 (생성)
 │   ├── intro.md                     # ← docs-intro.md 파일

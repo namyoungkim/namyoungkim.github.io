@@ -47,7 +47,7 @@ npm start
 my-dev-blog/
 ├── blog/                      # 블로그 포스트 (마크다운)
 │   ├── 2024-01-01-welcome.md
-│   └── 2024-01-15-react-tips.md
+│   └── 2024-01-15-langgraph-tutorial.md
 ├── docs/                      # 문서 (마크다운)
 │   ├── intro.md
 │   ├── tutorial/
@@ -344,7 +344,7 @@ node scripts/generate-llms.js
 - [Docusaurus 공식 문서](https://docusaurus.io/)
 - [Markdown 가이드](https://www.markdownguide.org/)
 - [MDX 문서](https://mdxjs.com/)
-- [React 문서](https://react.dev/)
+- [LangGraph 문서](https://langchain-ai.github.io/langgraph/)
 
 ## 💬 지원 및 커뮤니티
 

@@ -9,7 +9,7 @@ const darkCodeTheme = themes.dracula;
 const config = {
   title: '개발 블로그',
   tagline: '기술과 코드, 그리고 배움을 기록합니다',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   // 여기에 실제 배포 URL을 입력하세요
   url: 'https://namyoungkim.github.io',
@@ -20,7 +20,13 @@ const config = {
   projectName: 'a1rtisan', // GitHub 저장소 이름
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+
+  // Markdown 설정
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // 한국어 설정
   i18n: {
@@ -47,17 +53,17 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // 문서 편집 링크 (선택사항)
-          editUrl: 'https://github.com/namyoungkim/a1rtisan/tree/main/',
-          showLastUpdateTime: true,
-          showLastUpdateAuthor: true,
+          // 문서 편집 링크 비활성화 (개인 블로그)
+          // editUrl: 'https://github.com/namyoungkim/a1rtisan/tree/main/',
+          showLastUpdateTime: false,
+          showLastUpdateAuthor: false,
         },
         blog: {
           showReadingTime: true,
           // 블로그 포스트당 표시할 개수
           postsPerPage: 10,
-          // 블로그 편집 링크 (선택사항)
-          editUrl: 'https://github.com/namyoungkim/a1rtisan/tree/main/',
+          // 블로그 편집 링크 비활성화 (개인 블로그)
+          // editUrl: 'https://github.com/namyoungkim/a1rtisan/tree/main/',
           blogTitle: '개발 블로그',
           blogDescription: '개발 경험과 지식을 공유합니다',
           blogSidebarTitle: '최근 포스트',
@@ -66,7 +72,7 @@ const config = {
             type: 'all',
             title: '개발 블로그',
             description: '개발 경험과 지식을 공유합니다',
-            copyright: `Copyright © ${new Date().getFullYear()} Your Name`,
+            copyright: `Copyright © ${new Date().getFullYear()} Nam Young Kim`,
           },
         },
         theme: {
@@ -89,10 +95,10 @@ const config = {
       
       // 네비게이션 바
       navbar: {
-        title: '개발 블로그',
+        title: '',
         logo: {
-          alt: 'Logo',
-          src: 'img/logo.svg',
+          alt: 'A1RTISAN',
+          src: 'img/a1rtisan-logo.png',
         },
         items: [
           {
@@ -102,13 +108,9 @@ const config = {
             label: '📚 문서',
           },
           {
-            to: '/blog', 
-            label: '✍️ 블로그', 
+            to: '/blog',
+            label: '✍️ 블로그',
             position: 'left'
-          },
-          {
-            type: 'localeDropdown',
-            position: 'right',
           },
           {
             href: 'https://github.com/namyoungkim/a1rtisan',
@@ -161,8 +163,17 @@ const config = {
               },
             ],
           },
+          {
+            title: '지원',
+            items: [
+              {
+                label: '☕ Buy Me A Coffee',
+                href: 'https://buymeacoffee.com/a1rtisan',
+              },
+            ],
+          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Your Name. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Leo. Built with Docusaurus.`,
       },
       
       // 코드 하이라이팅 테마

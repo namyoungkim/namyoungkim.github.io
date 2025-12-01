@@ -14,6 +14,7 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-line-height-base: 1.8; /* 가독성 개선 */
 }
 
 /* 다크 모드 색상 */
@@ -206,4 +207,18 @@ code {
 /* 다크모드 전환 애니메이션 */
 [data-theme='dark'] {
   transition: color 0.3s, background-color 0.3s;
+}
+
+/* 마크다운 콘텐츠 줄간격 개선 */
+.markdown > p,
+.markdown > ul,
+.markdown > ol {
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.markdown h2,
+.markdown h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }

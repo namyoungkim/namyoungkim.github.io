@@ -13,7 +13,7 @@ description: 개발 경험과 학습 내용을 공유하는 기술 블로그
 
 <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem'}}>
   <a href="docs/" style={{
-    padding: '1rem 1.5rem',
+    padding: '0.6rem 1rem',
     background: 'var(--ifm-color-primary)',
     color: 'white',
     borderRadius: '8px',
@@ -24,7 +24,7 @@ description: 개발 경험과 학습 내용을 공유하는 기술 블로그
   </a>
 
   <a href="blog" style={{
-    padding: '1rem 1.5rem',
+    padding: '0.6rem 1rem',
     background: 'var(--ifm-color-primary)',
     color: 'white',
     borderRadius: '8px',
@@ -33,30 +33,19 @@ description: 개발 경험과 학습 내용을 공유하는 기술 블로그
   }}>
     ✍️ 블로그 읽기
   </a>
-
-  <a href="https://github.com/namyoungkim/a1rtisan" style={{
-    padding: '1rem 1.5rem',
-    background: 'var(--ifm-color-primary)',
-    color: 'white',
-    borderRadius: '8px',
-    textDecoration: 'none',
-    fontWeight: 'bold'
-  }}>
-    🔗 GitHub
-  </a>
 </div>
 
 ## ✨ 최근 블로그 포스트
 
-- [React 성능 최적화 기법](blog/react-performance-optimization) - React 애플리케이션의 성능을 향상시키는 다양한 기법들
-- [블로그 시작하기](blog/welcome-to-my-blog) - 새로운 기술 블로그를 시작하며
+- [Data Fullstack Engineer로의 여정](blog/welcome) - 데이터 사이언티스트에서 Data Fullstack Engineer까지의 경험과 철학
+- [VSCode Python 개발환경 완벽 설정 가이드](blog/vscode-python-ruff-setup) - Ruff를 활용한 Python 개발 환경 구축
 
 ## 💡 이 블로그에서 다루는 주제
 
-- **웹 개발**: React, TypeScript, JavaScript
-- **개발 도구**: Git, VS Code, 개발 워크플로우
-- **문제 해결**: 실제 개발 과정에서 마주친 문제와 해결 방법
-- **학습 노트**: 새로운 기술을 배우며 정리한 내용
+- **AI Agents & LLM Engineering**: LangGraph, RAG, Context Engineering, Prompt 설계
+- **Data Engineering**: 데이터 파이프라인, ETL/ELT, 데이터 모델링
+- **ML/MLOps**: 모델 학습, 배포, 모니터링, Kubeflow
+- **Python & Tools**: pandas, PySpark, Airflow, 개발 환경 설정
 
 ---
 
