@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "a1rtisan-blog": {
+      "command": "node",
+      "args": [
+        "/Users/leo/project/a1rtisan-dev-blog/mcp-server/index.js"
+      ],
+      "env": {}
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "a1rtisan-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for A1RTISAN Dev Blog - Provides access to blog posts and documentation",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "a1rtisan-mcp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["mcp", "blog", "documentation", "claude"],
+  "author": "Leo",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.24.1",
+    "gray-matter": "^4.0.3",
+    "simple-git": "^3.30.0"
+  }
+}
