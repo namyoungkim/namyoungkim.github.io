@@ -59,7 +59,7 @@ export async function handleGetBlogPost(args, contentParser, config) {
   const result = {
     slug: targetPost.slug,
     date: targetPost.date,
-    url: `${config.siteUrl}${config.baseUrl}/blog/${targetPost.year}/${targetPost.month}/${targetPost.day}/${targetPost.slug}`,
+    url: `${config.siteUrl}${config.baseUrl}/blog/${targetPost.slug}`,
     frontmatter: parsed.frontmatter,
     body: parsed.body,
     fullContent: parsed.fullContent,

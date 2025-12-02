@@ -29,7 +29,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
     "tags": ["statistics", "machine-learning", "mathematics"],
     "authors": ["namyoungkim"],
     "description": "Bhattacharyya Distance는...",
-    "url": "https://namyoungkim.github.io/a1rtisan/blog/2025/12/02/bhattacharyya-distance"
+    "url": "https://namyoungkim.github.io/a1rtisan/blog/bhattacharyya-distance"
   }
 ]
 ```
@@ -46,7 +46,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
 {
   "slug": "bhattacharyya-distance",
   "date": "2025-12-02",
-  "url": "https://namyoungkim.github.io/a1rtisan/blog/2025/12/02/bhattacharyya-distance",
+  "url": "https://namyoungkim.github.io/a1rtisan/blog/bhattacharyya-distance",
   "frontmatter": {
     "title": "Bhattacharyya Distance 쉽게 이해하기",
     "tags": ["statistics", "machine-learning"],
@@ -222,7 +222,7 @@ ${SITE_URL}${BASE_URL}/${content_type}/${path}
 - `BASE_URL`: `/a1rtisan` (index.js:32)
 
 **결과 예시:**
-- 블로그: `https://namyoungkim.github.io/a1rtisan/blog/2025/12/02/bhattacharyya-distance`
+- 블로그: `https://namyoungkim.github.io/a1rtisan/blog/bhattacharyya-distance`
 - 문서: `https://namyoungkim.github.io/a1rtisan/docs/intro`
 
 **이점:**

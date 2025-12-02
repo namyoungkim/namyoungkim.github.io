@@ -47,7 +47,7 @@ export async function handleListBlogPosts(args, contentParser, config) {
     tags: post.tags,
     authors: post.authors,
     description: post.description,
-    url: `${config.siteUrl}${config.baseUrl}/blog/${post.year}/${post.month}/${post.day}/${post.slug}`,
+    url: `${config.siteUrl}${config.baseUrl}/blog/${post.slug}`,
   }));
 
   return {
