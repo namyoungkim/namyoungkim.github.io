@@ -2,7 +2,7 @@
 slug: vscode-python-ruff-setup
 title: VSCode Python 개발환경 완벽 설정 가이드 (2025)
 authors: namyoungkim
-tags: [Python, VSCode, Ruff, Development, Tutorial]
+tags: [python, vscode, ruff, development, tutorial]
 ---
 
 # VSCode Python 개발환경 완벽 설정 가이드 (2025)

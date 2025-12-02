@@ -5,6 +5,10 @@ const {themes} = require('prism-react-renderer');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
+// Math equation support
+const math = require('remark-math').default;
+const katex = require('rehype-katex').default;
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '개발 블로그',
@@ -31,19 +35,7 @@ const config = {
   // 한국어 설정
   i18n: {
     defaultLocale: 'ko',
-    locales: ['ko', 'en'],
-    localeConfigs: {
-      ko: {
-        label: '한국어',
-        direction: 'ltr',
-        htmlLang: 'ko-KR',
-      },
-      en: {
-        label: 'English',
-        direction: 'ltr',
-        htmlLang: 'en-US',
-      },
-    },
+    locales: ['ko'],  // 한국어만 지원 (영어 제거됨)
   },
 
   presets: [
@@ -57,6 +49,8 @@ const config = {
           // editUrl: 'https://github.com/namyoungkim/a1rtisan/tree/main/',
           showLastUpdateTime: false,
           showLastUpdateAuthor: false,
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         blog: {
           showReadingTime: true,
@@ -74,6 +68,8 @@ const config = {
             description: '개발 경험과 지식을 공유합니다',
             copyright: `Copyright © ${new Date().getFullYear()} Nam Young Kim`,
           },
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -228,7 +224,14 @@ const config = {
 
   // 추가 스타일시트 (선택사항)
   stylesheets: [
-    // 외부 스타일시트가 필요한 경우
+    // KaTeX CSS for math equations
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
   ],
 };
 
