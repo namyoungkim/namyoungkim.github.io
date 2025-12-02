@@ -18,7 +18,7 @@ export const listDocsTool = {
 /**
  * list_docs 핸들러
  */
-export async function handleListDocs(args, contentParser) {
+export async function handleListDocs(args, contentParser, config) {
   const { limit = 20 } = args;
 
   // 문서 목록 가져오기
@@ -33,7 +33,7 @@ export async function handleListDocs(args, contentParser) {
     title: doc.title,
     sidebar_position: doc.sidebar_position,
     description: doc.description,
-    url: `/docs/${doc.relativePath.replace(/\.(md|mdx)$/, '')}`,
+    url: `${config.siteUrl}${config.baseUrl}/docs/${doc.relativePath.replace(/\.(md|mdx)$/, '')}`,
   }));
 
   return {

@@ -8,6 +8,16 @@ import matter from 'gray-matter';
 export class ContentParser {
   constructor(gitManager) {
     this.gitManager = gitManager;
+    this.debug = gitManager.debug || false;
+  }
+
+  /**
+   * 디버그 로그 출력
+   */
+  log(...args) {
+    if (this.debug) {
+      console.error(...args);
+    }
   }
 
   /**
@@ -34,7 +44,7 @@ export class ContentParser {
         }
       }
     } catch (error) {
-      console.error(`[ContentParser] Failed to read directory ${dir}:`, error);
+      this.log(`[ContentParser] Failed to read directory ${dir}:`, error);
     }
 
     return files;
@@ -58,7 +68,7 @@ export class ContentParser {
         fullContent: content,
       };
     } catch (error) {
-      console.error(`[ContentParser] Failed to parse ${filePath}:`, error);
+      this.log(`[ContentParser] Failed to parse ${filePath}:`, error);
       throw error;
     }
   }
@@ -114,7 +124,7 @@ export class ContentParser {
           description: this.extractDescription(parsed.body),
         });
       } catch (error) {
-        console.error(`[ContentParser] Failed to parse metadata for ${post.path}:`, error);
+        this.log(`[ContentParser] Failed to parse metadata for ${post.path}:`, error);
       }
     }
 
@@ -158,7 +168,7 @@ export class ContentParser {
           description: this.extractDescription(parsed.body),
         });
       } catch (error) {
-        console.error(`[ContentParser] Failed to parse metadata for ${doc.path}:`, error);
+        this.log(`[ContentParser] Failed to parse metadata for ${doc.path}:`, error);
       }
     }
 

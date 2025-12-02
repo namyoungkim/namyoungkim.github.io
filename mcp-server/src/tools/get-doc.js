@@ -19,7 +19,7 @@ export const getDocTool = {
 /**
  * get_doc 핸들러
  */
-export async function handleGetDoc(args, contentParser) {
+export async function handleGetDoc(args, contentParser, config) {
   const { path: docPath } = args;
 
   // docs/ 접두사 추가 (입력에 없을 경우)
@@ -39,7 +39,7 @@ export async function handleGetDoc(args, contentParser) {
     // 결과 포맷팅
     const result = {
       path: normalizedPath,
-      url: `/docs/${urlPath}`,
+      url: `${config.siteUrl}${config.baseUrl}/docs/${urlPath}`,
       frontmatter: parsed.frontmatter,
       body: parsed.body,
       fullContent: parsed.fullContent,

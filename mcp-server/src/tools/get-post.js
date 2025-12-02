@@ -23,7 +23,7 @@ export const getBlogPostTool = {
 /**
  * get_blog_post 핸들러
  */
-export async function handleGetBlogPost(args, contentParser) {
+export async function handleGetBlogPost(args, contentParser, config) {
   const { slug, date } = args;
 
   // 블로그 포스트 목록 가져오기
@@ -59,7 +59,7 @@ export async function handleGetBlogPost(args, contentParser) {
   const result = {
     slug: targetPost.slug,
     date: targetPost.date,
-    url: `/blog/${targetPost.year}/${targetPost.month}/${targetPost.day}/${targetPost.slug}`,
+    url: `${config.siteUrl}${config.baseUrl}/blog/${targetPost.year}/${targetPost.month}/${targetPost.day}/${targetPost.slug}`,
     frontmatter: parsed.frontmatter,
     body: parsed.body,
     fullContent: parsed.fullContent,

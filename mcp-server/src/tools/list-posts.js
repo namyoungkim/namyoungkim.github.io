@@ -22,7 +22,7 @@ export const listBlogPostsTool = {
 /**
  * list_blog_posts 핸들러
  */
-export async function handleListBlogPosts(args, contentParser) {
+export async function handleListBlogPosts(args, contentParser, config) {
   const { limit = 10, tag } = args;
 
   // 블로그 포스트 목록 가져오기
@@ -47,7 +47,7 @@ export async function handleListBlogPosts(args, contentParser) {
     tags: post.tags,
     authors: post.authors,
     description: post.description,
-    url: `/blog/${post.year}/${post.month}/${post.day}/${post.slug}`,
+    url: `${config.siteUrl}${config.baseUrl}/blog/${post.year}/${post.month}/${post.day}/${post.slug}`,
   }));
 
   return {

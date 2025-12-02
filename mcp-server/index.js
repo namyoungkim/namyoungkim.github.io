@@ -23,10 +23,19 @@ import { getDocTool, handleGetDoc } from './src/tools/get-doc.js';
  * Uses GitHub repository as the single source of truth.
  */
 
+// Debug logging (set DEBUG=1 to enable)
+const DEBUG = process.env.DEBUG === '1';
+const log = (...args) => DEBUG && console.error(...args);
+
+// Site configuration (from docusaurus.config.js)
+const SITE_URL = 'https://namyoungkim.github.io';
+const BASE_URL = '/a1rtisan';
+
 // GitManager와 ContentParser 초기화
 const gitManager = new GitManager({
   repoUrl: 'https://github.com/namyoungkim/a1rtisan.git',
   branch: 'main',
+  debug: DEBUG,
 });
 
 const contentParser = new ContentParser(gitManager);
@@ -48,11 +57,11 @@ const server = new Server(
  * 서버 초기화 시 저장소 동기화
  */
 async function initialize() {
-  console.error('[MCP Server] Initializing...');
+  log('[MCP Server] Initializing...');
 
   try {
     await gitManager.sync();
-    console.error('[MCP Server] Repository synced successfully');
+    log('[MCP Server] Repository synced successfully');
   } catch (error) {
     console.error('[MCP Server] Failed to sync repository:', error);
     throw error;
@@ -79,25 +88,31 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
 
+  // 설정 객체
+  const config = {
+    siteUrl: SITE_URL,
+    baseUrl: BASE_URL,
+  };
+
   try {
     switch (name) {
       case 'list_blog_posts':
-        return await handleListBlogPosts(args, contentParser);
+        return await handleListBlogPosts(args, contentParser, config);
 
       case 'get_blog_post':
-        return await handleGetBlogPost(args, contentParser);
+        return await handleGetBlogPost(args, contentParser, config);
 
       case 'list_docs':
-        return await handleListDocs(args, contentParser);
+        return await handleListDocs(args, contentParser, config);
 
       case 'get_doc':
-        return await handleGetDoc(args, contentParser);
+        return await handleGetDoc(args, contentParser, config);
 
       default:
         throw new Error(`Unknown tool: ${name}`);
     }
   } catch (error) {
-    console.error(`[MCP Server] Error executing tool "${name}":`, error);
+    log(`[MCP Server] Error executing tool "${name}":`, error);
     return {
       content: [
         {
@@ -124,12 +139,12 @@ async function main() {
     // 서버와 transport 연결
     await server.connect(transport);
 
-    console.error('[MCP Server] A1RTISAN MCP Server is running');
-    console.error('[MCP Server] Available tools:');
-    console.error('  - list_blog_posts: Get blog post list');
-    console.error('  - get_blog_post: Get specific blog post content');
-    console.error('  - list_docs: Get documentation list');
-    console.error('  - get_doc: Get specific documentation content');
+    log('[MCP Server] A1RTISAN MCP Server is running');
+    log('[MCP Server] Available tools:');
+    log('  - list_blog_posts: Get blog post list');
+    log('  - get_blog_post: Get specific blog post content');
+    log('  - list_docs: Get documentation list');
+    log('  - get_doc: Get specific documentation content');
   } catch (error) {
     console.error('[MCP Server] Fatal error:', error);
     process.exit(1);

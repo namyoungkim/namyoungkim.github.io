@@ -14,6 +14,16 @@ export class GitManager {
     this.repoUrl = options.repoUrl || 'https://github.com/namyoungkim/a1rtisan.git';
     this.branch = options.branch || 'main';
     this.cacheDir = options.cacheDir || path.join(__dirname, '..', '.mcp-cache', 'repo');
+    this.debug = options.debug || false;
+  }
+
+  /**
+   * 디버그 로그 출력
+   */
+  log(...args) {
+    if (this.debug) {
+      console.error(...args);
+    }
   }
 
   /**
@@ -35,14 +45,14 @@ export class GitManager {
     const cloned = await this.isCloned();
 
     if (!cloned) {
-      console.log(`[GitManager] Cloning repository: ${this.repoUrl}`);
+      this.log(`[GitManager] Cloning repository: ${this.repoUrl}`);
       await this.clone();
     } else {
-      console.log(`[GitManager] Updating repository: ${this.repoUrl}`);
+      this.log(`[GitManager] Updating repository: ${this.repoUrl}`);
       await this.pull();
     }
 
-    console.log(`[GitManager] Repository synced at: ${this.cacheDir}`);
+    this.log(`[GitManager] Repository synced at: ${this.cacheDir}`);
   }
 
   /**
@@ -85,8 +95,9 @@ export class GitManager {
   async clearCache() {
     try {
       await fs.rm(this.cacheDir, { recursive: true, force: true });
-      console.log(`[GitManager] Cache cleared: ${this.cacheDir}`);
+      this.log(`[GitManager] Cache cleared: ${this.cacheDir}`);
     } catch (error) {
+      // 에러는 항상 출력
       console.error(`[GitManager] Failed to clear cache:`, error);
     }
   }
