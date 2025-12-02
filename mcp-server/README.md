@@ -8,6 +8,10 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
 
 이 MCP 서버는 4개의 도구를 제공합니다:
 
+**🔗 URL 정책**: 모든 도구는 **전체 URL**을 반환합니다 (클릭 가능).
+- 블로그: `https://namyoungkim.github.io/a1rtisan/blog/...`
+- 문서: `https://namyoungkim.github.io/a1rtisan/docs/...`
+
 ### 1. `list_blog_posts`
 블로그 포스트 목록을 조회합니다.
 
@@ -25,7 +29,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
     "tags": ["statistics", "machine-learning", "mathematics"],
     "authors": ["namyoungkim"],
     "description": "Bhattacharyya Distance는...",
-    "url": "/blog/2025/12/02/bhattacharyya-distance"
+    "url": "https://namyoungkim.github.io/a1rtisan/blog/2025/12/02/bhattacharyya-distance"
   }
 ]
 ```
@@ -42,7 +46,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
 {
   "slug": "bhattacharyya-distance",
   "date": "2025-12-02",
-  "url": "/blog/2025/12/02/bhattacharyya-distance",
+  "url": "https://namyoungkim.github.io/a1rtisan/blog/2025/12/02/bhattacharyya-distance",
   "frontmatter": {
     "title": "Bhattacharyya Distance 쉽게 이해하기",
     "tags": ["statistics", "machine-learning"],
@@ -67,7 +71,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
     "title": "시작하기",
     "sidebar_position": 1,
     "description": "문서에 오신 것을 환영합니다...",
-    "url": "/docs/intro"
+    "url": "https://namyoungkim.github.io/a1rtisan/docs/intro"
   }
 ]
 ```
@@ -82,7 +86,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
 ```json
 {
   "path": "docs/intro.md",
-  "url": "/docs/intro",
+  "url": "https://namyoungkim.github.io/a1rtisan/docs/intro",
   "frontmatter": {
     "sidebar_position": 1
   },
@@ -148,9 +152,20 @@ Claude Desktop에서 다음과 같이 질문해보세요:
 
 MCP 서버를 로컬에서 직접 실행하여 테스트할 수 있습니다:
 
+**일반 모드 (조용함):**
 ```bash
 cd /Users/leo/project/a1rtisan-dev-blog/mcp-server
 node index.js
+```
+
+**예상 출력:** (로그 없음)
+
+---
+
+**디버그 모드 (로그 출력):**
+```bash
+cd /Users/leo/project/a1rtisan-dev-blog/mcp-server
+DEBUG=1 node index.js
 ```
 
 **예상 출력:**
@@ -192,6 +207,32 @@ mcp-server/
 3. **GitManager** → ContentParser로 Markdown 파일 스캔/파싱
 4. **ContentParser** → gray-matter로 frontmatter 추출
 5. **MCP Server** → Claude Desktop으로 결과 반환
+
+### URL 구성 정책
+
+**중요**: 모든 도구는 **전체 URL**을 반환합니다 (상대 경로 아님).
+
+**URL 형식:**
+```
+${SITE_URL}${BASE_URL}/${content_type}/${path}
+```
+
+**설정 값:**
+- `SITE_URL`: `https://namyoungkim.github.io` (index.js:31)
+- `BASE_URL`: `/a1rtisan` (index.js:32)
+
+**결과 예시:**
+- 블로그: `https://namyoungkim.github.io/a1rtisan/blog/2025/12/02/bhattacharyya-distance`
+- 문서: `https://namyoungkim.github.io/a1rtisan/docs/intro`
+
+**이점:**
+- ✅ Claude Desktop에서 URL을 클릭하면 **실제 블로그로 바로 이동**
+- ✅ 브라우저 북마크 가능
+- ✅ 외부 공유 가능
+
+**변경이 필요한 경우:**
+- `docusaurus.config.js`의 `url`과 `baseUrl`이 변경되면
+- `index.js`의 `SITE_URL`과 `BASE_URL`도 함께 업데이트 필요
 
 ## 문제 해결
 
