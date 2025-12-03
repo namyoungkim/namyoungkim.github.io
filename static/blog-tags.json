@@ -58,5 +58,27 @@
     "caching",
     "nodejs",
     "tutorial"
+  ],
+  "/a1rtisan/blog/probability-distance-part1": [
+    "data",
+    "statistics",
+    "mathematics",
+    "machine-learning"
+  ],
+  "/a1rtisan/blog/probability-distance-part2": [
+    "data",
+    "deep-learning",
+    "machine-learning"
+  ],
+  "/a1rtisan/blog/probability-distance-part3": [
+    "data",
+    "deep-learning",
+    "machine-learning"
+  ],
+  "/a1rtisan/blog/probability-distance-part4": [
+    "data",
+    "mlops",
+    "machine-learning",
+    "statistics"
   ]
 }
