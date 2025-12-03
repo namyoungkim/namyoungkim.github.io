@@ -9,12 +9,18 @@ import {
 
 import { GitManager } from './src/git-manager.js';
 import { ContentParser } from './src/content-parser.js';
+import SearchEngine from './src/search-engine.js';
+import CacheManager from './src/cache-manager.js';
 
 // Tools
 import { listBlogPostsTool, handleListBlogPosts } from './src/tools/list-posts.js';
 import { getBlogPostTool, handleGetBlogPost } from './src/tools/get-post.js';
 import { listDocsTool, handleListDocs } from './src/tools/list-docs.js';
 import { getDocTool, handleGetDoc } from './src/tools/get-doc.js';
+import { searchContentTool, handleSearchContent } from './src/tools/search-content.js';
+import { getRecentPostsTool, handleGetRecentPosts } from './src/tools/get-recent.js';
+import { getTagsTool, handleGetTags } from './src/tools/get-tags.js';
+import { refreshContentTool, handleRefreshContent } from './src/tools/refresh-content.js';
 
 /**
  * A1RTISAN MCP Server
@@ -39,6 +45,8 @@ const gitManager = new GitManager({
 });
 
 const contentParser = new ContentParser(gitManager);
+const searchEngine = new SearchEngine();
+const cacheManager = new CacheManager({ debug: DEBUG });
 
 // MCP Server 생성
 const server = new Server(
@@ -54,16 +62,40 @@ const server = new Server(
 );
 
 /**
- * 서버 초기화 시 저장소 동기화
+ * 서버 초기화 시 저장소 동기화 및 인덱스 빌드
  */
 async function initialize() {
   log('[MCP Server] Initializing...');
 
   try {
+    // 1. Git 저장소 동기화
     await gitManager.sync();
+    const commitHash = await gitManager.getCurrentCommitHash();
     log('[MCP Server] Repository synced successfully');
+    log(`[MCP Server] Current commit: ${commitHash.substring(0, 7)}`);
+
+    // 2. 캐시 확인 및 로드
+    const cached = await cacheManager.loadIndex();
+
+    if (cached && await cacheManager.isValid(commitHash)) {
+      // 캐시 유효 - 로드
+      searchEngine.loadFromCache(cached);
+      log('[MCP Server] Search index loaded from cache');
+    } else {
+      // 캐시 없음 또는 무효 - 재빌드
+      log('[MCP Server] Building search index...');
+      const repoPath = gitManager.getRepoPath();
+      await searchEngine.buildIndex(repoPath);
+
+      // 캐시 저장
+      await cacheManager.saveIndex(searchEngine.exportIndex(), commitHash);
+      log('[MCP Server] Search index cached');
+    }
+
+    log(`[MCP Server] Index: ${searchEngine.getStats()}`);
   } catch (error) {
-    console.error('[MCP Server] Failed to sync repository:', error);
+    console.error('[MCP Server] Failed to initialize:', error.message);
+    console.error('[MCP Server] Please check your network connection and repository access.');
     throw error;
   }
 }
@@ -78,6 +110,10 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       getBlogPostTool,
       listDocsTool,
       getDocTool,
+      searchContentTool,
+      getRecentPostsTool,
+      getTagsTool,
+      refreshContentTool,
     ],
   };
 });
@@ -107,6 +143,18 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'get_doc':
         return await handleGetDoc(args, contentParser, config);
+
+      case 'search_content':
+        return await handleSearchContent(args, searchEngine, config);
+
+      case 'get_recent_posts':
+        return await handleGetRecentPosts(args, searchEngine, config);
+
+      case 'get_tags':
+        return await handleGetTags(args, searchEngine);
+
+      case 'refresh_content':
+        return await handleRefreshContent(args, gitManager, searchEngine, cacheManager);
 
       default:
         throw new Error(`Unknown tool: ${name}`);
@@ -140,11 +188,15 @@ async function main() {
     await server.connect(transport);
 
     log('[MCP Server] A1RTISAN MCP Server is running');
-    log('[MCP Server] Available tools:');
+    log('[MCP Server] Available tools (8):');
     log('  - list_blog_posts: Get blog post list');
     log('  - get_blog_post: Get specific blog post content');
     log('  - list_docs: Get documentation list');
     log('  - get_doc: Get specific documentation content');
+    log('  - search_content: Search through blog posts and documentation');
+    log('  - get_recent_posts: Get most recent content');
+    log('  - get_tags: Get list of available tags');
+    log('  - refresh_content: Manually sync repository and rebuild index');
   } catch (error) {
     console.error('[MCP Server] Fatal error:', error);
     process.exit(1);

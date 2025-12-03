@@ -67,11 +67,40 @@ export class GitManager {
   }
 
   /**
-   * 저장소 업데이트 (pull)
+   * 저장소 업데이트 (pull) with retry logic
+   * @param {number} retries - 최대 재시도 횟수 (기본값: 3)
    */
-  async pull() {
-    const git = simpleGit(this.cacheDir);
-    await git.pull('origin', this.branch);
+  async pull(retries = 3) {
+    for (let i = 0; i < retries; i++) {
+      try {
+        const git = simpleGit(this.cacheDir);
+        await git.pull('origin', this.branch);
+        return; // 성공
+      } catch (error) {
+        if (i === retries - 1) {
+          // 마지막 시도 실패
+          throw new Error(`Failed to pull repository after ${retries} attempts: ${error.message}`);
+        }
+        this.log(`[GitManager] Pull failed (attempt ${i + 1}/${retries}), retrying...`);
+        // 백오프: 1초, 2초, 3초...
+        await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+      }
+    }
+  }
+
+  /**
+   * 현재 commit hash 조회
+   * @returns {Promise<string>} - commit hash (전체)
+   */
+  async getCurrentCommitHash() {
+    try {
+      const git = simpleGit(this.cacheDir);
+      const log = await git.log({ maxCount: 1 });
+      return log.latest.hash;
+    } catch (error) {
+      console.error('[GitManager] Failed to get commit hash:', error);
+      throw error;
+    }
   }
 
   /**

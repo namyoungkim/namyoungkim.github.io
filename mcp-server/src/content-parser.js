@@ -6,9 +6,9 @@ import matter from 'gray-matter';
  * ContentParser - Markdown 파일 파싱 및 메타데이터 추출
  */
 export class ContentParser {
-  constructor(gitManager) {
+  constructor(gitManager = null) {
     this.gitManager = gitManager;
-    this.debug = gitManager.debug || false;
+    this.debug = gitManager?.debug || false;
   }
 
   /**
@@ -22,10 +22,10 @@ export class ContentParser {
 
   /**
    * 디렉토리 내 모든 .md/.mdx 파일 재귀 탐색
-   * @param {string} dir - 탐색할 디렉토리 (저장소 루트 기준 상대 경로)
+   * @param {string} dir - 탐색할 디렉토리 (절대 경로 또는 저장소 루트 기준 상대 경로)
    */
   async findMarkdownFiles(dir) {
-    const fullPath = this.gitManager.resolvePath(dir);
+    const fullPath = this.gitManager ? this.gitManager.resolvePath(dir) : dir;
     const files = [];
 
     try {

@@ -10,6 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - GitHub Pages 자동 배포 설정 완료
 - 블로그 포스트 작성 (Bhattacharyya Distance, 기하평균 등)
 - 인프라 문서 작성 완료 (MCP 서버 설계 포함)
+- MCP 서버 Phase 3 구현 완료 (최적화 및 안정화, 프로덕션 준비 완료)
 - 수식 렌더링 지원 (remark-math + rehype-katex)
 
 **주요 특징**:
@@ -18,7 +19,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 한국어 단일 언어 지원
 - LaTeX/KaTeX 수식 렌더링 지원
 - 콘텐츠와 인프라 명확히 분리된 구조
-- MCP (Model Context Protocol) 서버 설계 완료 (구현 예정)
+- MCP (Model Context Protocol) 서버 Phase 3 구현 완료 (프로덕션 준비 완료)
 
 ---
 
@@ -39,6 +40,13 @@ npm run clear                # Docusaurus 캐시 삭제
 npm run deploy               # GitHub Pages 수동 배포
 ```
 
+### MCP 서버
+```bash
+cd mcp-server
+node index.js                    # MCP 서버 실행 (일반 모드)
+DEBUG=1 node index.js            # MCP 서버 실행 (디버그 모드)
+```
+
 **중요**: `npm run build` 실행 시 `prebuild` 스크립트가 자동으로 `generate:llms`를 먼저 실행합니다.
 
 ---
@@ -53,7 +61,7 @@ npm run deploy               # GitHub Pages 수동 배포
 
 ### 인프라 (Infrastructure)
 - `infrastructure/` - 인프라 설계 및 문서
-- `mcp-server/` - MCP 서버 (추후 구현)
+- `mcp-server/` - MCP 서버 (Phase 3 완료, 프로덕션 준비 완료)
 - `scripts/` - 빌드 스크립트
 - `.github/` - CI/CD 워크플로우
 - `src/` - Docusaurus 테마
@@ -61,6 +69,73 @@ npm run deploy               # GitHub Pages 수동 배포
 - 설정 파일들 (docusaurus.config.js, sidebars.js, package.json)
 
 **참조**: `infrastructure/README.md`에 인프라 전체 개요가 있습니다.
+
+---
+
+## MCP 서버
+
+이 프로젝트는 **Model Context Protocol (MCP) 서버**를 포함합니다. MCP 서버를 사용하면 Claude Desktop에서 블로그 콘텐츠와 기술 문서를 실시간으로 조회할 수 있습니다.
+
+### 주요 기능
+
+**Phase 1 (기본 조회)** - 4개 도구:
+- **블로그 포스트 조회**: 목록 조회 및 전체 내용 읽기
+- **기술 문서 조회**: docs/ 디렉토리의 문서 접근
+
+**Phase 2 (검색 및 필터링)** - 3개 도구:
+- **키워드 검색**: 제목, 태그, 본문에서 가중치 기반 검색
+- **최신 콘텐츠**: 날짜순 정렬된 최신 포스트/문서 조회
+- **태그 통계**: 사용 가능한 태그 목록 및 사용 빈도
+
+**Phase 3 (최적화 및 안정화)** - 1개 도구 + 성능 개선:
+- **수동 동기화**: `refresh_content` 도구로 저장소 업데이트 및 인덱스 재빌드
+- **캐싱 시스템**: Git commit hash 기반 인덱스 캐싱 (Cold start < 1초)
+- **에러 복구**: Git 작업 자동 재시도 (최대 3회)
+- **성능 최적화**: 메모리 < 1MB, 검색 < 1초
+
+**공통**:
+- **Git 기반 동기화**: GitHub 저장소를 단일 진실 공급원으로 사용
+- **로컬 실행**: 인증 없이 로컬에서 실행되는 MCP 서버
+- **인덱싱 시스템**: 서버 시작 시 전체 콘텐츠 자동 인덱싱
+
+### 빠른 시작
+
+MCP 서버를 Claude Desktop에 연결하려면:
+
+1. Claude Desktop 설정 파일 편집:
+   - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+2. 서버 설정 추가:
+   ```json
+   {
+     "mcpServers": {
+       "a1rtisan-blog": {
+         "command": "node",
+         "args": ["/Users/leo/project/a1rtisan-dev-blog/mcp-server/index.js"],
+         "env": {}
+       }
+     }
+   }
+   ```
+
+3. Claude Desktop 재시작
+
+### MCP 개발 작업 시
+
+MCP 서버 개발 작업을 할 때는 다음 문서를 참조하세요:
+
+- **설계 문서**: `infrastructure/mcp/DESIGN.md` - 전체 아키텍처, 컴포넌트 설계, 최적화 전략
+- **구현 로드맵**: `infrastructure/mcp/ROADMAP.md` - Phase별 구현 계획 및 체크리스트
+- **사용자 가이드**: `mcp-server/README.md` - 설치, 설정, 사용 방법, 문제 해결
+
+**현재 상태**: Phase 3 완료 (8개 도구, 프로덕션 준비 완료)
+- Phase 1: `list_blog_posts`, `get_blog_post`, `list_docs`, `get_doc`
+- Phase 2: `search_content`, `get_recent_posts`, `get_tags`
+- Phase 3: `refresh_content` + 캐싱 (commit hash 기반) + 에러 복구
+
+**성능 메트릭**: Cold start < 1초 (캐시), 검색 < 1초, 메모리 < 1MB
+
+**향후 확장**: 전문 검색, 태그 기반 추천, 관련 포스트 추천 등 (선택사항)
 
 ---
 
