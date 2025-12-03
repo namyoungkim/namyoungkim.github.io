@@ -116,17 +116,20 @@ const config = {
         ],
       },
       
-      // 푸터
+      // 푸터 (가로 레이아웃)
       footer: {
         style: 'dark',
         links: [
           {
-            title: '링크',
             items: [
               {
                 label: 'GitHub',
                 href: 'https://github.com/namyoungkim',
               },
+            ],
+          },
+          {
+            items: [
               {
                 label: 'LinkedIn',
                 href: 'https://linkedin.com/in/liniar',
@@ -134,7 +137,6 @@ const config = {
             ],
           },
           {
-            title: '지원',
             items: [
               {
                 label: '☕ Buy Me A Coffee',

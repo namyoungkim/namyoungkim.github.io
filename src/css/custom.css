@@ -119,13 +119,27 @@ code {
   border-radius: 8px;
 }
 
-/* 푸터 스타일 */
+/* 푸터 스타일 - 가로 정렬 */
 .footer {
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 .footer__links {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+
+.footer__col {
+  flex: 0 0 auto;
+  padding: 0 1rem;
+}
+
+.footer__items {
+  text-align: center;
+}
+
+.footer__link-item {
+  font-size: 0.95rem;
 }
 
 /* 블로그 포스트 메타 정보 */
