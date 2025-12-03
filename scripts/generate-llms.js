@@ -37,45 +37,81 @@ function findMarkdownFiles(dir, baseDir = dir, fileList = []) {
 }
 
 /**
- * 마크다운 파일에서 제목 추출
+ * 마크다운 파일에서 메타데이터 추출 (title, slug)
  */
-function extractTitle(filePath) {
+function extractMetadata(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
-    
-    // Front matter에서 title 찾기
+    let title = null;
+    let slug = null;
+
+    // Front matter 파싱
     const frontMatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---/);
     if (frontMatterMatch) {
       const frontMatter = frontMatterMatch[1];
+
+      // title 추출
       const titleMatch = frontMatter.match(/title:\s*['"]?([^'">\n]+)['"]?/);
       if (titleMatch) {
-        return titleMatch[1];
+        title = titleMatch[1];
+      }
+
+      // slug 추출
+      const slugMatch = frontMatter.match(/slug:\s*['"]?([^'">\n]+)['"]?/);
+      if (slugMatch) {
+        slug = slugMatch[1].trim();
       }
     }
-    
-    // H1 헤딩 찾기
-    const h1Match = content.match(/^#\s+(.+)$/m);
-    if (h1Match) {
-      return h1Match[1];
+
+    // title이 없으면 H1 헤딩 찾기
+    if (!title) {
+      const h1Match = content.match(/^#\s+(.+)$/m);
+      if (h1Match) {
+        title = h1Match[1];
+      }
     }
-    
-    // 파일명으로 fallback
-    const fileName = path.basename(filePath, path.extname(filePath));
-    return fileName.replace(/-/g, ' ').replace(/_/g, ' ');
+
+    // title이 여전히 없으면 파일명으로 fallback
+    if (!title) {
+      const fileName = path.basename(filePath, path.extname(filePath));
+      title = fileName.replace(/-/g, ' ').replace(/_/g, ' ');
+    }
+
+    return { title, slug };
   } catch (error) {
     console.warn(`Warning: Could not read ${filePath}`);
-    return path.basename(filePath, path.extname(filePath));
+    return {
+      title: path.basename(filePath, path.extname(filePath)),
+      slug: null
+    };
   }
+}
+
+/**
+ * 마크다운 파일에서 제목 추출 (하위 호환성)
+ */
+function extractTitle(filePath) {
+  return extractMetadata(filePath).title;
 }
 
 /**
  * 파일 경로를 URL로 변환
  */
-function pathToUrl(filePath, type) {
+function pathToUrl(filePath, type, frontmatterSlug = null) {
   const withoutExt = filePath.replace(/\.(md|mdx)$/, '');
-  
+
   if (type === 'docs') {
-    // docs/intro.md -> /docs/intro
+    // frontmatter에 slug가 있으면 사용
+    if (frontmatterSlug) {
+      if (frontmatterSlug === '/') {
+        return '/docs/';
+      }
+      // slug가 /로 시작하면 그대로, 아니면 /docs/ 붙임
+      return frontmatterSlug.startsWith('/')
+        ? `/docs${frontmatterSlug}`
+        : `/docs/${frontmatterSlug}`;
+    }
+    // 없으면 파일 경로 기준
     return `/docs/${withoutExt}`;
   } else if (type === 'blog') {
     // blog/2024-01-01-post.md -> /blog/2024/01/01/post
@@ -116,11 +152,11 @@ function generateLlmsTxt() {
       const introFile = docFiles.find(f => f.includes('intro'));
       if (introFile) {
         const filePath = path.join(config.docsDir, introFile);
-        const title = extractTitle(filePath);
-        const url = pathToUrl(introFile, 'docs');
+        const { title, slug } = extractMetadata(filePath);
+        const url = pathToUrl(introFile, 'docs', slug);
         content.push(`- ${url}: ${title}\n`);
       }
-      
+
       // 나머지 파일들
       docFiles
         .filter(f => !f.includes('intro'))
@@ -128,8 +164,8 @@ function generateLlmsTxt() {
         .slice(0, 20) // 상위 20개만
         .forEach(file => {
           const filePath = path.join(config.docsDir, file);
-          const title = extractTitle(filePath);
-          const url = pathToUrl(file, 'docs');
+          const { title, slug } = extractMetadata(filePath);
+          const url = pathToUrl(file, 'docs', slug);
           content.push(`- ${url}: ${title}\n`);
         });
       
