@@ -55,13 +55,13 @@ const config = {
         blog: {
           showReadingTime: true,
           // 블로그 포스트당 표시할 개수
-          postsPerPage: 10,
+          postsPerPage: 20,
           // 블로그 편집 링크 비활성화 (개인 블로그)
           // editUrl: 'https://github.com/namyoungkim/a1rtisan/tree/main/',
           blogTitle: '개발 블로그',
           blogDescription: '개발 경험과 지식을 공유합니다',
           blogSidebarTitle: '최근 포스트',
-          blogSidebarCount: 10,
+          blogSidebarCount: 'ALL',
           feedOptions: {
             type: 'all',
             title: '개발 블로그',

@@ -186,7 +186,6 @@ function generateLlmsTxt() {
       blogFiles
         .sort()
         .reverse()
-        .slice(0, 10) // 최근 10개만
         .forEach(file => {
           const filePath = path.join(config.blogDir, file);
           const title = extractTitle(filePath);
