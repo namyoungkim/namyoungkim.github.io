@@ -98,15 +98,15 @@ const config = {
         },
         items: [
           {
+            to: '/blog',
+            label: '✍️ 블로그',
+            position: 'left'
+          },
+          {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: '📚 문서',
-          },
-          {
-            to: '/blog',
-            label: '✍️ 블로그',
-            position: 'left'
           },
           {
             href: 'https://github.com/namyoungkim/a1rtisan',
@@ -125,11 +125,7 @@ const config = {
             items: [
               {
                 label: '시작하기',
-                to: '/docs/intro',
-              },
-              {
-                label: '튜토리얼',
-                to: '/docs/category/tutorial',
+                to: '/docs/',
               },
             ],
           },
