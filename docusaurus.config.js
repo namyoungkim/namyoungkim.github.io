@@ -151,7 +151,7 @@ const config = {
               },
               {
                 label: 'RSS',
-                href: '/blog/rss.xml',
+                href: 'https://namyoungkim.github.io/a1rtisan/blog/rss.xml',
               },
             ],
           },
