@@ -125,17 +125,31 @@ code {
 }
 
 .footer__links {
-  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 0.5rem;
 }
 
 .footer__col {
-  flex: 0 0 auto;
+  flex: 0 0 auto !important;
+  width: auto !important;
   padding: 0 1rem;
 }
 
+.footer__title {
+  display: none;
+}
+
 .footer__items {
-  text-align: center;
+  display: inline;
+}
+
+.footer__item {
+  display: inline;
 }
 
 .footer__link-item {
