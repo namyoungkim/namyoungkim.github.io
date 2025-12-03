@@ -8,11 +8,15 @@
 
 ## ✍️ Blog Posts
 
-- /blog/2025/12/02/geometric-mean-intuition: 기하평균의 의미와 수학적 감각 익히기
-- /blog/2025/12/02/bhattacharyya-distance: Bhattacharyya Distance (바타차리야 거리) 쉽게 이해하기
-- /blog/2025/12/01/welcome: Data Fullstack Engineer로의 여정
-- /blog/2025/12/01/vscode-python-ruff-setup: VSCode Python 개발환경 완벽 설정 가이드 (2025)
-- /blog/2025/11/17/custom-domain-setup: GitHub Pages에 커스텀 도메인 설정하기
+- /blog/mcp-server-part3-optimization: 개발 블로그를 위한 MCP 서버 구축기 (3): Cold Start 1초 미만을 위한 캐싱과 에러 복구
+- /blog/mcp-server-part2-search: 개발 블로그를 위한 MCP 서버 구축기 (2): 인메모리 역인덱스로 검색 기능 구현
+- /blog/mcp-server-part1-design: 개발 블로그를 위한 MCP 서버 구축기 (1): Git 기반 설계와 기본 구현
+- /blog/llms-txt-introduction: llms.txt란? AI를 위한 웹사이트 목차 표준
+- /blog/geometric-mean-intuition: 기하평균의 의미와 수학적 감각 익히기
+- /blog/bhattacharyya-distance: Bhattacharyya Distance (바타차리야 거리) 쉽게 이해하기
+- /blog/welcome: Data Fullstack Engineer로의 여정
+- /blog/vscode-python-ruff-setup: VSCode Python 개발환경 완벽 설정 가이드 (2025)
+- /blog/custom-domain-setup: GitHub Pages에 커스텀 도메인 설정하기
 
 ## Optional
 
