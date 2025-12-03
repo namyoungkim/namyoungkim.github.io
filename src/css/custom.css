@@ -222,3 +222,29 @@ code {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
+
+/* ========================================
+   블로그 레이아웃 개선
+   ======================================== */
+
+/* 1. 컨테이너를 화면에 꽉 채움 (데스크탑) */
+@media (min-width: 997px) {
+  .container {
+    max-width: calc(100% - 2rem);  /* 좌우 1rem 여백만 유지 */
+  }
+
+  /* 2. 블로그 사이드바 너비 (14.6%) */
+  aside.col.col--3 {
+    --ifm-col-width: calc(1.75 / 12 * 100%);
+  }
+
+  /* 3. 블로그 콘텐츠 영역 (70.8%) */
+  main.col.col--7 {
+    --ifm-col-width: calc(8.5 / 12 * 100%);
+  }
+
+  /* 4. TOC 영역 (14.6%) */
+  .col.col--2 {
+    --ifm-col-width: calc(1.75 / 12 * 100%);
+  }
+}

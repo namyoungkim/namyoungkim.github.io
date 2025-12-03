@@ -74,11 +74,11 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        // Google Analytics (선택사항)
-        gtag: {
-          trackingID: 'G-XXXXXXXXXX', // 실제 Google Analytics ID로 변경
-          anonymizeIP: true,
-        },
+        // Google Analytics (선택사항) - 실제 ID가 있을 때 주석 해제
+        // gtag: {
+        //   trackingID: 'G-XXXXXXXXXX', // 실제 Google Analytics ID로 변경
+        //   anonymizeIP: true,
+        // },
       }),
     ],
   ],

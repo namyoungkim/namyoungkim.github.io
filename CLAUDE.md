@@ -20,6 +20,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - LaTeX/KaTeX 수식 렌더링 지원
 - 콘텐츠와 인프라 명확히 분리된 구조
 - MCP (Model Context Protocol) 서버 Phase 3 구현 완료 (프로덕션 준비 완료)
+- 블로그 사이드바 커스터마이징 (주제 필터, 토글, 반응형 레이아웃)
 
 ---
 
@@ -36,6 +37,7 @@ npm start -- --port 3001     # 다른 포트로 실행
 npm run build                # 프로덕션 빌드 (./build/ 디렉토리 생성)
 npm run serve                # 빌드된 사이트 로컬 미리보기
 npm run generate:llms        # llms.txt 수동 생성
+npm run generate:tags        # blog-tags.json 생성 (주제 필터용)
 npm run clear                # Docusaurus 캐시 삭제
 npm run deploy               # GitHub Pages 수동 배포
 ```
@@ -47,7 +49,7 @@ node index.js                    # MCP 서버 실행 (일반 모드)
 DEBUG=1 node index.js            # MCP 서버 실행 (디버그 모드)
 ```
 
-**중요**: `npm run build` 실행 시 `prebuild` 스크립트가 자동으로 `generate:llms`를 먼저 실행합니다.
+**중요**: `npm run build` 실행 시 `prebuild` 스크립트가 `generate:llms`와 `generate:tags`를 자동 실행합니다.
 
 ---
 
@@ -294,6 +296,7 @@ git push origin main
 
 ### 기술 설정
 - **`CONFIGURATION.md`** - docusaurus.config.js, sidebars.js, deploy.yml 등 상세 설명
+- **`THEME-CUSTOMIZATION.md`** - 블로그 UI 커스터마이징 가이드 (사이드바, 레이아웃)
 
 ### 시작 가이드
 - **`README.md`** - 프로젝트 소개 및 설치 가이드

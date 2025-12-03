@@ -1,0 +1,43 @@
+.topicFilter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.topicButton {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 1rem;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.topicButton:hover {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+}
+
+.topicButton.active {
+  background: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+/* 다크 모드 */
+[data-theme='dark'] .topicButton:hover {
+  background: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .topicButton.active {
+  background: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
+}

@@ -1,0 +1,62 @@
+{
+  "/a1rtisan/blog/custom-domain-setup": [
+    "devops",
+    "tutorial",
+    "github-pages",
+    "docusaurus"
+  ],
+  "/a1rtisan/blog/vscode-python-ruff-setup": [
+    "dev-tools",
+    "python",
+    "vscode",
+    "ruff",
+    "tutorial"
+  ],
+  "/a1rtisan/blog/welcome": [
+    "career",
+    "data-engineering",
+    "machine-learning",
+    "ai-agents"
+  ],
+  "/a1rtisan/blog/bhattacharyya-distance": [
+    "data",
+    "statistics",
+    "machine-learning",
+    "mathematics",
+    "anti-abusing"
+  ],
+  "/a1rtisan/blog/geometric-mean-intuition": [
+    "data",
+    "mathematics",
+    "statistics",
+    "data-science"
+  ],
+  "/a1rtisan/blog/llms-txt-introduction": [
+    "ai",
+    "llm",
+    "web-standard"
+  ],
+  "/a1rtisan/blog/mcp-server-part1-design": [
+    "ai",
+    "mcp",
+    "nodejs",
+    "ai-agents",
+    "tutorial"
+  ],
+  "/a1rtisan/blog/mcp-server-part2-search": [
+    "ai",
+    "mcp",
+    "search",
+    "algorithm",
+    "nodejs",
+    "tutorial"
+  ],
+  "/a1rtisan/blog/mcp-server-part3-optimization": [
+    "ai",
+    "mcp",
+    "performance",
+    "caching",
+    "nodejs",
+    "tutorial"
+  ]
+}

@@ -1,0 +1,113 @@
+.sidebar {
+  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  overflow-y: auto;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.sidebarItemTitle {
+  font-size: var(--ifm-h3-font-size);
+  font-weight: var(--ifm-font-weight-bold);
+}
+
+.sidebarItemList {
+  font-size: 0.9rem;
+}
+
+.sidebarItem {
+  margin-top: 0.7rem;
+}
+
+.sidebarItemLink {
+  color: var(--ifm-font-color-base);
+  display: block;
+}
+
+.sidebarItemLink:hover {
+  text-decoration: none;
+}
+
+.sidebarItemLinkActive {
+  color: var(--ifm-color-primary) !important;
+}
+
+@media (max-width: 996px) {
+  .sidebar {
+    display: none;
+  }
+  .collapsedSidebar {
+    display: none;
+  }
+}
+
+.yearGroupHeading {
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+/* 사이드바 토글 버튼 */
+.collapseButton,
+.expandButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-600);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collapseButton:hover,
+.expandButton:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary-lightest);
+}
+
+.collapseIcon,
+.expandIcon {
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+/* 접힌 사이드바 */
+.collapsedSidebar {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+  padding: 0 0.5rem;
+}
+
+/* 필터 배지 */
+.filterBadge {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: var(--ifm-color-primary);
+  margin-left: 0.5rem;
+}
+
+/* 빈 결과 메시지 */
+.emptyMessage {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.875rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+/* 다크 모드 */
+[data-theme='dark'] .collapseButton:hover,
+[data-theme='dark'] .expandButton:hover {
+  background: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-primary-lightest);
+}
