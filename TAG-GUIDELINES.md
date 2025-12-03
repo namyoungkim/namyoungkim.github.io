@@ -23,95 +23,55 @@
 
 ---
 
-## 🏷️ 태그 카테고리 및 추천 태그
+## 🏷️ 태그 구조
 
-### 프로그래밍 언어
+태그는 **주제 + 기술 + 유형** 구조로 작성합니다.
+
 ```
-python
-javascript
-typescript
-java
-go
-rust
-kotlin
-swift
+tags: [주제태그, 기술태그1, 기술태그2, 유형태그]
 ```
 
-### 프레임워크 & 라이브러리
+### 🎯 주제 태그 (필수, 1개 선택)
+
+모든 포스트에 아래 중 하나를 포함합니다:
+
+| 태그 | 설명 |
+|------|------|
+| `ai` | AI, LLM, MCP, 에이전트 관련 |
+| `data` | 데이터 사이언스, 통계, 분석 |
+| `dev-tools` | 개발 환경, 도구 설정 |
+| `devops` | 배포, 인프라, CI/CD |
+
+### 💻 기술 태그 (선택, 여러 개 가능)
+
+#### 프로그래밍 언어
 ```
-react
-vue
-django
-flask
-fastapi
-spring
-express
-pytorch
-tensorflow
+python, javascript, typescript, java, go, rust, nodejs
 ```
 
-### 기술 & 도구
+#### 프레임워크 & 도구
 ```
-docker
-kubernetes
-git
-github-actions
-vscode
-aws
-gcp
-azure
+react, vue, django, fastapi, pytorch, tensorflow
+docker, kubernetes, vscode, github-actions, github-pages
+mcp, docusaurus, ruff
 ```
 
-### 데이터 & AI
+#### 데이터 & AI
 ```
-machine-learning
-deep-learning
-data-science
-data-engineering
-natural-language-processing
-computer-vision
-ai-agents
-mlops
+machine-learning, deep-learning, data-science, data-engineering
+ai-agents, llm, mlops
+statistics, mathematics, algorithm
 ```
 
-### 개발 방법론
+#### 성능 & 최적화
 ```
-testing
-ci-cd
-devops
-agile
-tdd
-clean-code
-design-patterns
+performance, caching, search
 ```
 
-### 수학 & 통계
-```
-mathematics
-statistics
-probability
-linear-algebra
-optimization
-```
+### 📝 유형 태그 (선택)
 
-### 콘텐츠 유형
 ```
-tutorial
-guide
-review
-opinion
-case-study
-best-practices
-troubleshooting
-```
-
-### 기타
-```
-welcome
-about
-productivity
-career
-books
+tutorial, guide, troubleshooting
 ```
 
 ---
@@ -122,20 +82,20 @@ books
 
 ```markdown
 ---
-tags: [python, machine-learning, tutorial]
+tags: [ai, mcp, nodejs, tutorial]
 ---
 ```
-- 모두 소문자
-- 하이픈으로 단어 연결
-- 명확하고 간결
+- 주제 태그(`ai`) 포함
+- 기술 태그 명시
+- 유형 태그 포함
 
 ```markdown
 ---
-tags: [data-science, statistics, mathematics]
+tags: [data, statistics, machine-learning, mathematics]
 ---
 ```
-- 일관된 형식
-- 전체 이름 사용
+- 주제 태그(`data`) 포함
+- 관련 기술 태그들
 
 ### ❌ 나쁜 예시
 
@@ -174,14 +134,14 @@ tags: [python, python-tutorial, python-programming, python-basics]
 
 ### 2. 우선순위
 태그는 다음 순서로 추가하세요:
-1. **주요 기술/언어** (python, javascript 등)
-2. **주제/분야** (machine-learning, data-science 등)
-3. **콘텐츠 유형** (tutorial, guide 등)
+1. **주제 태그** (ai, data, dev-tools, devops 중 1개)
+2. **기술 태그** (python, mcp, statistics 등)
+3. **유형 태그** (tutorial, guide 등 - 선택)
 
 예시:
 ```markdown
-tags: [python, machine-learning, statistics, tutorial]
-     (언어)  (주제)            (분야)      (유형)
+tags: [ai, mcp, nodejs, performance, tutorial]
+     (주제) (기술)  (기술)   (기술)     (유형)
 ```
 
 ### 3. 너무 세분화하지 말기

@@ -2,7 +2,7 @@
 slug: bhattacharyya-distance
 title: Bhattacharyya Distance (바타차리야 거리) 쉽게 이해하기
 authors: namyoungkim
-tags: [statistics, machine-learning, mathematics, data-science, anti-abusing]
+tags: [data, statistics, machine-learning, mathematics, anti-abusing]
 ---
 
 # Bhattacharyya Distance (바타차리야 거리) 쉽게 이해하기

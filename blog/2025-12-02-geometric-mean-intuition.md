@@ -2,7 +2,7 @@
 slug: geometric-mean-intuition
 title: 기하평균의 의미와 수학적 감각 익히기
 authors: namyoungkim
-tags: [mathematics, statistics, data-science, intuition]
+tags: [data, mathematics, statistics, data-science]
 ---
 
 # 기하평균의 의미와 수학적 감각 익히기

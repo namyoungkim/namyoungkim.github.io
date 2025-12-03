@@ -2,7 +2,7 @@
 slug: custom-domain-setup
 title: GitHub Pages에 커스텀 도메인 설정하기
 authors: namyoungkim
-tags: [tutorial, deployment, domain, github-pages, docusaurus]
+tags: [devops, tutorial, github-pages, docusaurus]
 draft: true
 ---
 

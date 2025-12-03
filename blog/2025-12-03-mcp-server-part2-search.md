@@ -2,7 +2,7 @@
 slug: mcp-server-part2-search
 title: "개발 블로그를 위한 MCP 서버 구축기 (2): 인메모리 역인덱스로 검색 기능 구현"
 authors: namyoungkim
-tags: [mcp, search, algorithm, nodejs, tutorial]
+tags: [ai, mcp, search, algorithm, nodejs, tutorial]
 ---
 
 # 개발 블로그를 위한 MCP 서버 구축기 (2): 인메모리 역인덱스로 검색 기능 구현

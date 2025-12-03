@@ -2,7 +2,7 @@
 slug: mcp-server-part1-design
 title: "개발 블로그를 위한 MCP 서버 구축기 (1): Git 기반 설계와 기본 구현"
 authors: namyoungkim
-tags: [mcp, nodejs, ai-agents, tutorial]
+tags: [ai, mcp, nodejs, ai-agents, tutorial]
 ---
 
 # 개발 블로그를 위한 MCP 서버 구축기 (1): Git 기반 설계와 기본 구현

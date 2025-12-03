@@ -2,7 +2,7 @@
 slug: mcp-server-part3-optimization
 title: "개발 블로그를 위한 MCP 서버 구축기 (3): Cold Start 1초 미만을 위한 캐싱과 에러 복구"
 authors: namyoungkim
-tags: [mcp, performance, caching, nodejs, tutorial]
+tags: [ai, mcp, performance, caching, nodejs, tutorial]
 ---
 
 # 개발 블로그를 위한 MCP 서버 구축기 (3): Cold Start 1초 미만을 위한 캐싱과 에러 복구
