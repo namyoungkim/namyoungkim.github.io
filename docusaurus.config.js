@@ -121,16 +121,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: '문서',
-            items: [
-              {
-                label: '시작하기',
-                to: '/docs/',
-              },
-            ],
-          },
-          {
-            title: '커뮤니티',
+            title: '링크',
             items: [
               {
                 label: 'GitHub',
@@ -139,15 +130,6 @@ const config = {
               {
                 label: 'LinkedIn',
                 href: 'https://linkedin.com/in/liniar',
-              },
-            ],
-          },
-          {
-            title: '더보기',
-            items: [
-              {
-                label: '블로그',
-                to: '/blog',
               },
             ],
           },
