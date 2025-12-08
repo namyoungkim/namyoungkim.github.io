@@ -49,7 +49,10 @@ jobs:
       
       - name: Generate llms.txt 📝
         run: npm run generate:llms
-      
+
+      - name: Generate blog tags 🏷️
+        run: npm run generate:tags
+
       - name: Build website 🏗️
         run: npm run build
         env:
