@@ -13,8 +13,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "generate:llms": "node scripts/generate-llms.js",
-    "generate:tags": "node scripts/generate-tag-map.js",
+    "generate:llms": "node scripts/generate-llms.mjs",
+    "generate:tags": "node scripts/generate-tag-map.mjs",
     "prebuild": "npm run generate:llms && npm run generate:tags"
   },
   "dependencies": {
