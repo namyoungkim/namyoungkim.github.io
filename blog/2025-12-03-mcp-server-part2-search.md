@@ -482,7 +482,7 @@ Claude Desktop에서 테스트해봅니다:
       "date": "2025-12-01",
       "tags": ["python", "vscode", "ruff"],
       "score": 15,
-      "url": "https://namyoungkim.github.io/a1rtisan/blog/vscode-python-ruff-setup"
+      "url": "https://namyoungkim.github.io/blog/vscode-python-ruff-setup"
     }
   ],
   "total": 1,

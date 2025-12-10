@@ -17,11 +17,11 @@ const config = {
 
   // 여기에 실제 배포 URL을 입력하세요
   url: 'https://namyoungkim.github.io',
-  baseUrl: '/a1rtisan/',
+  baseUrl: '/',
 
   // GitHub Pages 배포 설정
   organizationName: 'namyoungkim', // GitHub 사용자명 또는 조직명
-  projectName: 'a1rtisan', // GitHub 저장소 이름
+  projectName: 'namyoungkim.github.io', // GitHub 저장소 이름
 
   onBrokenLinks: 'warn',
 
@@ -74,11 +74,11 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        // Google Analytics (선택사항) - 실제 ID가 있을 때 주석 해제
-        // gtag: {
-        //   trackingID: 'G-XXXXXXXXXX', // 실제 Google Analytics ID로 변경
-        //   anonymizeIP: true,
-        // },
+        // Google Analytics
+        gtag: {
+          trackingID: 'G-9JVE2E0HTL',
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
@@ -109,7 +109,7 @@ const config = {
             label: '📚 문서',
           },
           {
-            href: 'https://github.com/namyoungkim/a1rtisan',
+            href: 'https://github.com/namyoungkim/namyoungkim.github.io',
             label: 'GitHub',
             position: 'right',
           },
@@ -193,9 +193,14 @@ const config = {
     ],
   ],
 
-  // 추가 스크립트 (선택사항)
+  // 추가 스크립트
   scripts: [
-    // 외부 스크립트가 필요한 경우
+    // Google AdSense
+    {
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3451604247959932',
+      async: true,
+      crossOrigin: 'anonymous',
+    },
   ],
 
   // 추가 스타일시트 (선택사항)

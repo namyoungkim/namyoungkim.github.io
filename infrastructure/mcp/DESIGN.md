@@ -25,7 +25,7 @@ Claude Desktop
     ↓
 MCP Server (로컬 프로세스)
     ↓
-Git Manager → GitHub Repository (https://github.com/namyoungkim/a1rtisan.git)
+Git Manager → GitHub Repository (https://github.com/namyoungkim/namyoungkim.github.io.git)
     ↓
 Content Parser → 마크다운 파싱 및 메타데이터 추출
     ↓
@@ -76,7 +76,7 @@ a1rtisan-dev-blog/
 ```javascript
 class GitManager {
   constructor(config) {
-    this.repoUrl = 'https://github.com/namyoungkim/a1rtisan.git';
+    this.repoUrl = 'https://github.com/namyoungkim/namyoungkim.github.io.git';
     this.localPath = '.mcp-cache/repo';
     this.lastSync = null;
     this.syncInterval = 300000; // 5분
@@ -486,7 +486,7 @@ class CacheManager {
         "/Users/leo/project/a1rtisan-dev-blog/mcp-server/index.js"
       ],
       "env": {
-        "REPO_URL": "https://github.com/namyoungkim/a1rtisan.git",
+        "REPO_URL": "https://github.com/namyoungkim/namyoungkim.github.io.git",
         "SYNC_INTERVAL": "300000",
         "CACHE_DIR": ".mcp-cache"
       }

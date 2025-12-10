@@ -35,11 +35,11 @@ const log = (...args) => DEBUG && console.error(...args);
 
 // Site configuration (from docusaurus.config.js)
 const SITE_URL = 'https://namyoungkim.github.io';
-const BASE_URL = '/a1rtisan';
+const BASE_URL = '';
 
 // GitManager와 ContentParser 초기화
 const gitManager = new GitManager({
-  repoUrl: 'https://github.com/namyoungkim/a1rtisan.git',
+  repoUrl: 'https://github.com/namyoungkim/namyoungkim.github.io.git',
   branch: 'main',
   debug: DEBUG,
 });

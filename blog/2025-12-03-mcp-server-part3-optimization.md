@@ -451,7 +451,7 @@ $ ls -lh .mcp-cache/index.json
 
 이 시리즈에서 구현한 MCP 서버의 전체 소스 코드는 GitHub에서 확인할 수 있습니다:
 
-- **저장소**: [mcp-server 디렉토리](https://github.com/namyoungkim/a1rtisan/tree/main/mcp-server)
+- **저장소**: [mcp-server 디렉토리](https://github.com/namyoungkim/namyoungkim.github.io/tree/main/mcp-server)
 
 ---
 

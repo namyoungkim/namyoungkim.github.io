@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 이 프로젝트는 **Docusaurus 3.0 기반 개발 블로그 및 기술 학습 문서 사이트**입니다.
 
-**현재 상태**: 배포 완료 (https://namyoungkim.github.io/a1rtisan/)
+**현재 상태**: 배포 완료 (https://namyoungkim.github.io/)
 - GitHub Pages 자동 배포 설정 완료
 - 블로그 포스트 작성 (Bhattacharyya Distance, 기하평균 등)
 - 인프라 문서 작성 완료 (MCP 서버 설계 포함)

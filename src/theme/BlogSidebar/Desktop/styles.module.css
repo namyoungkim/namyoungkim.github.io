@@ -111,3 +111,20 @@
   background: var(--ifm-color-primary-darkest);
   color: var(--ifm-color-primary-lightest);
 }
+
+/* 광고 컨테이너 */
+.adContainer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.adContainer::before {
+  content: '광고';
+  display: block;
+  font-size: 0.7rem;
+  color: var(--ifm-color-emphasis-500);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

@@ -171,9 +171,9 @@ node index.js
 
 ### docusaurus.config.js
 - **url**: `https://namyoungkim.github.io`
-- **baseUrl**: `/a1rtisan/`
+- **baseUrl**: `/`
 - **organizationName**: `namyoungkim`
-- **projectName**: `a1rtisan`
+- **projectName**: `namyoungkim.github.io`
 - **i18n**: 한국어(기본), 영어
 - **onBrokenLinks**: `'warn'` (빌드 통과 위해)
 
@@ -213,7 +213,7 @@ npm run build
 ```
 
 ### 배포 실패
-1. GitHub Actions 로그 확인: `https://github.com/namyoungkim/a1rtisan/actions`
+1. GitHub Actions 로그 확인: `https://github.com/namyoungkim/namyoungkim.github.io/actions`
 2. Node.js 버전 확인 (20+ 필요)
 3. 설정 파일 검증
 

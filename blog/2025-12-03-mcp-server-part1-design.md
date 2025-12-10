@@ -229,7 +229,7 @@ import { ContentParser } from './src/content-parser.js';
 
 // 컴포넌트 초기화
 const gitManager = new GitManager({
-  repoUrl: 'https://github.com/namyoungkim/a1rtisan.git',
+  repoUrl: 'https://github.com/namyoungkim/namyoungkim.github.io.git',
   branch: 'main',
 });
 const contentParser = new ContentParser(gitManager);
@@ -377,7 +377,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
   const config = {
     siteUrl: 'https://namyoungkim.github.io',
-    baseUrl: '/a1rtisan',
+    baseUrl: '',
   };
 
   switch (name) {
@@ -440,7 +440,7 @@ Claude Desktop에서 다음과 같이 테스트할 수 있습니다:
       "title": "Bhattacharyya Distance 쉽게 이해하기",
       "date": "2025-12-02",
       "tags": ["statistics", "machine-learning"],
-      "url": "https://namyoungkim.github.io/a1rtisan/blog/bhattacharyya-distance"
+      "url": "https://namyoungkim.github.io/blog/bhattacharyya-distance"
     }
   ],
   "total": 5,

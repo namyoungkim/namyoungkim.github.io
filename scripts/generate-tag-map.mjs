@@ -9,7 +9,7 @@ import matter from 'gray-matter';
 
 const BLOG_DIR = path.join(process.cwd(), 'blog');
 const OUTPUT_FILE = path.join(process.cwd(), 'static', 'blog-tags.json');
-const BASE_URL = '/a1rtisan/blog';
+const BASE_URL = '/blog';
 
 function generateTagMap() {
   console.log('🏷️  Generating blog tag map...\n');

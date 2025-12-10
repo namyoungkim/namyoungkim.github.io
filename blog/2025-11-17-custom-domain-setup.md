@@ -18,7 +18,7 @@ draft: true
 
 ### 현재 상태
 ```
-https://namyoungkim.github.io/a1rtisan/
+https://namyoungkim.github.io/
 ```
 
 URL이 너무 길고, 브랜딩하기 어렵습니다.
@@ -249,14 +249,14 @@ Address: 185.199.109.153
 
 `baseUrl`을 `/a1rtisan/`에서 `/`로 변경하면:
 
-- **이전**: `https://namyoungkim.github.io/a1rtisan/docs/intro`
+- **이전**: `https://namyoungkim.github.io/docs/intro`
 - **이후**: `https://a1rtisan.io/docs/intro`
 
 Docusaurus가 모든 내부 링크를 자동으로 조정하므로 걱정하지 마세요!
 
 ### ⚠️ 기존 GitHub Pages URL
 
-기존 `https://namyoungkim.github.io/a1rtisan/` URL은:
+기존 `https://namyoungkim.github.io/` URL은:
 
 - **계속 작동합니다**
 - 원하면 리다이렉션 설정 가능

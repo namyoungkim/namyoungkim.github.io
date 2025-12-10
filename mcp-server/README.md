@@ -13,8 +13,8 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
 **Phase 3**: 최적화 및 안정화 (1개 도구 + 성능 개선)
 
 **🔗 URL 정책**: 모든 도구는 **전체 URL**을 반환합니다 (클릭 가능).
-- 블로그: `https://namyoungkim.github.io/a1rtisan/blog/...`
-- 문서: `https://namyoungkim.github.io/a1rtisan/docs/...`
+- 블로그: `https://namyoungkim.github.io/blog/...`
+- 문서: `https://namyoungkim.github.io/docs/...`
 
 ---
 
@@ -37,7 +37,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
     "tags": ["statistics", "machine-learning", "mathematics"],
     "authors": ["namyoungkim"],
     "description": "Bhattacharyya Distance는...",
-    "url": "https://namyoungkim.github.io/a1rtisan/blog/bhattacharyya-distance"
+    "url": "https://namyoungkim.github.io/blog/bhattacharyya-distance"
   }
 ]
 ```
@@ -54,7 +54,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
 {
   "slug": "bhattacharyya-distance",
   "date": "2025-12-02",
-  "url": "https://namyoungkim.github.io/a1rtisan/blog/bhattacharyya-distance",
+  "url": "https://namyoungkim.github.io/blog/bhattacharyya-distance",
   "frontmatter": {
     "title": "Bhattacharyya Distance 쉽게 이해하기",
     "tags": ["statistics", "machine-learning"],
@@ -79,7 +79,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
     "title": "시작하기",
     "sidebar_position": 1,
     "description": "문서에 오신 것을 환영합니다...",
-    "url": "https://namyoungkim.github.io/a1rtisan/docs/intro"
+    "url": "https://namyoungkim.github.io/docs/intro"
   }
 ]
 ```
@@ -94,7 +94,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
 ```json
 {
   "path": "docs/intro.md",
-  "url": "https://namyoungkim.github.io/a1rtisan/docs/intro",
+  "url": "https://namyoungkim.github.io/docs/intro",
   "frontmatter": {
     "sidebar_position": 1
   },
@@ -129,7 +129,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
       "date": "2025-12-02",
       "tags": ["statistics", "machine-learning"],
       "excerpt": "Bhattacharyya Distance는...",
-      "url": "https://namyoungkim.github.io/a1rtisan/blog/bhattacharyya-distance"
+      "url": "https://namyoungkim.github.io/blog/bhattacharyya-distance"
     }
   ],
   "total": 1,
@@ -160,7 +160,7 @@ Claude Desktop에서 이 MCP 서버를 연결하면, Claude가 블로그 포스�
       "date": "2025-12-02",
       "tags": ["statistics", "machine-learning"],
       "excerpt": "Bhattacharyya Distance는...",
-      "url": "https://namyoungkim.github.io/a1rtisan/blog/bhattacharyya-distance"
+      "url": "https://namyoungkim.github.io/blog/bhattacharyya-distance"
     }
   ],
   "total": 5,
@@ -301,7 +301,7 @@ DEBUG=1 node index.js
 **예상 출력:**
 ```
 [MCP Server] Initializing...
-[GitManager] Updating repository: https://github.com/namyoungkim/a1rtisan.git
+[GitManager] Updating repository: https://github.com/namyoungkim/namyoungkim.github.io.git
 [GitManager] Repository synced at: /Users/leo/project/a1rtisan-dev-blog/mcp-server/.mcp-cache/repo
 [MCP Server] Repository synced successfully
 [SearchEngine] Building index...
@@ -379,11 +379,11 @@ ${SITE_URL}${BASE_URL}/${content_type}/${path}
 
 **설정 값:**
 - `SITE_URL`: `https://namyoungkim.github.io` (index.js:31)
-- `BASE_URL`: `/a1rtisan` (index.js:32)
+- `BASE_URL`: `` (빈 문자열, index.js:38)
 
 **결과 예시:**
-- 블로그: `https://namyoungkim.github.io/a1rtisan/blog/bhattacharyya-distance`
-- 문서: `https://namyoungkim.github.io/a1rtisan/docs/intro`
+- 블로그: `https://namyoungkim.github.io/blog/bhattacharyya-distance`
+- 문서: `https://namyoungkim.github.io/docs/intro`
 
 **이점:**
 - ✅ Claude Desktop에서 URL을 클릭하면 **실제 블로그로 바로 이동**
@@ -440,7 +440,7 @@ rm -rf /Users/leo/project/a1rtisan-dev-blog/mcp-server/.mcp-cache/index.json
 1. 인터넷 연결 확인
 2. GitHub 저장소 접근 가능 여부 확인:
    ```bash
-   git ls-remote https://github.com/namyoungkim/a1rtisan.git
+   git ls-remote https://github.com/namyoungkim/namyoungkim.github.io.git
    ```
 
 3. 캐시 삭제 후 재시도:

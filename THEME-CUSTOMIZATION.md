@@ -139,7 +139,7 @@ npm run generate:tags
 **형식**:
 ```json
 {
-  "/a1rtisan/blog/post-slug": ["tag1", "tag2", "tag3"]
+  "/blog/post-slug": ["tag1", "tag2", "tag3"]
 }
 ```
 

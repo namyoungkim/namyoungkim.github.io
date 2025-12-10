@@ -1,49 +1,49 @@
 {
-  "/a1rtisan/blog/custom-domain-setup": [
+  "/blog/custom-domain-setup": [
     "devops",
     "tutorial",
     "github-pages",
     "docusaurus"
   ],
-  "/a1rtisan/blog/vscode-python-ruff-setup": [
+  "/blog/vscode-python-ruff-setup": [
     "dev-tools",
     "python",
     "vscode",
     "ruff",
     "tutorial"
   ],
-  "/a1rtisan/blog/welcome": [
+  "/blog/welcome": [
     "career",
     "data-engineering",
     "machine-learning",
     "ai-agents"
   ],
-  "/a1rtisan/blog/bhattacharyya-distance": [
+  "/blog/bhattacharyya-distance": [
     "data",
     "statistics",
     "machine-learning",
     "mathematics",
     "anti-abusing"
   ],
-  "/a1rtisan/blog/geometric-mean-intuition": [
+  "/blog/geometric-mean-intuition": [
     "data",
     "mathematics",
     "statistics",
     "data-science"
   ],
-  "/a1rtisan/blog/llms-txt-introduction": [
+  "/blog/llms-txt-introduction": [
     "ai",
     "llm",
     "web-standard"
   ],
-  "/a1rtisan/blog/mcp-server-part1-design": [
+  "/blog/mcp-server-part1-design": [
     "ai",
     "mcp",
     "nodejs",
     "ai-agents",
     "tutorial"
   ],
-  "/a1rtisan/blog/mcp-server-part2-search": [
+  "/blog/mcp-server-part2-search": [
     "ai",
     "mcp",
     "search",
@@ -51,7 +51,7 @@
     "nodejs",
     "tutorial"
   ],
-  "/a1rtisan/blog/mcp-server-part3-optimization": [
+  "/blog/mcp-server-part3-optimization": [
     "ai",
     "mcp",
     "performance",
@@ -59,29 +59,29 @@
     "nodejs",
     "tutorial"
   ],
-  "/a1rtisan/blog/probability-distance-part1": [
+  "/blog/probability-distance-part1": [
     "data",
     "statistics",
     "mathematics",
     "machine-learning"
   ],
-  "/a1rtisan/blog/probability-distance-part2": [
+  "/blog/probability-distance-part2": [
     "data",
     "deep-learning",
     "machine-learning"
   ],
-  "/a1rtisan/blog/probability-distance-part3": [
+  "/blog/probability-distance-part3": [
     "data",
     "deep-learning",
     "machine-learning"
   ],
-  "/a1rtisan/blog/probability-distance-part4": [
+  "/blog/probability-distance-part4": [
     "data",
     "mlops",
     "machine-learning",
     "statistics"
   ],
-  "/a1rtisan/blog/my-code-philosophy": [
+  "/blog/my-code-philosophy": [
     "career",
     "python",
     "rust",

@@ -133,7 +133,7 @@ navbar: {
       position: 'left'
     },
     {
-      href: 'https://github.com/namyoungkim/a1rtisan',
+      href: 'https://github.com/namyoungkim/namyoungkim.github.io',
       label: 'GitHub',
       position: 'right',
     },
@@ -208,7 +208,7 @@ algolia: {
 
 ### 현재 설정 요약
 
-- **URL**: `https://namyoungkim.github.io/a1rtisan/`
+- **URL**: `https://namyoungkim.github.io/`
 - **배포**: GitHub Pages 완료
 - **i18n**: 한국어만 지원
 - **onBrokenLinks**: `'warn'` (템플릿 링크 허용)
@@ -412,7 +412,7 @@ steps:
 3. 변경사항 저장
 
 #### 배포 결과
-- URL: `https://namyoungkim.github.io/a1rtisan/`
+- URL: `https://namyoungkim.github.io/`
 - 배포 시간: 약 2-3분 소요
 
 ---

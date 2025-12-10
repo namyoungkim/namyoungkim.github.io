@@ -8,6 +8,11 @@
 
 ## ✍️ Blog Posts
 
+- /blog/my-code-philosophy: My Code Philosophy
+- /blog/probability-distance-part4: 분포 거리 측정 (Part 4) - 실무 적용과 Detection 시스템
+- /blog/probability-distance-part3: 분포 거리 측정 (Part 3) - JSD와 Wasserstein Distance
+- /blog/probability-distance-part2: 분포 거리 측정 (Part 2) - Forward vs Reverse KL, 그리고 VAE
+- /blog/probability-distance-part1: 분포 거리 측정 (Part 1) - 정보이론 기초와 KL Divergence
 - /blog/mcp-server-part3-optimization: 개발 블로그를 위한 MCP 서버 구축기 (3): Cold Start 1초 미만을 위한 캐싱과 에러 복구
 - /blog/mcp-server-part2-search: 개발 블로그를 위한 MCP 서버 구축기 (2): 인메모리 역인덱스로 검색 기능 구현
 - /blog/mcp-server-part1-design: 개발 블로그를 위한 MCP 서버 구축기 (1): Git 기반 설계와 기본 구현

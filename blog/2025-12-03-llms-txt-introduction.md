@@ -126,7 +126,7 @@ MCP를 지원하지 않는 환경에서는 llms.txt가 유용한 대안이 됩�
 
 이 블로그도 llms.txt를 제공합니다:
 
-**URL**: https://namyoungkim.github.io/a1rtisan/llms.txt
+**URL**: https://namyoungkim.github.io/llms.txt
 
 `npm run build` 시 자동으로 `docs/`와 `blog/`를 스캔해서 생성됩니다.
 

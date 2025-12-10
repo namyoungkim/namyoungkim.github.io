@@ -10,6 +10,7 @@ import BlogSidebarContent from '@theme/BlogSidebar/Content';
 import type {Props as BlogSidebarContentProps} from '@theme/BlogSidebar/Content';
 import type {Props} from '@theme/BlogSidebar/Desktop';
 import TopicFilter, {type TopicId} from '../TopicFilter';
+import AdSense from '@site/src/components/AdSense';
 
 import styles from './styles.module.css';
 
@@ -175,6 +176,14 @@ function BlogSidebarDesktop({sidebar}: Props) {
             해당 주제의 포스트가 없습니다.
           </div>
         )}
+
+        {/* 광고 영역 */}
+        <div className={styles.adContainer}>
+          <AdSense
+            adSlot="XXXXXXXXXX" // TODO: AdSense에서 발급받은 Ad Slot ID로 교체
+            adFormat="rectangle"
+          />
+        </div>
       </nav>
     </aside>
   );
