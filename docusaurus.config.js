@@ -74,6 +74,14 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        // Sitemap 설정
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
         // Google Analytics
         gtag: {
           trackingID: 'G-9JVE2E0HTL',
