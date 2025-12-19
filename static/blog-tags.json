@@ -86,5 +86,23 @@
     "python",
     "rust",
     "dev-tools"
+  ],
+  "/blog/ai-agent-ecosystem-part1": [
+    "ai",
+    "ai-agents",
+    "mcp",
+    "skills"
+  ],
+  "/blog/ai-agent-ecosystem-part2": [
+    "ai",
+    "ai-agents",
+    "mcp",
+    "skills"
+  ],
+  "/blog/ai-agent-ecosystem-part3": [
+    "ai",
+    "ai-agents",
+    "mcp",
+    "skills"
   ]
 }
