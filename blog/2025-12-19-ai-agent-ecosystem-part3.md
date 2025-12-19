@@ -1,11 +1,11 @@
 ---
 slug: ai-agent-ecosystem-part3
-title: "AI 에이전트 생태계 완전 정복 (3/3): MCP vs Skills의 전략적 선택"
+title: "AI 에이전트 확장 도구 이해하기 (3/3): MCP vs Skills의 전략적 선택"
 authors: namyoungkim
 tags: [ai, ai-agents, mcp, skills]
 ---
 
-# AI 에이전트 생태계 완전 정복 (3/3): MCP vs Skills의 전략적 선택
+# AI 에이전트 확장 도구 이해하기 (3/3): MCP vs Skills의 전략적 선택
 
 > 이 글은 3부작 시리즈의 마지막 글입니다. [1편](/blog/ai-agent-ecosystem-part1), [2편](/blog/ai-agent-ecosystem-part2)을 먼저 읽어보세요.
 

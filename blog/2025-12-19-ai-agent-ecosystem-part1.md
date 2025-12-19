@@ -1,11 +1,11 @@
 ---
 slug: ai-agent-ecosystem-part1
-title: "AI 에이전트 생태계 완전 정복 (1/3): Skills, MCP, Subagents 비교"
+title: "AI 에이전트 확장 도구 이해하기 (1/3): Skills, MCP, Subagents 비교"
 authors: namyoungkim
 tags: [ai, ai-agents, mcp, skills]
 ---
 
-# AI 에이전트 생태계 완전 정복 (1/3): Skills, MCP, Subagents 비교
+# AI 에이전트 확장 도구 이해하기 (1/3): Skills, MCP, Subagents 비교
 
 > 이 글은 3부작 시리즈의 첫 번째 글입니다.
 
