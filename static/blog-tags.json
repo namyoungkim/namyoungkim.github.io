@@ -104,5 +104,13 @@
     "ai-agents",
     "mcp",
     "skills"
+  ],
+  "/blog/python-project-setup-with-claude-skills": [
+    "python",
+    "dev-tools",
+    "claude",
+    "skills",
+    "uv",
+    "ruff"
   ]
 }
