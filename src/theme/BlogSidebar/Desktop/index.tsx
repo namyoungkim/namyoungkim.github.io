@@ -105,7 +105,9 @@ function BlogSidebarDesktop({sidebar}: Props) {
     if (!selectedTopic) return allItems;
 
     return allItems.filter((item) => {
-      const tags = tagMap[item.permalink];
+      // trailing slash 제거하여 정규화
+      const normalizedPermalink = item.permalink.replace(/\/$/, '');
+      const tags = tagMap[normalizedPermalink];
       if (!tags) return false;
       return tags.includes(selectedTopic);
     });
