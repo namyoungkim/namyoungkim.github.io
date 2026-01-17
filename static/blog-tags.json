@@ -112,5 +112,28 @@
     "skills",
     "uv",
     "ruff"
+  ],
+  "/blog/claude-code-series-part1": [
+    "claude",
+    "claude-code",
+    "ai",
+    "dev-tools",
+    "tutorial"
+  ],
+  "/blog/claude-code-series-part2": [
+    "claude",
+    "claude-code",
+    "ai",
+    "dev-tools",
+    "automation",
+    "tutorial"
+  ],
+  "/blog/claude-code-series-part3": [
+    "claude",
+    "claude-code",
+    "ai",
+    "dev-tools",
+    "agent-sdk",
+    "tutorial"
   ]
 }

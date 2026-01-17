@@ -8,6 +8,13 @@
 
 ## ✍️ Blog Posts
 
+- /blog/claude-code-series-part3: [Claude Code 마스터하기 #3] Subagents, Skills, Agent SDK: 확장의 모든 것
+- /blog/claude-code-series-part2: [Claude Code 마스터하기 #2] Hooks & Headless Mode: 반복 작업을 자동화하는 법
+- /blog/claude-code-series-part1: [Claude Code 마스터하기 #1] 핵심 기능 총정리: 이것만 알면 시작할 수 있다
+- /blog/python-project-setup-with-claude-skills: 나만의 Python 프로젝트 표준 만들기: Claude Skills로 자동화하기
+- /blog/ai-agent-ecosystem-part3: AI 에이전트 확장 도구 이해하기 (3/3): MCP vs Skills의 전략적 선택
+- /blog/ai-agent-ecosystem-part2: AI 에이전트 확장 도구 이해하기 (2/3): Agent Skills 딥다이브
+- /blog/ai-agent-ecosystem-part1: AI 에이전트 확장 도구 이해하기 (1/3): Skills, MCP, Subagents 비교
 - /blog/my-code-philosophy: My Code Philosophy
 - /blog/probability-distance-part4: 분포 거리 측정 (Part 4) - 실무 적용과 Detection 시스템
 - /blog/probability-distance-part3: 분포 거리 측정 (Part 3) - JSD와 Wasserstein Distance
