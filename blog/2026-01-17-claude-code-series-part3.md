@@ -304,7 +304,7 @@ Claude: 네, 각 전문 에이전트에게 위임하겠습니다.
 
 **.claude/skills/data-analyzer/SKILL.md**:
 
-```markdown
+````markdown
 ---
 name: data-analyzer
 description: "CSV/JSON 데이터를 분석하고 인사이트를 도출하는 스킬"
@@ -348,7 +348,7 @@ templates/report.md 템플릿 사용
 ## 주의사항
 - 대용량 데이터(100MB+)는 샘플링 제안
 - 민감 정보(PII) 감지 시 경고
-```
+````
 
 **.claude/skills/data-analyzer/templates/report.md**:
 
