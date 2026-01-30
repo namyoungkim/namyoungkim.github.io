@@ -135,5 +135,37 @@
     "dev-tools",
     "agent-sdk",
     "tutorial"
+  ],
+  "/blog/agent-skills-part1": [
+    "ai",
+    "agent-skills",
+    "vercel",
+    "react",
+    "next-js",
+    "claude-code",
+    "gemini-cli"
+  ],
+  "/blog/agent-skills-part2": [
+    "ai",
+    "agent-skills",
+    "vercel",
+    "claude-code",
+    "gemini-cli",
+    "installation-guide"
+  ],
+  "/blog/agent-skills-part3": [
+    "ai",
+    "agent-skills",
+    "react",
+    "next-js",
+    "performance-optimization",
+    "code-review"
+  ],
+  "/blog/agent-skills-part4": [
+    "ai",
+    "agent-skills",
+    "custom-skill",
+    "team-convention",
+    "automation"
   ]
 }
