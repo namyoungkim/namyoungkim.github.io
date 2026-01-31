@@ -1,6 +1,7 @@
 ---
 slug: agent-skills-part4
 title: "[Agent Skills #4] 나만의 Agent Skill 만들기"
+description: "SKILL.md 작성법, 팀 코딩 컨벤션 스킬, 자동화 스크립트 포함 스킬 등 커스텀 Agent Skill을 만들고 배포하는 방법을 설명합니다."
 authors: namyoungkim
 tags: [ai, agent-skills, custom-skill, team-convention, automation]
 ---
@@ -110,7 +111,42 @@ team-conventions/
 └── SKILL.md
 ```
 
-### SKILL.md
+### SKILL.md 핵심 구조
+
+````markdown
+---
+name: team-conventions
+description: 우리 팀의 코딩 컨벤션을 적용합니다. 코드 작성, 리뷰, PR 생성 시 자동으로 활성화됩니다.
+version: 1.0.0
+---
+
+# Team Alpha 코딩 컨벤션
+
+## 파일 및 폴더 구조
+src/
+├── components/   # React 컴포넌트
+├── hooks/        # 커스텀 훅
+├── lib/          # 유틸리티 함수
+└── types/        # TypeScript 타입 정의
+
+## 네이밍 규칙
+- 컴포넌트: `PascalCase.tsx`
+- 훅: `useCamelCase.ts`
+- 상수: `SCREAMING_SNAKE_CASE`
+
+## 금지 사항
+- ❌ `any` 타입 사용 금지
+- ❌ `console.log` 커밋 금지
+- ❌ 인라인 스타일 사용 금지
+
+## 커밋 메시지
+Conventional Commits: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
+````
+
+**포인트:** description에 트리거 문구("코드 작성", "리뷰", "PR")를 포함해야 에이전트가 자동으로 스킬을 활성화합니다.
+
+<details>
+<summary>📄 전체 SKILL.md 예시 보기 (클릭하여 펼치기)</summary>
 
 ````markdown
 ---
@@ -121,9 +157,6 @@ author: Team Alpha
 ---
 
 # Team Alpha 코딩 컨벤션
-
-이 스킬은 우리 팀의 코딩 표준을 정의합니다.
-코드 작성 및 리뷰 시 이 규칙을 따라주세요.
 
 ## 파일 및 폴더 구조
 
@@ -140,140 +173,58 @@ src/
 
 ## 네이밍 규칙
 
-### 파일명
-- 컴포넌트: `PascalCase.tsx` (예: `UserProfile.tsx`)
-- 훅: `useCamelCase.ts` (예: `useAuth.ts`)
-- 유틸리티: `camelCase.ts` (예: `formatDate.ts`)
-- 타입: `camelCase.types.ts` (예: `user.types.ts`)
-
-### 변수/함수명
-- 변수: `camelCase`
-- 상수: `SCREAMING_SNAKE_CASE`
-- 함수: `camelCase` (동사로 시작)
-- 컴포넌트: `PascalCase`
-- 타입/인터페이스: `PascalCase`
+| 대상 | 규칙 | 예시 |
+|------|------|------|
+| 컴포넌트 파일 | `PascalCase.tsx` | `UserProfile.tsx` |
+| 훅 파일 | `useCamelCase.ts` | `useAuth.ts` |
+| 유틸리티 | `camelCase.ts` | `formatDate.ts` |
+| 상수 | `SCREAMING_SNAKE_CASE` | `MAX_RETRY_COUNT` |
 
 ## 컴포넌트 작성 규칙
 
-### 1. 함수형 컴포넌트만 사용
+1. **함수형 컴포넌트만 사용**
+2. **Props 인터페이스는 컴포넌트 위에 정의**
+3. **한 파일에 하나의 컴포넌트**
 
 ```tsx
-// ✅ Good
-export function UserCard({ user }: UserCardProps) {
-  return <div>{user.name}</div>
-}
-
-// ❌ Bad: 클래스 컴포넌트
-class UserCard extends React.Component { ... }
-```
-
-### 2. Props 인터페이스는 컴포넌트 위에 정의
-
-```tsx
-// ✅ Good
 interface UserCardProps {
   user: User
   onSelect?: (id: string) => void
 }
 
 export function UserCard({ user, onSelect }: UserCardProps) {
-  // ...
+  return <div>{user.name}</div>
 }
 ```
 
-### 3. 한 파일에 하나의 컴포넌트
+## 컴포넌트 내부 순서
 
-예외: 작은 서브 컴포넌트는 같은 파일에 둘 수 있음
-
-### 4. 컴포넌트 내부 순서
-
-```tsx
-export function MyComponent({ prop }: Props) {
-  // 1. 훅 선언 (useState, useEffect 등)
-  const [state, setState] = useState()
-
-  // 2. 파생 상태 / 계산
-  const derived = useMemo(() => ..., [])
-
-  // 3. 이벤트 핸들러
-  const handleClick = useCallback(() => ..., [])
-
-  // 4. 이펙트
-  useEffect(() => ..., [])
-
-  // 5. 조건부 렌더링 (early return)
-  if (loading) return <Skeleton />
-
-  // 6. 메인 렌더링
-  return (...)
-}
-```
+1. 훅 선언 → 2. 파생 상태 → 3. 이벤트 핸들러 → 4. 이펙트 → 5. early return → 6. 렌더링
 
 ## Import 순서
 
-```tsx
-// 1. React 관련
-import { useState, useEffect } from 'react'
-
-// 2. 외부 라이브러리
-import { format } from 'date-fns'
-import { clsx } from 'clsx'
-
-// 3. 내부 컴포넌트
-import { Button } from '@/components/ui'
-import { UserCard } from '@/components/features'
-
-// 4. 훅
-import { useAuth } from '@/hooks/useAuth'
-
-// 5. 유틸리티
-import { formatCurrency } from '@/lib/format'
-
-// 6. 타입 (type import 사용)
-import type { User } from '@/types/user.types'
-
-// 7. 스타일
-import styles from './MyComponent.module.css'
-```
+1. React → 2. 외부 라이브러리 → 3. 내부 컴포넌트 → 4. 훅 → 5. 유틸리티 → 6. 타입 → 7. 스타일
 
 ## 금지 사항
 
 - ❌ `any` 타입 사용 금지 (불가피한 경우 주석 필수)
-- ❌ `console.log` 커밋 금지 (디버깅 후 제거)
+- ❌ `console.log` 커밋 금지
 - ❌ 매직 넘버 사용 금지 (상수로 정의)
-- ❌ 인라인 스타일 사용 금지 (Tailwind 또는 CSS Module 사용)
+- ❌ 인라인 스타일 사용 금지
 
 ## 커밋 메시지 형식
 
-Conventional Commits를 따릅니다:
+Conventional Commits: `<type>(<scope>): <subject>`
 
-```
-<type>(<scope>): <subject>
-
-<body>
-
-<footer>
-```
-
-**Type:**
 - `feat`: 새로운 기능
 - `fix`: 버그 수정
 - `docs`: 문서 변경
-- `style`: 포맷팅, 세미콜론 등
 - `refactor`: 리팩토링
 - `test`: 테스트 추가/수정
 - `chore`: 빌드, 설정 변경
-
-**예시:**
-```
-feat(auth): 소셜 로그인 추가
-
-- Google OAuth 연동
-- Kakao OAuth 연동
-
-Closes #123
-```
 ````
+
+</details>
 
 ### 설치 및 사용
 
