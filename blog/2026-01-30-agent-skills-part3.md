@@ -1,6 +1,7 @@
 ---
 slug: agent-skills-part3
 title: "[Agent Skills #3] 실전! react-best-practices로 코드 최적화하기"
+description: "react-best-practices 스킬을 사용해 Request Waterfall, 번들 최적화 등 7가지 성능 이슈를 찾고 개선하는 실전 예제입니다."
 authors: namyoungkim
 tags: [ai, agent-skills, react, next-js, performance-optimization, code-review]
 ---
@@ -209,7 +210,125 @@ Dashboard.tsx를 분석한 결과, 7가지 성능 이슈를 발견했습니다.
 
 ## Step 4: 개선된 코드 확인
 
-에이전트에게 "수정해줘"라고 요청하면, 다음과 같이 개선된 코드를 생성합니다.
+에이전트에게 "수정해줘"라고 요청하면, 7가지 이슈를 모두 개선합니다.
+
+### 핵심 변경점
+
+#### 1️⃣ Request Waterfall 제거 (Critical)
+
+```tsx
+// ❌ Before: 순차 실행
+const user = await fetch(`/api/users/${userId}`)
+const posts = await fetch(`/api/posts?userId=${user.id}`)
+const comments = await fetch(`/api/comments?userId=${user.id}`)
+
+// ✅ After: 병렬 실행
+const [user, posts, comments] = await Promise.all([
+  fetch(`/api/users/${userId}`),
+  fetch(`/api/posts?userId=${userId}`),
+  fetch(`/api/comments?userId=${userId}`)
+])
+```
+
+#### 2️⃣ Heavy Component Dynamic Import
+
+```tsx
+// ❌ Before: 항상 번들에 포함
+import HeavyAnalyticsChart from './HeavyAnalyticsChart'
+
+// ✅ After: 필요할 때만 로드
+const HeavyAnalyticsChart = dynamic(
+  () => import('./HeavyAnalyticsChart'),
+  { loading: () => <Skeleton />, ssr: false }
+)
+```
+
+#### 3️⃣ useState Lazy Initialization
+
+```tsx
+// ❌ Before: 매 렌더마다 JSON.parse 실행
+const [settings, setSettings] = useState(
+  JSON.parse(localStorage.getItem('userSettings') || '{}')
+)
+
+// ✅ After: 초기 렌더에서만 실행
+const [settings, setSettings] = useState(() => {
+  if (typeof window === 'undefined') return {}
+  return JSON.parse(localStorage.getItem('userSettings') || '{}')
+})
+```
+
+#### 4️⃣ localStorage 캐싱
+
+```tsx
+// ❌ Before: 호출마다 동기 I/O
+function getTheme() {
+  return localStorage.getItem('theme') ?? 'light'
+}
+
+// ✅ After: 메모리 캐싱
+let cachedTheme: string | null = null
+function getTheme() {
+  if (cachedTheme === null && typeof window !== 'undefined') {
+    cachedTheme = localStorage.getItem('theme') ?? 'light'
+  }
+  return cachedTheme ?? 'light'
+}
+```
+
+#### 5️⃣ 다중 배열 순회 → 단일 reduce
+
+```tsx
+// ❌ Before: 3번 순회
+const activeItems = posts.filter(p => p.active)
+const mappedItems = activeItems.map(p => ({ ...p, formatted: format(p) }))
+const totalLikes = mappedItems.reduce((sum, p) => sum + p.likes, 0)
+
+// ✅ After: 1번 순회 + useMemo
+const { mappedItems, totalLikes } = useMemo(() => {
+  return posts.reduce((acc, post) => {
+    if (post.active) {
+      acc.mappedItems.push({ ...post, formatted: format(post) })
+      acc.totalLikes += post.likes
+    }
+    return acc
+  }, { mappedItems: [], totalLikes: 0 })
+}, [posts])
+```
+
+#### 6️⃣ 인라인 함수 → useCallback
+
+```tsx
+// ❌ Before: 매 렌더마다 새 함수 생성
+<div onClick={() => console.log('clicked', post.id)}>
+
+// ✅ After: 함수 참조 안정화
+const handleClick = useCallback((postId: string) => {
+  console.log('clicked', postId)
+}, [])
+```
+
+#### 7️⃣ 타입 안정성 + 에러 처리
+
+```tsx
+// ❌ Before: any 타입, 에러 처리 없음
+const [data, setData] = useState<any>(null)
+
+// ✅ After: 인터페이스 정의 + try-catch
+interface DashboardData {
+  user: { id: string; name: string }
+  posts: Post[]
+}
+const [data, setData] = useState<DashboardData | null>(null)
+const [error, setError] = useState<Error | null>(null)
+```
+
+---
+
+### 전체 코드
+
+<details>
+<summary>📄 DashboardOptimized.tsx 전체 코드 보기 (클릭하여 펼치기)</summary>
 
 ```tsx
 // DashboardOptimized.tsx - 최적화된 버전
@@ -217,20 +336,13 @@ Dashboard.tsx를 분석한 결과, 7가지 성능 이슈를 발견했습니다.
 
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import dynamic from 'next/dynamic'
-
-// ✅ Rule 2: next.config.js에 optimizePackageImports 설정 권장
 import { Check, X, Menu, Settings, User, Home } from 'lucide-react'
 
-// ✅ Rule 5: Heavy component는 dynamic import로 지연 로딩
 const HeavyAnalyticsChart = dynamic(
   () => import('./HeavyAnalyticsChart'),
-  {
-    loading: () => <div className="animate-pulse h-64 bg-gray-200 rounded" />,
-    ssr: false
-  }
+  { loading: () => <div className="animate-pulse h-64 bg-gray-200 rounded" />, ssr: false }
 )
 
-// ✅ Rule 6: localStorage 읽기 캐싱
 let cachedTheme: string | null = null
 function getTheme() {
   if (cachedTheme === null && typeof window !== 'undefined') {
@@ -239,7 +351,6 @@ function getTheme() {
   return cachedTheme ?? 'light'
 }
 
-// ✅ Rule 1: Request Waterfall 제거 - 병렬 데이터 페칭
 async function fetchDashboardData(userId: string) {
   const [user, posts, comments, notifications] = await Promise.all([
     fetch(`/api/users/${userId}`).then(r => r.json()),
@@ -247,8 +358,6 @@ async function fetchDashboardData(userId: string) {
     fetch(`/api/comments?userId=${userId}`).then(r => r.json()),
     fetch(`/api/notifications?userId=${userId}`).then(r => r.json())
   ])
-  // 순차: 800ms → 병렬: ~200ms (75% 감소)
-
   return { user, posts, comments, notifications }
 }
 
@@ -266,21 +375,17 @@ interface DashboardData {
 }
 
 export default function DashboardOptimized({ userId }: { userId: string }) {
-  // ✅ Rule 4: useState 초기값 lazy initialization
   const [settings, setSettings] = useState(() => {
     if (typeof window === 'undefined') return {}
     return JSON.parse(localStorage.getItem('userSettings') || '{}')
   })
-
   const [data, setData] = useState<DashboardData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
   const [theme, setTheme] = useState(getTheme)
 
-  // ✅ 개선: cleanup 함수 추가
   useEffect(() => {
     let isMounted = true
-
     const loadData = async () => {
       try {
         setLoading(true)
@@ -292,15 +397,12 @@ export default function DashboardOptimized({ userId }: { userId: string }) {
         if (isMounted) setLoading(false)
       }
     }
-
     loadData()
     return () => { isMounted = false }
   }, [userId])
 
-  // ✅ Rule 7: 여러 배열 순회를 단일 reduce + useMemo로 통합
   const { mappedItems, totalLikes } = useMemo(() => {
     if (!data?.posts) return { mappedItems: [], totalLikes: 0 }
-
     return data.posts.reduce(
       (acc, post) => {
         if (post.active) {
@@ -316,7 +418,6 @@ export default function DashboardOptimized({ userId }: { userId: string }) {
     )
   }, [data?.posts])
 
-  // ✅ useCallback으로 함수 참조 안정화
   const handleCardClick = useCallback((postId: string) => {
     console.log('clicked', postId)
   }, [])
@@ -334,9 +435,7 @@ export default function DashboardOptimized({ userId }: { userId: string }) {
     )
   }
 
-  if (error) {
-    return <div className="p-5 text-red-500">Error: {error.message}</div>
-  }
+  if (error) return <div className="p-5 text-red-500">Error: {error.message}</div>
 
   return (
     <div className="p-5">
@@ -346,12 +445,10 @@ export default function DashboardOptimized({ userId }: { userId: string }) {
         <Settings className="w-5 h-5" />
         <Menu className="w-5 h-5" />
       </header>
-
       <div className="mt-5 p-4 border rounded-lg">
         <h1 className="text-xl font-bold">Welcome, {data?.user?.name}</h1>
         <p className="text-gray-600">Total Likes: {totalLikes}</p>
       </div>
-
       <div className="mt-5 space-y-2.5">
         {mappedItems.map((post) => (
           <article
@@ -363,23 +460,20 @@ export default function DashboardOptimized({ userId }: { userId: string }) {
             <time className="text-sm text-gray-500">{post.formattedDate}</time>
             <button
               className="mt-2 flex items-center gap-1 px-3 py-1 bg-green-100 rounded"
-              onClick={(e) => {
-                e.stopPropagation()
-                handleLike(post.id)
-              }}
+              onClick={(e) => { e.stopPropagation(); handleLike(post.id) }}
             >
               <Check className="w-4 h-4" /> Like
             </button>
           </article>
         ))}
       </div>
-
-      {/* ✅ Dynamic import로 필요할 때만 로드 */}
       <HeavyAnalyticsChart data={data?.posts || []} />
     </div>
   )
 }
 ```
+
+</details>
 
 ---
 
@@ -387,9 +481,11 @@ export default function DashboardOptimized({ userId }: { userId: string }) {
 
 ### 성능 지표 비교
 
+> 아래 수치는 예시이며, 실제 결과는 환경에 따라 다를 수 있습니다.
+
 | 지표 | Before | After | 개선율 |
 |------|--------|-------|--------|
-| 데이터 로딩 | ~800ms | ~200ms | **75%↓** |
+| 데이터 로딩 | ~800ms | ~200ms | **↓** |
 | 초기 번들 | 100% | ~70% | **30%↓** |
 | 배열 순회 | O(3n) | O(n) | **66%↓** |
 | 리렌더링 | 많음 | 최소화 | **감소** |
@@ -556,7 +652,7 @@ npx add-skill vercel-labs/agent-skills --skill react-best-practices
 2. AI 에이전트에게 리뷰 요청
 3. 40+ 규칙 기반의 자동 분석
 4. 개선된 코드 생성
-5. 75% 성능 향상 달성
+5. 상당한 성능 향상 달성
 
 다음 편에서는 **나만의 커스텀 스킬을 만드는 방법**을 알아보겠습니다.
 

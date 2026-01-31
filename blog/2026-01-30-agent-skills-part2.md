@@ -1,6 +1,7 @@
 ---
 slug: agent-skills-part2
 title: "[Agent Skills #2] 설치부터 멀티 에이전트 공유까지"
+description: "Claude Code, Gemini CLI 등 여러 AI 에이전트에서 Agent Skills를 설치하고 심볼릭 링크로 공유하는 방법을 안내합니다."
 authors: namyoungkim
 tags: [ai, agent-skills, vercel, claude-code, gemini-cli, installation-guide]
 ---
@@ -28,8 +29,9 @@ Agent Skills는 오픈 표준이지만, 각 에이전트마다 스킬을 찾는 
 | **Claude Code** | `.claude/skills/` | `~/.claude/skills/` |
 | **Gemini CLI** | `.gemini/skills/` | `~/.gemini/skills/` |
 | **Cursor** | `.cursor/skills/` | `~/.cursor/skills/` |
-| **VS Code Copilot** | `.github/skills/` | `~/.copilot/skills/` |
 | **OpenCode** | `.opencode/skills/` | `~/.opencode/skills/` |
+
+> 그 외 Codex, VS Code, Amp 등 20+ 에이전트 지원. 전체 목록은 [agentskills.io](https://agentskills.io) 참조.
 
 > 💡 **프로젝트 vs 글로벌**
 > - 프로젝트 레벨: 해당 프로젝트에서만 사용
