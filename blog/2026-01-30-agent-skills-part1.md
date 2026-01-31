@@ -1,11 +1,12 @@
 ---
 slug: agent-skills-part1
 title: "[Agent Skills #1] AI 코딩 에이전트의 새로운 표준"
+description: "Agent Skills의 개념과 Vercel이 제공하는 React/Next.js 최적화 스킬 패키지를 소개합니다. AI 에이전트에게 전문 지식을 전달하는 오픈 표준입니다."
 authors: namyoungkim
 tags: [ai, agent-skills, vercel, react, next-js, claude-code, gemini-cli]
 ---
 
-> 10년간의 React/Next.js 최적화 노하우를 AI 에이전트에게 한 번에 전달하는 방법
+> 반복되는 컨텍스트 설명 없이, AI 에이전트에게 전문 지식을 전달하는 방법
 
 <!-- truncate -->
 
@@ -112,7 +113,7 @@ const [user, posts, comments] = await Promise.all([
 ])
 ```
 
-이것만 고쳐도 **75% 성능 향상**을 얻을 수 있습니다.
+이것만 고쳐도 상당한 성능 향상을 기대할 수 있습니다.
 
 #### 2️⃣ web-design-guidelines
 
@@ -166,10 +167,10 @@ Agent Skills는 **오픈 표준**이라 다양한 에이전트에서 사용 가�
 | 에이전트 | 지원 상태 | 스킬 디렉토리 |
 |---------|----------|--------------|
 | Claude Code | ✅ 정식 | `~/.claude/skills/` |
-| Gemini CLI | ✅ Preview | `~/.gemini/skills/` |
+| Gemini CLI | ✅ 정식 | `~/.gemini/skills/` |
 | Cursor | ✅ 지원 | `.cursor/skills/` |
-| VS Code Copilot | ✅ 지원 | `.github/skills/` |
 | OpenCode | ✅ 지원 | `~/.opencode/skills/` |
+| 그 외 | Codex, VS Code, Amp 등 20+ | [agentskills.io](https://agentskills.io) 참조 |
 
 > 💡 **같은 스킬, 여러 에이전트**: 심볼릭 링크로 공유하면 한 번 설치로 모든 에이전트에서 사용 가능합니다. ([Part 2](/blog/agent-skills-part2)에서 자세히 다룹니다)
 
@@ -201,7 +202,7 @@ useState 초기값은 lazy init 쓰고,
 
 ## 마무리
 
-Agent Skills는 AI 코딩 에이전트 생태계의 **게임 체인저**입니다.
+Agent Skills는 AI 코딩 에이전트 생태계의 **중요한 발전**입니다.
 
 - **개인**: 반복적인 컨텍스트 설명에서 해방
 - **팀**: 코딩 표준과 베스트 프랙티스 자동 적용
