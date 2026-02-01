@@ -8,6 +8,7 @@
 
 ## ✍️ Blog Posts
 
+- /blog/claude-code-plugins-guide: Claude Code 플러그인 완전 정복 — 설치부터 사내 마켓플레이스 구축까지
 - /blog/agent-skills-part4: [Agent Skills #4] 나만의 Agent Skill 만들기
 - /blog/agent-skills-part3: [Agent Skills #3] 실전! react-best-practices로 코드 최적화하기
 - /blog/agent-skills-part2: [Agent Skills #2] 설치부터 멀티 에이전트 공유까지

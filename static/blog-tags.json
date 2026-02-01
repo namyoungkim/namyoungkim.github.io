@@ -167,5 +167,12 @@
     "custom-skill",
     "team-convention",
     "automation"
+  ],
+  "/blog/claude-code-plugins-guide": [
+    "ai",
+    "claude-code",
+    "plugin",
+    "marketplace",
+    "dev-tools"
   ]
 }
