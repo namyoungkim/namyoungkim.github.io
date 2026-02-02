@@ -174,5 +174,20 @@
     "plugin",
     "marketplace",
     "dev-tools"
+  ],
+  "/blog/go-project-setup-guide": [
+    "go",
+    "golang",
+    "mise",
+    "golangci-lint",
+    "tutorial",
+    "beginner"
+  ],
+  "/blog/go-code-philosophy": [
+    "go",
+    "golang",
+    "best-practices",
+    "clean-code",
+    "philosophy"
   ]
 }
