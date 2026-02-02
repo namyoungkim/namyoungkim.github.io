@@ -8,6 +8,8 @@
 
 ## ✍️ Blog Posts
 
+- /blog/go-code-philosophy: Go 코드 철학: 좋은 Go 코드란 무엇인가?
+- /blog/go-project-setup-guide: Go 프로젝트 세팅 완벽 가이드: 초보자도 5분이면 끝!
 - /blog/claude-code-plugins-guide: Claude Code 플러그인 완전 정복 — 설치부터 사내 마켓플레이스 구축까지
 - /blog/agent-skills-part4: [Agent Skills #4] 나만의 Agent Skill 만들기
 - /blog/agent-skills-part3: [Agent Skills #3] 실전! react-best-practices로 코드 최적화하기
