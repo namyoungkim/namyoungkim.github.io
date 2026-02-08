@@ -29,3 +29,8 @@ yarn-error.log*
 # MCP Server
 mcp-server/.mcp-cache/
 mcp-server/node_modules/
+
+# Claude Code
+.claude/settings.local.json
+.env
+.env.*

@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(npm run lint *)",
+      "Bash(npm run format *)",
+      "Bash(npm run test *)",
+      "Bash(npm run build *)",
+      "Bash(npm run dev *)",
+      "Bash(npm start *)",
+      "Bash(npm run *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd $CLAUDE_PROJECT_DIR && BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); if [ \"$BRANCH\" = \"main\" ] || [ \"$BRANCH\" = \"master\" ]; then echo '{\"decision\": \"block\", \"reason\": \"main/master 브랜치에 직접 수정 금지. feature 브랜치를 만드세요: git checkout -b feat/기능명\"}' && exit 2; fi; true",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
