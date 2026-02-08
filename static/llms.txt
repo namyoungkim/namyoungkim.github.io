@@ -5,9 +5,18 @@
 ## 📚 Documentation
 
 - /docs/: 👋 문서에 오신 것을 환영합니다
+- /docs/AGENT_TEAM_TEMPLATES: Agent Team 구성 템플릿
+- /docs/ARCHITECTURE: 아키텍처 결정 기록 (ADR)
+- /docs/CONVENTIONS: 코딩 컨벤션
+- /docs/MISTAKES: 실수와 교훈 기록
+- /docs/PATTERNS: 자주 쓰는 패턴
 
 ## ✍️ Blog Posts
 
+- /blog/claude-code-plugin-part4: [Claude Code Plugin 만들기 #4] 자기 개선 루프 — AI가 스스로 성장하게 만들기
+- /blog/claude-code-plugin-part3: [Claude Code Plugin 만들기 #3] 훅으로 자동화 — 규칙은 한 번 정하면 자동으로
+- /blog/claude-code-plugin-part2: [Claude Code Plugin 만들기 #2] 스킬과 커맨드 — AI에게 새 능력 가르치기
+- /blog/claude-code-plugin-part1: [Claude Code Plugin 만들기 #1] Plugin 입문 — AI 비서에게 업무 매뉴얼 만들어주기
 - /blog/go-code-philosophy: Go 코드 철학: 좋은 Go 코드란 무엇인가?
 - /blog/go-project-setup-guide: Go 프로젝트 세팅 완벽 가이드: 초보자도 5분이면 끝!
 - /blog/claude-code-plugins-guide: Claude Code 플러그인 완전 정복 — 설치부터 사내 마켓플레이스 구축까지
