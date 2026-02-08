@@ -189,5 +189,38 @@
     "best-practices",
     "clean-code",
     "philosophy"
+  ],
+  "/blog/claude-code-plugin-part1": [
+    "claude",
+    "claude-code",
+    "plugin",
+    "ai",
+    "dev-tools",
+    "tutorial"
+  ],
+  "/blog/claude-code-plugin-part2": [
+    "claude",
+    "claude-code",
+    "plugin",
+    "ai",
+    "dev-tools",
+    "tutorial"
+  ],
+  "/blog/claude-code-plugin-part3": [
+    "claude",
+    "claude-code",
+    "plugin",
+    "hooks",
+    "ai",
+    "dev-tools",
+    "tutorial"
+  ],
+  "/blog/claude-code-plugin-part4": [
+    "claude",
+    "claude-code",
+    "plugin",
+    "ai",
+    "dev-tools",
+    "tutorial"
   ]
 }
