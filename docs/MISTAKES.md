@@ -29,4 +29,18 @@
 
 ## 기록
 
-_(아직 기록이 없습니다. `/reflect` 실행 후 자동으로 추가됩니다.)_
+### [2026-02-08] rm -rf 절대 경로 Hook 오탐
+- **scope**: universal
+- **프로젝트**: a1rtisan-dev-blog
+- **상황**: `rm -rf /Users/leo/project/a1rtisan-dev-blog/inbox/` 실행 시 Hook이 차단
+- **원인**: deny 패턴이 절대 경로 `/Users/...`를 `rm -rf /` 패턴으로 오탐
+- **교훈**: ALWAYS 상대 경로로 rm 명령 실행 (예: `rm -r inbox/`). NEVER 절대 경로로 rm -rf 실행
+- **관련 파일**: ~/.claude/settings.json (permissions.deny)
+
+### [2026-02-08] /init-project 실행 후 main 브랜치 직접 커밋
+- **scope**: universal
+- **프로젝트**: a1rtisan-dev-blog
+- **상황**: /init-project로 파일 생성 후 main 브랜치에 직접 커밋 3개 생성
+- **원인**: 프로젝트 초기화 작업이라 브랜치 생성을 간과
+- **교훈**: ALWAYS 작업 시작 전 브랜치 확인. NEVER main/master에 직접 커밋. 실수 시 `git reset --soft` + 브랜치 이동으로 복구
+- **관련 파일**: .claude/settings.json (hooks.PreToolUse)
