@@ -222,5 +222,19 @@
     "ai",
     "dev-tools",
     "tutorial"
+  ],
+  "/blog/ai-coding-orchestration-guide": [
+    "ai-tools",
+    "orchestration",
+    "claude-code",
+    "codex",
+    "gemini"
+  ],
+  "/blog/tmux-practical-guide": [
+    "dev-tools",
+    "tmux",
+    "terminal",
+    "ssh",
+    "guide"
   ]
 }
