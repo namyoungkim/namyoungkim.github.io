@@ -10,7 +10,7 @@ dangerous_patterns=(
   "rm -rf /"
   "rm -rf ~"
   "git push.*--force"
-  "git push.*-f"
+  "git push.* -f( |$)"
   "git reset --hard"
   "npm publish"
 )
