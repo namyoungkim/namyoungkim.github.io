@@ -13,6 +13,7 @@
 
 ## ✍️ Blog Posts
 
+- /blog/python-practical-patterns: 코드 리뷰에서 배운 Python 실전 패턴들
 - /blog/tmux-guide: 터미널이 꺼져도 작업은 살아있다 — tmux 실전 가이드
 - /blog/ai-coding-orchestration-guide: AI 코딩 도구 3개를 동시에 쓰는 법 — Claude Code, Codex, Gemini CLI 오케스트레이션 완전 가이드
 - /blog/claude-code-plugin-part4: [Claude Code Plugin 만들기 #4] 자기 개선 루프 — AI가 스스로 성장하게 만들기
